@@ -1,0 +1,11 @@
+pandas>=2.2
+numpy>=2.0
+scikit-learn>=1.6
+tensorflow==2.19.*
+matplotlib>=3.10
+joblib
+python-docx>=1.1
+# notebook regeneration / execution only
+nbformat
+nbconvert
+ipykernel

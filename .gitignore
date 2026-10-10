@@ -1,0 +1,7 @@
+.venv/
+.venv-colab/
+.render/
+data/
+__pycache__/
+.DS_Store
+nashik_outputs.zip
