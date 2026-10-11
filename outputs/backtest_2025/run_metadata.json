@@ -1,0 +1,167 @@
+{
+  "mode": "backtest_2025",
+  "model_version": "cnn_lstm_backtest_2025",
+  "git_commit": "72d5052",
+  "run_timestamp": "2026-10-11T19:00:13",
+  "training_cutoff": "2024-12-31 23:00:00",
+  "forecast_origin": "2024-12-31 23:00:00",
+  "horizon_start": "2025-01-01 00:00:00",
+  "horizon_end": "2025-12-31 23:00:00",
+  "horizon_hours": 8760,
+  "forecast_types": {
+    "recursive": "every horizon hour from the last 24 h before the origin; predictions fed back as inputs; no post-origin measurement used",
+    "rolling_one_step": "frozen model; each measured horizon hour predicted from the measured previous 24 h"
+  },
+  "target_columns": {
+    "PM2.5": "PM2.5 (\u00b5g/m\u00b3)",
+    "PM10": "PM10 (\u00b5g/m\u00b3)",
+    "NO2": "NO2 (\u00b5g/m\u00b3)",
+    "SO2": "SO2 (\u00b5g/m\u00b3)",
+    "CO": "CO (mg/m\u00b3)",
+    "O3": "Ozone (\u00b5g/m\u00b3)",
+    "NH3": "NH3 (\u00b5g/m\u00b3)"
+  },
+  "features": [
+    "PM2.5",
+    "PM10",
+    "NO2",
+    "SO2",
+    "CO",
+    "O3",
+    "NH3",
+    "hour_sin",
+    "hour_cos",
+    "dow_sin",
+    "dow_cos",
+    "month_sin",
+    "month_cos"
+  ],
+  "non_negativity": "predictions clipped at 0 concentration (before feedback and on output)",
+  "splits": {
+    "MIDC Ambad": {
+      "train_end": "2024-06-30 23:00:00",
+      "val_start": "2024-07-01 00:00:00",
+      "val_end": "2024-12-31 23:00:00"
+    },
+    "Gangapur Road": {
+      "train_end": "2024-06-30 23:00:00",
+      "val_start": "2024-07-01 00:00:00",
+      "val_end": "2024-12-31 23:00:00"
+    },
+    "Pandav Nagari": {
+      "train_end": "2024-06-30 23:00:00",
+      "val_start": "2024-07-01 00:00:00",
+      "val_end": "2024-12-31 23:00:00"
+    },
+    "Hirwadi": {
+      "train_end": "2024-06-30 23:00:00",
+      "val_start": "2024-07-01 00:00:00",
+      "val_end": "2024-12-31 23:00:00"
+    }
+  },
+  "selected_design_recursive": {
+    "MIDC Ambad": "level",
+    "Gangapur Road": "level",
+    "Pandav Nagari": "level",
+    "Hirwadi": "level"
+  },
+  "selected_design_one_step": {
+    "MIDC Ambad": "change",
+    "Gangapur Road": "change",
+    "Pandav Nagari": "change",
+    "Hirwadi": "change"
+  },
+  "models": {
+    "MIDC Ambad": {
+      "level": "outputs/backtest_2025/models/cnn_lstm_level_MIDC_Ambad.keras",
+      "change": "outputs/backtest_2025/models/cnn_lstm_change_MIDC_Ambad.keras"
+    },
+    "Gangapur Road": {
+      "level": "outputs/backtest_2025/models/cnn_lstm_level_Gangapur_Road.keras",
+      "change": "outputs/backtest_2025/models/cnn_lstm_change_Gangapur_Road.keras"
+    },
+    "Pandav Nagari": {
+      "level": "outputs/backtest_2025/models/cnn_lstm_level_Pandav_Nagari.keras",
+      "change": "outputs/backtest_2025/models/cnn_lstm_change_Pandav_Nagari.keras"
+    },
+    "Hirwadi": {
+      "level": "outputs/backtest_2025/models/cnn_lstm_level_Hirwadi.keras",
+      "change": "outputs/backtest_2025/models/cnn_lstm_change_Hirwadi.keras"
+    }
+  },
+  "preprocessing": {
+    "MIDC Ambad": "outputs/backtest_2025/models/preprocessing_MIDC_Ambad.joblib",
+    "Gangapur Road": "outputs/backtest_2025/models/preprocessing_Gangapur_Road.joblib",
+    "Pandav Nagari": "outputs/backtest_2025/models/preprocessing_Pandav_Nagari.joblib",
+    "Hirwadi": "outputs/backtest_2025/models/preprocessing_Hirwadi.joblib"
+  },
+  "evaluation": {
+    "MIDC Ambad": {
+      "evaluated_from": "2025-01-01 00:00:00",
+      "evaluated_to": "2025-12-31 23:00:00",
+      "hours_measured": 8456,
+      "months_without_rows": "none"
+    },
+    "Gangapur Road": {
+      "evaluated_from": "2025-01-01 00:00:00",
+      "evaluated_to": "2025-12-31 23:00:00",
+      "hours_measured": 8511,
+      "months_without_rows": "none"
+    },
+    "Pandav Nagari": {
+      "evaluated_from": "2025-01-01 16:00:00",
+      "evaluated_to": "2025-12-31 23:00:00",
+      "hours_measured": 8435,
+      "months_without_rows": "none"
+    },
+    "Hirwadi": {
+      "evaluated_from": "2025-01-01 00:00:00",
+      "evaluated_to": "2025-12-31 23:00:00",
+      "hours_measured": 8550,
+      "months_without_rows": "none"
+    }
+  },
+  "flagged_series": [],
+  "versions": {
+    "python": "3.12.14",
+    "tensorflow": "2.19.1",
+    "pandas": "3.0.6",
+    "numpy": "2.1.3",
+    "scikit-learn": "1.9.1",
+    "matplotlib": "3.11.2"
+  },
+  "seed": 42,
+  "lookback_hours": 24,
+  "k_neighbors": 5,
+  "batch_size": 256,
+  "max_epochs": 60,
+  "patience": 6,
+  "max_imputed_fraction": 0.5,
+  "stuck_hours": 12,
+  "epochs_run": {
+    "MIDC Ambad|level": 40,
+    "MIDC Ambad|change": 16,
+    "Gangapur Road|level": 34,
+    "Gangapur Road|change": 17,
+    "Pandav Nagari|level": 31,
+    "Pandav Nagari|change": 22,
+    "Hirwadi|level": 21,
+    "Hirwadi|change": 25
+  },
+  "best_epoch": {
+    "MIDC Ambad|level": 34,
+    "MIDC Ambad|change": 10,
+    "Gangapur Road|level": 28,
+    "Gangapur Road|change": 11,
+    "Pandav Nagari|level": 25,
+    "Pandav Nagari|change": 16,
+    "Hirwadi|level": 15,
+    "Hirwadi|change": 19
+  },
+  "station_files": {
+    "MIDC Ambad": "data/MIDCAMBAD_NASHIK.CSV",
+    "Gangapur Road": "data/combined_gangapur_road_nashik.csv",
+    "Pandav Nagari": "data/combined_pandav_nagari_nashik.csv",
+    "Hirwadi": "data/hirwadi_nashik.csv"
+  }
+}

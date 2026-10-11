@@ -1,0 +1,85 @@
+station,split,pollutant,missing_before,missing_after
+MIDC Ambad,train,PM2.5,807,0
+MIDC Ambad,train,PM10,849,0
+MIDC Ambad,train,NO2,836,0
+MIDC Ambad,train,SO2,828,0
+MIDC Ambad,train,CO,790,0
+MIDC Ambad,train,O3,813,0
+MIDC Ambad,train,NH3,908,0
+MIDC Ambad,val,PM2.5,362,0
+MIDC Ambad,val,PM10,344,0
+MIDC Ambad,val,NO2,372,0
+MIDC Ambad,val,SO2,370,0
+MIDC Ambad,val,CO,363,0
+MIDC Ambad,val,O3,323,0
+MIDC Ambad,val,NH3,410,0
+MIDC Ambad,test,PM2.5,450,0
+MIDC Ambad,test,PM10,433,0
+MIDC Ambad,test,NO2,493,0
+MIDC Ambad,test,SO2,437,0
+MIDC Ambad,test,CO,395,0
+MIDC Ambad,test,O3,345,0
+MIDC Ambad,test,NH3,538,0
+Gangapur Road,train,PM2.5,8571,0
+Gangapur Road,train,PM10,8508,0
+Gangapur Road,train,NO2,7932,0
+Gangapur Road,train,SO2,6492,0
+Gangapur Road,train,CO,5602,0
+Gangapur Road,train,O3,8374,0
+Gangapur Road,train,NH3,9287,0
+Gangapur Road,val,PM2.5,310,0
+Gangapur Road,val,PM10,272,0
+Gangapur Road,val,NO2,332,0
+Gangapur Road,val,SO2,263,0
+Gangapur Road,val,CO,241,0
+Gangapur Road,val,O3,285,0
+Gangapur Road,val,NH3,330,0
+Gangapur Road,test,PM2.5,443,0
+Gangapur Road,test,PM10,484,0
+Gangapur Road,test,NO2,736,0
+Gangapur Road,test,SO2,322,0
+Gangapur Road,test,CO,250,0
+Gangapur Road,test,O3,274,0
+Gangapur Road,test,NH3,737,0
+Pandav Nagari,train,PM2.5,288,0
+Pandav Nagari,train,PM10,272,0
+Pandav Nagari,train,NO2,334,0
+Pandav Nagari,train,SO2,252,0
+Pandav Nagari,train,CO,199,0
+Pandav Nagari,train,O3,244,0
+Pandav Nagari,train,NH3,309,0
+Pandav Nagari,val,PM2.5,165,0
+Pandav Nagari,val,PM10,168,0
+Pandav Nagari,val,NO2,169,0
+Pandav Nagari,val,SO2,153,0
+Pandav Nagari,val,CO,147,0
+Pandav Nagari,val,O3,128,0
+Pandav Nagari,val,NH3,191,0
+Pandav Nagari,test,PM2.5,483,0
+Pandav Nagari,test,PM10,451,0
+Pandav Nagari,test,NO2,413,0
+Pandav Nagari,test,SO2,435,0
+Pandav Nagari,test,CO,346,0
+Pandav Nagari,test,O3,410,0
+Pandav Nagari,test,NH3,398,0
+Hirwadi,train,PM2.5,1396,0
+Hirwadi,train,PM10,1385,0
+Hirwadi,train,NO2,1278,0
+Hirwadi,train,SO2,1487,0
+Hirwadi,train,CO,1186,0
+Hirwadi,train,O3,1406,0
+Hirwadi,train,NH3,1492,0
+Hirwadi,val,PM2.5,125,0
+Hirwadi,val,PM10,129,0
+Hirwadi,val,NO2,130,0
+Hirwadi,val,SO2,181,0
+Hirwadi,val,CO,103,0
+Hirwadi,val,O3,107,0
+Hirwadi,val,NH3,134,0
+Hirwadi,test,PM2.5,254,0
+Hirwadi,test,PM10,266,0
+Hirwadi,test,NO2,257,0
+Hirwadi,test,SO2,589,0
+Hirwadi,test,CO,230,0
+Hirwadi,test,O3,232,0
+Hirwadi,test,NH3,288,0
