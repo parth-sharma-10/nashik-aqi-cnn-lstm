@@ -249,6 +249,17 @@ Excluding faulty hours changes the conclusions. The earlier, uncleaned evaluatio
 
 ![Recursive PM2.5 forecast in the first two weeks of 2025](outputs/backtest_2025/figures/fig05b_first_two_weeks_pm25.png)
 
+**Reproduced in Google Colab.** The whole pipeline was re-run from scratch in Colab (Python 3.13, TensorFlow 2.21) using the steps in section H. Both verifiers and all 16 tests passed. The numbers differ slightly from the local run above (Python 3.12, TensorFlow 2.19), because the two TensorFlow versions don't train bit-identically. The conclusions are the same:
+
+| Comparison | Local run | Colab run |
+|---|---|---|
+| 2025 next hour vs persistence | 22 of 28, median +5.8% | 19 of 28, median +4.7% |
+| 2025 recursive vs climatology | 3 of 28 | 0 of 28 |
+| 2026 next hour vs persistence | 12 of 17, median +4.4% | 12 of 17, median +4.3% |
+| 2026 recursive vs climatology | 2 of 17 | 2 of 17 |
+
+Quote one run consistently (this README and the report use the local run).
+
 Per-station results for every pollutant are in `outputs/<mode>/metrics/one_step_station_pollutant_metrics.csv` and `recursive_station_pollutant_metrics.csv`. The report (section I) explains all of them.
 
 ## G. Limitations
