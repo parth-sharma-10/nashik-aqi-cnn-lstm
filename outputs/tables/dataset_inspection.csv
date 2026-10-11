@@ -1,5 +1,0 @@
-station,rows,first,last,duplicate_timestamps,sorted_in_file,modal_step,irregular_steps,years_present,all_pollutants_missing_rows
-MIDC Ambad,40152,2017-01-01,2026-08-31 23:00:00,0,True,0 days 01:00:00,2,"2017, 2023, 2024, 2025, 2026",14377
-Gangapur Road,81024,2017-01-01,2026-08-31 23:00:00,0,True,0 days 01:00:00,2,"2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026",4945
-Pandav Nagari,35064,2017-01-01,2025-12-31 23:00:00,0,True,0 days 01:00:00,1,"2017, 2023, 2024, 2025",12761
-Hirwadi,40152,2017-01-01,2026-08-31 23:00:00,0,False,0 days 01:00:00,2,"2017, 2023, 2024, 2025, 2026",13873
