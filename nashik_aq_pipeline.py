@@ -1188,9 +1188,14 @@ savefig(fig, "fig11_daily_aqi")
 # %%
 def git_commit():
     try:
-        # "-dirty" marks a run from uncommitted changes, so the hash is never misleading.
-        return subprocess.run(["git", "describe", "--always", "--dirty"], capture_output=True,
-                              text=True, check=True).stdout.strip()
+        # "-dirty" marks a run from uncommitted code, so the hash is never misleading.
+        # Generated folders are ignored: this run has just rewritten outputs/ itself.
+        def git(*args):
+            return subprocess.run(["git", *args], capture_output=True, text=True,
+                                  check=True).stdout.strip()
+        changed = git("status", "--porcelain", "--", ".", ":(exclude)outputs",
+                      ":(exclude)experiments")
+        return git("rev-parse", "--short", "HEAD") + ("-dirty" if changed else "")
     except (OSError, subprocess.CalledProcessError):
         return None  # Colab: no repository
 
