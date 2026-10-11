@@ -41,7 +41,10 @@ for station, frag in files.items():
         mse = float(np.mean(err ** 2))
         r2 = 1 - np.sum(err ** 2) / np.sum((q.actual - q.actual.mean()) ** 2)
         assert np.isclose(mse, m["CNN-LSTM MSE"]) and np.isclose(np.sqrt(mse), m["CNN-LSTM RMSE"])
-        assert np.isclose(np.mean(np.abs(err)), m["CNN-LSTM MAE"]) and np.isclose(r2, m["CNN-LSTM R2"])
+        # float32 predictions round-trip through CSV at ~7 significant digits; an absolute
+        # tolerance keeps near-zero R2 values (e.g. a flagged series) from failing on that alone.
+        assert np.isclose(np.mean(np.abs(err)), m["CNN-LSTM MAE"])
+        assert np.isclose(r2, m["CNN-LSTM R2"], rtol=0, atol=1e-5), (station, pol, r2)
         assert m["n_test_obs"] == len(q)
 
     # 5. Scaler was fitted on training rows only: its mean equals the train-period mean.
