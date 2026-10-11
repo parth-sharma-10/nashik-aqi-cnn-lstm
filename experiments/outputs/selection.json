@@ -1,0 +1,75 @@
+{
+  "selected_method": "hybrid_direct_chained",
+  "rule": "Pre-registered rule: the year-ahead method with the highest mean RMSE skill against\n    month x hour climatology over all (fold, station, pollutant) series of the selection\n    folds. Climatology itself (skill 0) is a candidate.",
+  "folds": [
+    "F2024",
+    "F2025"
+  ],
+  "flagged_series_excluded": [],
+  "summary": [
+    {
+      "method": "hybrid_direct_chained",
+      "mean_skill": 0.0057,
+      "median_skill": 0.0025,
+      "series_better": 18,
+      "series": 35
+    },
+    {
+      "method": "clim_doy_hour",
+      "mean_skill": 0.0036,
+      "median_skill": 0.0023,
+      "series_better": 19,
+      "series": 35
+    },
+    {
+      "method": "damped_anomaly",
+      "mean_skill": 0.0003,
+      "median_skill": 0.0,
+      "series_better": 25,
+      "series": 35
+    },
+    {
+      "method": "clim_month_hour",
+      "mean_skill": 0.0,
+      "median_skill": 0.0,
+      "series_better": 0,
+      "series": 35
+    },
+    {
+      "method": "direct_chained",
+      "mean_skill": -0.055,
+      "median_skill": -0.0558,
+      "series_better": 11,
+      "series": 35
+    },
+    {
+      "method": "hybrid_recursive",
+      "mean_skill": -0.0739,
+      "median_skill": 0.0002,
+      "series_better": 18,
+      "series": 35
+    },
+    {
+      "method": "same_hour_last_year",
+      "mean_skill": -0.2442,
+      "median_skill": -0.2624,
+      "series_better": 6,
+      "series": 35
+    },
+    {
+      "method": "persistence",
+      "mean_skill": -0.2531,
+      "median_skill": -0.1464,
+      "series_better": 8,
+      "series": 35
+    },
+    {
+      "method": "cnn_lstm_recursive",
+      "mean_skill": -0.3337,
+      "median_skill": -0.1351,
+      "series_better": 8,
+      "series": 35
+    }
+  ],
+  "created": "2026-10-11T19:24:30"
+}

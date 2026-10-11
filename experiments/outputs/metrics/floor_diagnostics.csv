@@ -1,0 +1,46 @@
+fold,station,protocol,method,outputs,below_zero_before_floor,share
+F2024,Gangapur Road,year_ahead,cnn_lstm_recursive,61488,1031,0.01676749934946656
+F2024,Gangapur Road,year_ahead,direct_chained,62328,1232,0.019766397124887692
+F2024,Gangapur Road,short_horizon,cnn_lstm_recursive,417480,4639,0.011111909552553416
+F2024,Gangapur Road,short_horizon,direct,417480,2325,0.005569129060074734
+F2024,Gangapur Road,year_ahead,damped_anomaly,61488,0,0.0
+F2025,MIDC Ambad,year_ahead,cnn_lstm_recursive,61320,114,0.0018590998043052837
+F2025,MIDC Ambad,year_ahead,direct_chained,62328,0,0.0
+F2025,MIDC Ambad,short_horizon,cnn_lstm_recursive,422184,1773,0.004199590699789665
+F2025,MIDC Ambad,short_horizon,direct,422184,0,0.0
+F2025,MIDC Ambad,year_ahead,damped_anomaly,61320,0,0.0
+F2025,Gangapur Road,year_ahead,cnn_lstm_recursive,61320,1639,0.02672863666014351
+F2025,Gangapur Road,year_ahead,direct_chained,62328,317,0.00508599666281607
+F2025,Gangapur Road,short_horizon,cnn_lstm_recursive,422184,7593,0.01798504917287249
+F2025,Gangapur Road,short_horizon,direct,422184,1181,0.0027973584977166355
+F2025,Gangapur Road,year_ahead,damped_anomaly,61320,0,0.0
+F2025,Pandav Nagari,year_ahead,cnn_lstm_recursive,61320,67,0.0010926288323548597
+F2025,Pandav Nagari,year_ahead,direct_chained,62328,30,0.00048132460531382363
+F2025,Pandav Nagari,short_horizon,cnn_lstm_recursive,422184,478,0.0011322077577549125
+F2025,Pandav Nagari,short_horizon,direct,422184,343,0.0008124419684308263
+F2025,Pandav Nagari,year_ahead,damped_anomaly,61320,0,0.0
+F2025,Hirwadi,year_ahead,cnn_lstm_recursive,61320,101,0.0016470971950424006
+F2025,Hirwadi,year_ahead,direct_chained,62328,0,0.0
+F2025,Hirwadi,short_horizon,cnn_lstm_recursive,422184,798,0.0018901711102268205
+F2025,Hirwadi,short_horizon,direct,422184,90,0.0002131771928827241
+F2025,Hirwadi,year_ahead,damped_anomaly,61320,0,0.0
+F2026,MIDC Ambad,year_ahead,cnn_lstm_recursive,61320,0,0.0
+F2026,MIDC Ambad,year_ahead,direct_chained,62328,0,0.0
+F2026,MIDC Ambad,short_horizon,cnn_lstm_recursive,243432,0,0.0
+F2026,MIDC Ambad,short_horizon,direct,243432,0,0.0
+F2026,MIDC Ambad,year_ahead,damped_anomaly,61320,0,0.0
+F2026,Gangapur Road,year_ahead,cnn_lstm_recursive,61320,6688,0.10906718851924331
+F2026,Gangapur Road,year_ahead,direct_chained,62328,535,0.008583622128096522
+F2026,Gangapur Road,short_horizon,cnn_lstm_recursive,243432,12289,0.0504822702027671
+F2026,Gangapur Road,short_horizon,direct,243432,0,0.0
+F2026,Gangapur Road,year_ahead,damped_anomaly,61320,0,0.0
+F2026,Pandav Nagari,year_ahead,cnn_lstm_recursive,61320,7889,0.12865296803652967
+F2026,Pandav Nagari,year_ahead,direct_chained,62328,0,0.0
+F2026,Pandav Nagari,short_horizon,cnn_lstm_recursive,1176,68,0.05782312925170068
+F2026,Pandav Nagari,short_horizon,direct,1176,0,0.0
+F2026,Pandav Nagari,year_ahead,damped_anomaly,61320,0,0.0
+F2026,Hirwadi,year_ahead,cnn_lstm_recursive,61320,19,0.000309849967384214
+F2026,Hirwadi,year_ahead,direct_chained,62328,0,0.0
+F2026,Hirwadi,short_horizon,cnn_lstm_recursive,243432,70,0.00028755463538072235
+F2026,Hirwadi,short_horizon,direct,243432,130,0.0005340300371356272
+F2026,Hirwadi,year_ahead,damped_anomaly,61320,0,0.0

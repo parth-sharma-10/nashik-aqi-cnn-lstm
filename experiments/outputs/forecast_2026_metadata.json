@@ -1,0 +1,16 @@
+{
+  "method": "hybrid_direct_chained",
+  "training_cutoff": "2025-12-31 23:00",
+  "horizon": [
+    "2026-01-01 00:00",
+    "2026-12-31 23:00"
+  ],
+  "rows": 245280,
+  "selection": "Pre-registered rule: the year-ahead method with the highest mean RMSE skill against\n    month x hour climatology over all (fold, station, pollutant) series of the selection\n    folds. Climatology itself (skill 0) is a candidate.",
+  "stations": [
+    "MIDC Ambad",
+    "Gangapur Road",
+    "Pandav Nagari",
+    "Hirwadi"
+  ]
+}

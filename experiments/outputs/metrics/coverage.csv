@@ -1,0 +1,13 @@
+fold,station,status,short_origins_scored,short_origins_possible,year_cells_measured,year_cells_total
+F2024,MIDC Ambad,excluded: first observation 2023-06-14 is less than 180 days before validation starts,0,0,0,0
+F2024,Gangapur Road,used,355,360,58035,61488
+F2024,Pandav Nagari,excluded: first observation 2023-05-22 is less than 180 days before validation starts,0,0,0,0
+F2024,Hirwadi,excluded: first observation 2023-05-23 is less than 180 days before validation starts,0,0,0,0
+F2025,MIDC Ambad,used,359,359,58229,61320
+F2025,Gangapur Road,used,359,359,58074,61320
+F2025,Pandav Nagari,used,359,359,58384,61320
+F2025,Hirwadi,used,359,359,59204,61320
+F2026,MIDC Ambad,used,207,359,29798,61320
+F2026,Gangapur Road,used,207,359,27306,61320
+F2026,Pandav Nagari,used,1,359,0,61320
+F2026,Hirwadi,used,207,359,30564,61320
