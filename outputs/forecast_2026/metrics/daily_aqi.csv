@@ -1,0 +1,1461 @@
+station,date,predicted_aqi,predicted_category,predicted_dominant,measured_aqi,measured_category,measured_dominant,measured_subindices
+MIDC Ambad,2026-01-01,115.8,Moderate,PM10,102.0,Moderate,PM10,6
+MIDC Ambad,2026-01-02,117.3,Moderate,PM10,114.9,Moderate,PM10,6
+MIDC Ambad,2026-01-03,108.7,Moderate,PM10,107.9,Moderate,PM10,6
+MIDC Ambad,2026-01-04,102.7,Moderate,PM10,129.1,Moderate,PM10,6
+MIDC Ambad,2026-01-05,101.3,Moderate,PM10,128.7,Moderate,PM10,6
+MIDC Ambad,2026-01-06,103.1,Moderate,PM10,141.5,Moderate,PM10,6
+MIDC Ambad,2026-01-07,106.3,Moderate,PM10,153.6,Moderate,PM10,6
+MIDC Ambad,2026-01-08,110.2,Moderate,PM10,109.4,Moderate,PM10,6
+MIDC Ambad,2026-01-09,110.1,Moderate,PM10,111.7,Moderate,PM10,6
+MIDC Ambad,2026-01-10,106.2,Moderate,PM10,106.4,Moderate,PM10,6
+MIDC Ambad,2026-01-11,102.1,Moderate,PM10,104.6,Moderate,PM10,6
+MIDC Ambad,2026-01-12,101.3,Moderate,PM10,124.7,Moderate,PM10,6
+MIDC Ambad,2026-01-13,103.1,Moderate,PM10,125.0,Moderate,PM10,6
+MIDC Ambad,2026-01-14,106.3,Moderate,PM10,116.2,Moderate,PM10,6
+MIDC Ambad,2026-01-15,110.2,Moderate,PM10,117.5,Moderate,PM10,6
+MIDC Ambad,2026-01-16,110.1,Moderate,PM10,115.9,Moderate,PM10,6
+MIDC Ambad,2026-01-17,106.2,Moderate,PM10,96.1,Satisfactory,PM10,6
+MIDC Ambad,2026-01-18,102.1,Moderate,PM10,104.2,Moderate,PM10,6
+MIDC Ambad,2026-01-19,101.3,Moderate,PM10,114.9,Moderate,PM10,6
+MIDC Ambad,2026-01-20,103.1,Moderate,PM10,102.7,Moderate,PM10,6
+MIDC Ambad,2026-01-21,106.3,Moderate,PM10,99.9,Satisfactory,PM10,6
+MIDC Ambad,2026-01-22,110.2,Moderate,PM10,113.6,Moderate,PM10,6
+MIDC Ambad,2026-01-23,110.1,Moderate,PM10,123.8,Moderate,PM10,6
+MIDC Ambad,2026-01-24,106.2,Moderate,PM10,97.9,Satisfactory,PM10,6
+MIDC Ambad,2026-01-25,102.1,Moderate,PM10,118.7,Moderate,PM10,6
+MIDC Ambad,2026-01-26,101.3,Moderate,PM10,109.0,Moderate,PM10,6
+MIDC Ambad,2026-01-27,103.1,Moderate,PM10,118.0,Moderate,PM10,6
+MIDC Ambad,2026-01-28,106.3,Moderate,PM10,93.3,Satisfactory,PM10,6
+MIDC Ambad,2026-01-29,110.2,Moderate,PM10,98.5,Satisfactory,PM10,6
+MIDC Ambad,2026-01-30,110.1,Moderate,PM10,129.1,Moderate,PM10,6
+MIDC Ambad,2026-01-31,106.2,Moderate,PM10,,,,0
+MIDC Ambad,2026-02-01,99.7,Satisfactory,PM10,111.4,Moderate,PM10,6
+MIDC Ambad,2026-02-02,91.2,Satisfactory,PM10,105.8,Moderate,PM10,6
+MIDC Ambad,2026-02-03,90.4,Satisfactory,PM10,109.9,Moderate,PM10,6
+MIDC Ambad,2026-02-04,92.9,Satisfactory,PM10,114.2,Moderate,PM10,6
+MIDC Ambad,2026-02-05,93.9,Satisfactory,PM10,107.0,Moderate,PM10,6
+MIDC Ambad,2026-02-06,95.1,Satisfactory,PM10,127.4,Moderate,PM10,6
+MIDC Ambad,2026-02-07,92.7,Satisfactory,PM10,118.1,Moderate,PM10,6
+MIDC Ambad,2026-02-08,87.2,Satisfactory,PM10,107.1,Moderate,PM10,6
+MIDC Ambad,2026-02-09,84.9,Satisfactory,PM10,131.8,Moderate,PM10,6
+MIDC Ambad,2026-02-10,88.3,Satisfactory,PM10,112.3,Moderate,PM10,6
+MIDC Ambad,2026-02-11,93.2,Satisfactory,PM10,106.1,Moderate,PM10,6
+MIDC Ambad,2026-02-12,94.9,Satisfactory,PM10,102.7,Moderate,PM10,6
+MIDC Ambad,2026-02-13,95.9,Satisfactory,PM10,105.4,Moderate,PM10,6
+MIDC Ambad,2026-02-14,93.3,Satisfactory,PM10,122.7,Moderate,PM10,6
+MIDC Ambad,2026-02-15,87.6,Satisfactory,PM10,104.5,Moderate,PM10,6
+MIDC Ambad,2026-02-16,85.1,Satisfactory,PM10,105.0,Moderate,PM10,6
+MIDC Ambad,2026-02-17,88.3,Satisfactory,PM10,144.3,Moderate,PM10,6
+MIDC Ambad,2026-02-18,93.2,Satisfactory,PM10,130.4,Moderate,PM10,6
+MIDC Ambad,2026-02-19,94.8,Satisfactory,PM10,122.6,Moderate,PM10,6
+MIDC Ambad,2026-02-20,95.9,Satisfactory,PM10,120.4,Moderate,PM10,6
+MIDC Ambad,2026-02-21,93.3,Satisfactory,PM10,110.7,Moderate,PM10,6
+MIDC Ambad,2026-02-22,87.6,Satisfactory,PM10,103.6,Moderate,PM10,6
+MIDC Ambad,2026-02-23,85.0,Satisfactory,PM10,108.0,Moderate,PM10,6
+MIDC Ambad,2026-02-24,88.3,Satisfactory,PM10,111.5,Moderate,PM10,6
+MIDC Ambad,2026-02-25,93.2,Satisfactory,PM10,92.6,Satisfactory,PM10,6
+MIDC Ambad,2026-02-26,94.8,Satisfactory,PM10,80.2,Satisfactory,PM10,6
+MIDC Ambad,2026-02-27,95.9,Satisfactory,PM10,102.1,Moderate,PM10,6
+MIDC Ambad,2026-02-28,93.3,Satisfactory,PM10,70.0,Satisfactory,PM10,6
+MIDC Ambad,2026-03-01,84.3,Satisfactory,PM10,91.9,Satisfactory,PM10,6
+MIDC Ambad,2026-03-02,81.9,Satisfactory,PM2.5,125.6,Moderate,PM10,6
+MIDC Ambad,2026-03-03,80.3,Satisfactory,PM2.5,109.2,Moderate,PM10,6
+MIDC Ambad,2026-03-04,82.0,Satisfactory,PM2.5,104.7,Moderate,PM10,6
+MIDC Ambad,2026-03-05,83.6,Satisfactory,PM2.5,,,,0
+MIDC Ambad,2026-03-06,83.9,Satisfactory,PM2.5,100.0,Satisfactory,PM10,6
+MIDC Ambad,2026-03-07,81.6,Satisfactory,PM2.5,100.6,Moderate,PM10,6
+MIDC Ambad,2026-03-08,79.1,Satisfactory,PM2.5,90.4,Satisfactory,PM10,6
+MIDC Ambad,2026-03-09,75.9,Satisfactory,PM2.5,136.8,Moderate,PM10,6
+MIDC Ambad,2026-03-10,78.8,Satisfactory,PM10,159.2,Moderate,PM10,6
+MIDC Ambad,2026-03-11,81.3,Satisfactory,PM10,143.3,Moderate,PM10,6
+MIDC Ambad,2026-03-12,83.6,Satisfactory,PM2.5,104.7,Moderate,PM10,6
+MIDC Ambad,2026-03-13,83.9,Satisfactory,PM2.5,109.6,Moderate,PM10,6
+MIDC Ambad,2026-03-14,81.5,Satisfactory,PM2.5,111.6,Moderate,PM10,6
+MIDC Ambad,2026-03-15,79.0,Satisfactory,PM2.5,104.3,Moderate,PM10,6
+MIDC Ambad,2026-03-16,75.9,Satisfactory,PM2.5,123.5,Moderate,PM10,6
+MIDC Ambad,2026-03-17,78.8,Satisfactory,PM10,127.7,Moderate,PM10,6
+MIDC Ambad,2026-03-18,81.3,Satisfactory,PM10,108.0,Moderate,PM10,6
+MIDC Ambad,2026-03-19,83.6,Satisfactory,PM2.5,104.8,Moderate,PM10,5
+MIDC Ambad,2026-03-20,83.9,Satisfactory,PM2.5,110.2,Moderate,PM10,6
+MIDC Ambad,2026-03-21,81.5,Satisfactory,PM2.5,75.4,Satisfactory,PM10,6
+MIDC Ambad,2026-03-22,79.0,Satisfactory,PM2.5,104.4,Moderate,PM10,6
+MIDC Ambad,2026-03-23,75.9,Satisfactory,PM2.5,115.5,Moderate,PM10,6
+MIDC Ambad,2026-03-24,78.8,Satisfactory,PM10,103.4,Moderate,PM10,6
+MIDC Ambad,2026-03-25,81.3,Satisfactory,PM10,93.3,Satisfactory,PM10,6
+MIDC Ambad,2026-03-26,83.6,Satisfactory,PM2.5,109.5,Moderate,PM10,6
+MIDC Ambad,2026-03-27,83.9,Satisfactory,PM2.5,103.4,Moderate,PM10,6
+MIDC Ambad,2026-03-28,81.5,Satisfactory,PM2.5,100.1,Moderate,PM10,6
+MIDC Ambad,2026-03-29,79.0,Satisfactory,PM2.5,97.5,Satisfactory,PM10,6
+MIDC Ambad,2026-03-30,75.9,Satisfactory,PM2.5,97.3,Satisfactory,PM10,6
+MIDC Ambad,2026-03-31,78.8,Satisfactory,PM10,108.9,Moderate,PM10,6
+MIDC Ambad,2026-04-01,79.5,Satisfactory,PM10,109.6,Moderate,PM10,6
+MIDC Ambad,2026-04-02,74.8,Satisfactory,PM10,85.5,Satisfactory,PM10,6
+MIDC Ambad,2026-04-03,71.4,Satisfactory,PM10,88.3,Satisfactory,PM10,6
+MIDC Ambad,2026-04-04,67.9,Satisfactory,O3,,,,1
+MIDC Ambad,2026-04-05,71.6,Satisfactory,O3,76.2,Satisfactory,PM10,6
+MIDC Ambad,2026-04-06,81.6,Satisfactory,O3,65.7,Satisfactory,PM10,6
+MIDC Ambad,2026-04-07,85.0,Satisfactory,O3,85.9,Satisfactory,PM10,6
+MIDC Ambad,2026-04-08,83.9,Satisfactory,O3,102.4,Moderate,PM10,6
+MIDC Ambad,2026-04-09,80.1,Satisfactory,PM10,101.8,Moderate,PM10,6
+MIDC Ambad,2026-04-10,70.6,Satisfactory,O3,116.7,Moderate,PM10,6
+MIDC Ambad,2026-04-11,62.6,Satisfactory,O3,163.6,Moderate,PM2.5,6
+MIDC Ambad,2026-04-12,68.8,Satisfactory,O3,122.4,Moderate,PM2.5,6
+MIDC Ambad,2026-04-13,81.9,Satisfactory,O3,86.1,Satisfactory,PM10,6
+MIDC Ambad,2026-04-14,85.8,Satisfactory,O3,90.1,Satisfactory,PM10,6
+MIDC Ambad,2026-04-15,84.1,Satisfactory,O3,78.0,Satisfactory,PM10,6
+MIDC Ambad,2026-04-16,80.1,Satisfactory,PM10,77.8,Satisfactory,PM10,6
+MIDC Ambad,2026-04-17,70.4,Satisfactory,O3,77.9,Satisfactory,PM10,6
+MIDC Ambad,2026-04-18,62.3,Satisfactory,O3,,,,0
+MIDC Ambad,2026-04-19,68.8,Satisfactory,O3,76.0,Satisfactory,PM10,6
+MIDC Ambad,2026-04-20,81.9,Satisfactory,O3,85.9,Satisfactory,PM10,6
+MIDC Ambad,2026-04-21,85.9,Satisfactory,O3,79.4,Satisfactory,PM10,6
+MIDC Ambad,2026-04-22,84.1,Satisfactory,O3,104.0,Moderate,PM10,6
+MIDC Ambad,2026-04-23,80.1,Satisfactory,PM10,78.7,Satisfactory,PM10,6
+MIDC Ambad,2026-04-24,70.3,Satisfactory,O3,87.3,Satisfactory,PM10,6
+MIDC Ambad,2026-04-25,62.2,Satisfactory,O3,,,,0
+MIDC Ambad,2026-04-26,68.8,Satisfactory,O3,80.8,Satisfactory,PM10,6
+MIDC Ambad,2026-04-27,81.9,Satisfactory,O3,94.5,Satisfactory,PM10,6
+MIDC Ambad,2026-04-28,85.9,Satisfactory,O3,85.7,Satisfactory,PM10,6
+MIDC Ambad,2026-04-29,84.1,Satisfactory,O3,80.4,Satisfactory,PM10,6
+MIDC Ambad,2026-04-30,80.1,Satisfactory,PM10,102.7,Moderate,PM10,6
+MIDC Ambad,2026-05-01,75.0,Satisfactory,PM10,78.4,Satisfactory,PM10,6
+MIDC Ambad,2026-05-02,69.6,Satisfactory,O3,58.4,Satisfactory,PM10,6
+MIDC Ambad,2026-05-03,72.0,Satisfactory,O3,76.4,Satisfactory,PM10,6
+MIDC Ambad,2026-05-04,74.7,Satisfactory,PM10,90.2,Satisfactory,PM10,6
+MIDC Ambad,2026-05-05,79.0,Satisfactory,PM10,91.5,Satisfactory,PM10,6
+MIDC Ambad,2026-05-06,94.3,Satisfactory,CO,84.1,Satisfactory,PM10,6
+MIDC Ambad,2026-05-07,94.4,Satisfactory,O3,88.2,Satisfactory,PM10,6
+MIDC Ambad,2026-05-08,92.2,Satisfactory,O3,,,,4
+MIDC Ambad,2026-05-09,96.8,Satisfactory,O3,74.1,Satisfactory,O3,6
+MIDC Ambad,2026-05-10,97.7,Satisfactory,PM10,73.9,Satisfactory,PM10,6
+MIDC Ambad,2026-05-11,99.6,Satisfactory,PM10,90.2,Satisfactory,PM10,6
+MIDC Ambad,2026-05-12,98.4,Satisfactory,PM10,94.2,Satisfactory,PM10,6
+MIDC Ambad,2026-05-13,94.9,Satisfactory,PM10,85.6,Satisfactory,PM10,6
+MIDC Ambad,2026-05-14,94.6,Satisfactory,PM10,71.8,Satisfactory,PM10,6
+MIDC Ambad,2026-05-15,99.2,Satisfactory,PM10,57.2,Satisfactory,PM10,6
+MIDC Ambad,2026-05-16,100.9,Moderate,PM10,52.5,Satisfactory,PM2.5,7
+MIDC Ambad,2026-05-17,100.9,Moderate,PM10,71.8,Satisfactory,PM10,7
+MIDC Ambad,2026-05-18,101.3,Moderate,PM10,92.2,Satisfactory,PM10,7
+MIDC Ambad,2026-05-19,99.8,Satisfactory,PM10,82.0,Satisfactory,PM10,7
+MIDC Ambad,2026-05-20,95.5,Satisfactory,PM10,59.2,Satisfactory,PM10,7
+MIDC Ambad,2026-05-21,94.8,Satisfactory,PM10,57.6,Satisfactory,PM10,7
+MIDC Ambad,2026-05-22,99.3,Satisfactory,PM10,78.3,Satisfactory,PM10,7
+MIDC Ambad,2026-05-23,100.9,Moderate,PM10,59.5,Satisfactory,PM10,7
+MIDC Ambad,2026-05-24,100.9,Moderate,PM10,64.9,Satisfactory,PM10,7
+MIDC Ambad,2026-05-25,101.4,Moderate,PM10,54.6,Satisfactory,PM10,7
+MIDC Ambad,2026-05-26,99.9,Satisfactory,PM10,58.0,Satisfactory,PM10,7
+MIDC Ambad,2026-05-27,95.5,Satisfactory,PM10,62.5,Satisfactory,PM10,7
+MIDC Ambad,2026-05-28,94.8,Satisfactory,PM10,72.4,Satisfactory,PM10,7
+MIDC Ambad,2026-05-29,99.3,Satisfactory,PM10,74.9,Satisfactory,PM10,7
+MIDC Ambad,2026-05-30,100.9,Moderate,PM10,54.2,Satisfactory,PM10,7
+MIDC Ambad,2026-05-31,100.9,Moderate,PM10,62.3,Satisfactory,PM10,7
+MIDC Ambad,2026-06-01,99.7,Satisfactory,PM10,60.0,Satisfactory,PM10,7
+MIDC Ambad,2026-06-02,89.4,Satisfactory,O3,63.5,Satisfactory,PM10,7
+MIDC Ambad,2026-06-03,88.6,Satisfactory,O3,,,,0
+MIDC Ambad,2026-06-04,85.7,Satisfactory,O3,61.6,Satisfactory,PM10,7
+MIDC Ambad,2026-06-05,87.2,Satisfactory,O3,64.0,Satisfactory,PM10,7
+MIDC Ambad,2026-06-06,90.4,Satisfactory,O3,60.7,Satisfactory,PM10,7
+MIDC Ambad,2026-06-07,89.7,Satisfactory,O3,77.2,Satisfactory,PM10,7
+MIDC Ambad,2026-06-08,89.4,Satisfactory,O3,83.8,Satisfactory,PM10,7
+MIDC Ambad,2026-06-09,89.9,Satisfactory,O3,87.9,Satisfactory,PM10,7
+MIDC Ambad,2026-06-10,88.9,Satisfactory,O3,88.7,Satisfactory,PM10,7
+MIDC Ambad,2026-06-11,87.2,Satisfactory,O3,88.3,Satisfactory,PM10,6
+MIDC Ambad,2026-06-12,87.9,Satisfactory,O3,96.4,Satisfactory,PM10,7
+MIDC Ambad,2026-06-13,90.5,Satisfactory,O3,70.0,Satisfactory,PM10,7
+MIDC Ambad,2026-06-14,89.1,Satisfactory,O3,67.4,Satisfactory,PM10,7
+MIDC Ambad,2026-06-15,89.9,Satisfactory,O3,67.4,Satisfactory,PM10,7
+MIDC Ambad,2026-06-16,90.4,Satisfactory,O3,65.0,Satisfactory,PM10,7
+MIDC Ambad,2026-06-17,89.2,Satisfactory,O3,66.8,Satisfactory,PM10,7
+MIDC Ambad,2026-06-18,88.0,Satisfactory,O3,63.1,Satisfactory,PM10,7
+MIDC Ambad,2026-06-19,88.2,Satisfactory,O3,65.2,Satisfactory,PM10,7
+MIDC Ambad,2026-06-20,90.6,Satisfactory,O3,48.5,Good,PM10,7
+MIDC Ambad,2026-06-21,89.2,Satisfactory,O3,,,,0
+MIDC Ambad,2026-06-22,90.0,Satisfactory,O3,40.2,Good,PM10,7
+MIDC Ambad,2026-06-23,90.6,Satisfactory,O3,41.1,Good,PM10,7
+MIDC Ambad,2026-06-24,89.3,Satisfactory,O3,48.5,Good,PM10,7
+MIDC Ambad,2026-06-25,88.0,Satisfactory,O3,77.2,Satisfactory,PM10,7
+MIDC Ambad,2026-06-26,88.3,Satisfactory,O3,78.8,Satisfactory,PM10,7
+MIDC Ambad,2026-06-27,90.5,Satisfactory,O3,60.2,Satisfactory,PM10,7
+MIDC Ambad,2026-06-28,89.2,Satisfactory,O3,66.3,Satisfactory,PM10,6
+MIDC Ambad,2026-06-29,90.1,Satisfactory,O3,46.0,Good,PM10,7
+MIDC Ambad,2026-06-30,90.6,Satisfactory,O3,42.5,Good,PM10,7
+MIDC Ambad,2026-07-01,86.5,Satisfactory,O3,,,,0
+MIDC Ambad,2026-07-02,82.9,Satisfactory,O3,,,,0
+MIDC Ambad,2026-07-03,83.1,Satisfactory,O3,,,,0
+MIDC Ambad,2026-07-04,83.9,Satisfactory,O3,,,,0
+MIDC Ambad,2026-07-05,84.2,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-07-06,90.4,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-07-07,91.2,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-07-08,87.3,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-07-09,77.6,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-07-10,65.9,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-07-11,64.7,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-07-12,56.1,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-07-13,51.6,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-07-14,51.2,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-07-15,54.5,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-07-16,60.4,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-07-17,59.9,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-07-18,57.9,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-07-19,57.1,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-07-20,53.4,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-07-21,51.0,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-07-22,53.2,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-07-23,59.6,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-07-24,59.6,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-07-25,57.9,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-07-26,57.2,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-07-27,53.4,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-07-28,51.0,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-07-29,53.2,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-07-30,59.6,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-07-31,59.6,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-08-01,57.2,Satisfactory,PM10,30.9,Good,PM10,7
+MIDC Ambad,2026-08-02,53.8,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-08-03,50.6,Satisfactory,PM10,42.0,Good,PM10,7
+MIDC Ambad,2026-08-04,54.5,Satisfactory,CO,51.6,Satisfactory,PM10,7
+MIDC Ambad,2026-08-05,64.9,Satisfactory,PM10,57.0,Satisfactory,PM10,7
+MIDC Ambad,2026-08-06,67.2,Satisfactory,PM10,51.2,Satisfactory,PM10,7
+MIDC Ambad,2026-08-07,66.3,Satisfactory,PM10,61.3,Satisfactory,PM10,7
+MIDC Ambad,2026-08-08,60.8,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-08-09,53.6,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-08-10,50.7,Satisfactory,PM10,49.3,Good,PM10,7
+MIDC Ambad,2026-08-11,54.8,Satisfactory,CO,37.8,Good,PM10,7
+MIDC Ambad,2026-08-12,65.2,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-08-13,67.4,Satisfactory,PM10,31.4,Good,PM10,7
+MIDC Ambad,2026-08-14,66.5,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-08-15,60.9,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-08-16,53.6,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-08-17,50.7,Satisfactory,PM10,38.6,Good,PM10,7
+MIDC Ambad,2026-08-18,54.8,Satisfactory,CO,39.6,Good,PM10,7
+MIDC Ambad,2026-08-19,65.2,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-08-20,67.4,Satisfactory,PM10,48.3,Good,PM10,7
+MIDC Ambad,2026-08-21,66.5,Satisfactory,PM10,31.1,Good,PM10,6
+MIDC Ambad,2026-08-22,60.9,Satisfactory,PM10,23.3,Good,PM10,7
+MIDC Ambad,2026-08-23,53.6,Satisfactory,PM10,35.0,Good,PM10,7
+MIDC Ambad,2026-08-24,50.7,Satisfactory,PM10,39.5,Good,PM10,7
+MIDC Ambad,2026-08-25,54.8,Satisfactory,CO,54.1,Satisfactory,PM10,7
+MIDC Ambad,2026-08-26,65.2,Satisfactory,PM10,66.5,Satisfactory,PM10,7
+MIDC Ambad,2026-08-27,67.4,Satisfactory,PM10,57.7,Satisfactory,PM10,7
+MIDC Ambad,2026-08-28,66.5,Satisfactory,PM10,42.1,Good,PM10,7
+MIDC Ambad,2026-08-29,60.9,Satisfactory,PM10,33.9,Good,PM10,7
+MIDC Ambad,2026-08-30,53.6,Satisfactory,PM10,39.3,Good,PM10,7
+MIDC Ambad,2026-08-31,50.7,Satisfactory,PM10,44.6,Good,PM10,7
+MIDC Ambad,2026-09-01,63.2,Satisfactory,CO,,,,0
+MIDC Ambad,2026-09-02,87.3,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-09-03,88.9,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-09-04,81.5,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-09-05,74.9,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-09-06,64.4,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-09-07,59.1,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-09-08,76.6,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-09-09,88.8,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-09-10,87.8,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-09-11,80.5,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-09-12,74.5,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-09-13,64.2,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-09-14,59.1,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-09-15,76.7,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-09-16,88.8,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-09-17,87.8,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-09-18,80.5,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-09-19,74.5,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-09-20,64.2,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-09-21,59.1,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-09-22,76.7,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-09-23,88.8,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-09-24,87.8,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-09-25,80.5,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-09-26,74.5,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-09-27,64.2,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-09-28,59.1,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-09-29,76.7,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-09-30,88.8,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-10-01,103.5,Moderate,PM10,,,,0
+MIDC Ambad,2026-10-02,106.9,Moderate,PM10,,,,0
+MIDC Ambad,2026-10-03,94.5,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-10-04,78.9,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-10-05,74.0,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-10-06,97.3,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-10-07,108.0,Moderate,PM10,,,,0
+MIDC Ambad,2026-10-08,110.7,Moderate,PM10,,,,0
+MIDC Ambad,2026-10-09,107.1,Moderate,PM10,,,,0
+MIDC Ambad,2026-10-10,92.9,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-10-11,77.8,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-10-12,73.5,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-10-13,97.3,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-10-14,108.1,Moderate,PM10,,,,0
+MIDC Ambad,2026-10-15,110.7,Moderate,PM10,,,,0
+MIDC Ambad,2026-10-16,107.1,Moderate,PM10,,,,0
+MIDC Ambad,2026-10-17,92.9,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-10-18,77.8,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-10-19,73.5,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-10-20,97.3,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-10-21,108.1,Moderate,PM10,,,,0
+MIDC Ambad,2026-10-22,110.7,Moderate,PM10,,,,0
+MIDC Ambad,2026-10-23,107.1,Moderate,PM10,,,,0
+MIDC Ambad,2026-10-24,92.9,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-10-25,77.8,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-10-26,73.5,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-10-27,97.3,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-10-28,108.1,Moderate,PM10,,,,0
+MIDC Ambad,2026-10-29,110.7,Moderate,PM10,,,,0
+MIDC Ambad,2026-10-30,107.1,Moderate,PM10,,,,0
+MIDC Ambad,2026-10-31,92.9,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-11-01,80.8,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-11-02,96.8,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-11-03,115.5,Moderate,PM10,,,,0
+MIDC Ambad,2026-11-04,126.7,Moderate,PM2.5,,,,0
+MIDC Ambad,2026-11-05,145.2,Moderate,PM2.5,,,,0
+MIDC Ambad,2026-11-06,156.6,Moderate,PM2.5,,,,0
+MIDC Ambad,2026-11-07,132.5,Moderate,PM2.5,,,,0
+MIDC Ambad,2026-11-08,106.8,Moderate,PM10,,,,0
+MIDC Ambad,2026-11-09,99.6,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-11-10,112.6,Moderate,PM10,,,,0
+MIDC Ambad,2026-11-11,123.4,Moderate,PM2.5,,,,0
+MIDC Ambad,2026-11-12,144.0,Moderate,PM2.5,,,,0
+MIDC Ambad,2026-11-13,156.2,Moderate,PM2.5,,,,0
+MIDC Ambad,2026-11-14,132.4,Moderate,PM2.5,,,,0
+MIDC Ambad,2026-11-15,106.7,Moderate,PM10,,,,0
+MIDC Ambad,2026-11-16,99.6,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-11-17,112.6,Moderate,PM10,,,,0
+MIDC Ambad,2026-11-18,123.4,Moderate,PM2.5,,,,0
+MIDC Ambad,2026-11-19,144.0,Moderate,PM2.5,,,,0
+MIDC Ambad,2026-11-20,156.2,Moderate,PM2.5,,,,0
+MIDC Ambad,2026-11-21,132.4,Moderate,PM2.5,,,,0
+MIDC Ambad,2026-11-22,106.7,Moderate,PM10,,,,0
+MIDC Ambad,2026-11-23,99.6,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-11-24,112.6,Moderate,PM10,,,,0
+MIDC Ambad,2026-11-25,123.4,Moderate,PM2.5,,,,0
+MIDC Ambad,2026-11-26,144.0,Moderate,PM2.5,,,,0
+MIDC Ambad,2026-11-27,156.2,Moderate,PM2.5,,,,0
+MIDC Ambad,2026-11-28,132.4,Moderate,PM2.5,,,,0
+MIDC Ambad,2026-11-29,106.7,Moderate,PM10,,,,0
+MIDC Ambad,2026-11-30,99.6,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-12-01,112.7,Moderate,PM10,,,,0
+MIDC Ambad,2026-12-02,137.4,Moderate,PM2.5,,,,0
+MIDC Ambad,2026-12-03,158.1,Moderate,PM2.5,,,,0
+MIDC Ambad,2026-12-04,158.0,Moderate,PM2.5,,,,0
+MIDC Ambad,2026-12-05,129.1,Moderate,PM2.5,,,,0
+MIDC Ambad,2026-12-06,102.5,Moderate,PM10,,,,0
+MIDC Ambad,2026-12-07,87.7,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-12-08,111.6,Moderate,PM10,,,,0
+MIDC Ambad,2026-12-09,136.4,Moderate,PM2.5,,,,0
+MIDC Ambad,2026-12-10,158.1,Moderate,PM2.5,,,,0
+MIDC Ambad,2026-12-11,157.9,Moderate,PM2.5,,,,0
+MIDC Ambad,2026-12-12,129.0,Moderate,PM2.5,,,,0
+MIDC Ambad,2026-12-13,102.5,Moderate,PM10,,,,0
+MIDC Ambad,2026-12-14,87.6,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-12-15,111.6,Moderate,PM10,,,,0
+MIDC Ambad,2026-12-16,136.3,Moderate,PM2.5,,,,0
+MIDC Ambad,2026-12-17,158.1,Moderate,PM2.5,,,,0
+MIDC Ambad,2026-12-18,157.9,Moderate,PM2.5,,,,0
+MIDC Ambad,2026-12-19,129.0,Moderate,PM2.5,,,,0
+MIDC Ambad,2026-12-20,102.5,Moderate,PM10,,,,0
+MIDC Ambad,2026-12-21,87.6,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-12-22,111.6,Moderate,PM10,,,,0
+MIDC Ambad,2026-12-23,136.3,Moderate,PM2.5,,,,0
+MIDC Ambad,2026-12-24,158.1,Moderate,PM2.5,,,,0
+MIDC Ambad,2026-12-25,157.9,Moderate,PM2.5,,,,0
+MIDC Ambad,2026-12-26,129.0,Moderate,PM2.5,,,,0
+MIDC Ambad,2026-12-27,102.5,Moderate,PM10,,,,0
+MIDC Ambad,2026-12-28,87.6,Satisfactory,PM10,,,,0
+MIDC Ambad,2026-12-29,111.6,Moderate,PM10,,,,0
+MIDC Ambad,2026-12-30,136.3,Moderate,PM2.5,,,,0
+MIDC Ambad,2026-12-31,158.1,Moderate,PM2.5,,,,0
+Gangapur Road,2026-01-01,99.8,Satisfactory,PM10,68.0,Satisfactory,PM10,4
+Gangapur Road,2026-01-02,113.0,Moderate,PM10,87.0,Satisfactory,PM10,4
+Gangapur Road,2026-01-03,133.7,Moderate,PM2.5,108.3,Moderate,PM10,4
+Gangapur Road,2026-01-04,158.3,Moderate,PM2.5,99.7,Satisfactory,PM10,4
+Gangapur Road,2026-01-05,152.5,Moderate,PM2.5,112.0,Moderate,PM10,4
+Gangapur Road,2026-01-06,133.7,Moderate,PM2.5,121.6,Moderate,PM10,4
+Gangapur Road,2026-01-07,125.7,Moderate,PM2.5,100.3,Moderate,PM10,4
+Gangapur Road,2026-01-08,130.9,Moderate,PM2.5,92.5,Satisfactory,PM10,3
+Gangapur Road,2026-01-09,140.9,Moderate,PM2.5,109.2,Moderate,PM10,3
+Gangapur Road,2026-01-10,153.6,Moderate,PM2.5,119.1,Moderate,PM10,4
+Gangapur Road,2026-01-11,160.0,Moderate,PM2.5,104.5,Moderate,PM10,4
+Gangapur Road,2026-01-12,149.7,Moderate,PM2.5,105.4,Moderate,PM10,4
+Gangapur Road,2026-01-13,134.6,Moderate,PM2.5,93.3,Satisfactory,PM10,4
+Gangapur Road,2026-01-14,132.4,Moderate,PM2.5,75.1,Satisfactory,PM10,4
+Gangapur Road,2026-01-15,138.4,Moderate,PM2.5,102.9,Moderate,PM10,5
+Gangapur Road,2026-01-16,136.7,Moderate,PM2.5,97.2,Satisfactory,PM10,4
+Gangapur Road,2026-01-17,133.5,Moderate,PM2.5,76.4,Satisfactory,PM10,4
+Gangapur Road,2026-01-18,131.2,Moderate,PM2.5,54.2,Satisfactory,PM2.5,3
+Gangapur Road,2026-01-19,128.3,Moderate,PM2.5,74.5,Satisfactory,PM2.5,4
+Gangapur Road,2026-01-20,128.2,Moderate,PM2.5,126.3,Moderate,PM10,4
+Gangapur Road,2026-01-21,124.2,Moderate,PM2.5,113.7,Moderate,PM10,4
+Gangapur Road,2026-01-22,117.8,Moderate,PM10,106.0,Moderate,PM10,4
+Gangapur Road,2026-01-23,122.5,Moderate,PM10,93.9,Satisfactory,PM10,4
+Gangapur Road,2026-01-24,120.7,Moderate,PM10,91.4,Satisfactory,PM10,4
+Gangapur Road,2026-01-25,114.6,Moderate,PM10,100.4,Moderate,PM10,4
+Gangapur Road,2026-01-26,116.0,Moderate,PM2.5,93.8,Satisfactory,PM10,4
+Gangapur Road,2026-01-27,119.7,Moderate,PM2.5,84.9,Satisfactory,PM10,4
+Gangapur Road,2026-01-28,117.4,Moderate,PM2.5,92.3,Satisfactory,PM10,4
+Gangapur Road,2026-01-29,122.3,Moderate,PM10,98.7,Satisfactory,PM10,4
+Gangapur Road,2026-01-30,125.4,Moderate,PM10,102.4,Moderate,PM2.5,4
+Gangapur Road,2026-01-31,121.4,Moderate,PM10,111.2,Moderate,PM10,4
+Gangapur Road,2026-02-01,115.5,Moderate,PM10,118.0,Moderate,PM10,4
+Gangapur Road,2026-02-02,108.5,Moderate,PM10,133.2,Moderate,PM2.5,4
+Gangapur Road,2026-02-03,109.9,Moderate,PM10,100.0,Satisfactory,PM10,4
+Gangapur Road,2026-02-04,113.5,Moderate,PM10,80.5,Satisfactory,PM2.5,4
+Gangapur Road,2026-02-05,117.0,Moderate,PM10,83.0,Satisfactory,PM10,4
+Gangapur Road,2026-02-06,119.4,Moderate,PM10,91.0,Satisfactory,PM10,4
+Gangapur Road,2026-02-07,116.8,Moderate,O3,94.0,Satisfactory,PM10,4
+Gangapur Road,2026-02-08,117.9,Moderate,O3,113.3,Moderate,PM10,4
+Gangapur Road,2026-02-09,106.6,Moderate,PM10,111.8,Moderate,PM10,4
+Gangapur Road,2026-02-10,110.7,Moderate,PM2.5,103.9,Moderate,PM10,4
+Gangapur Road,2026-02-11,113.5,Moderate,PM10,110.4,Moderate,PM10,4
+Gangapur Road,2026-02-12,117.3,Moderate,PM10,111.5,Moderate,PM10,5
+Gangapur Road,2026-02-13,119.5,Moderate,PM10,101.9,Moderate,PM10,4
+Gangapur Road,2026-02-14,118.2,Moderate,O3,127.7,Moderate,PM10,4
+Gangapur Road,2026-02-15,118.8,Moderate,O3,88.3,Satisfactory,PM10,4
+Gangapur Road,2026-02-16,106.8,Moderate,PM10,102.6,Moderate,PM10,4
+Gangapur Road,2026-02-17,110.5,Moderate,PM2.5,111.1,Moderate,PM10,4
+Gangapur Road,2026-02-18,113.7,Moderate,PM10,109.0,Moderate,PM10,4
+Gangapur Road,2026-02-19,117.4,Moderate,PM10,108.4,Moderate,PM10,4
+Gangapur Road,2026-02-20,119.6,Moderate,PM10,102.4,Moderate,PM10,4
+Gangapur Road,2026-02-21,118.6,Moderate,O3,112.9,Moderate,PM10,4
+Gangapur Road,2026-02-22,119.1,Moderate,O3,92.5,Satisfactory,PM10,4
+Gangapur Road,2026-02-23,106.8,Moderate,PM10,95.4,Satisfactory,PM10,4
+Gangapur Road,2026-02-24,110.4,Moderate,PM2.5,90.7,Satisfactory,PM10,4
+Gangapur Road,2026-02-25,113.8,Moderate,PM10,85.5,Satisfactory,PM10,4
+Gangapur Road,2026-02-26,117.4,Moderate,PM10,74.9,Satisfactory,PM10,4
+Gangapur Road,2026-02-27,119.6,Moderate,PM10,118.5,Moderate,PM10,4
+Gangapur Road,2026-02-28,118.7,Moderate,O3,95.6,Satisfactory,PM10,4
+Gangapur Road,2026-03-01,134.7,Moderate,O3,88.8,Satisfactory,PM10,4
+Gangapur Road,2026-03-02,118.3,Moderate,O3,89.5,Satisfactory,PM10,4
+Gangapur Road,2026-03-03,109.5,Moderate,PM2.5,96.1,Satisfactory,PM10,4
+Gangapur Road,2026-03-04,111.4,Moderate,PM10,99.7,Satisfactory,PM10,4
+Gangapur Road,2026-03-05,114.4,Moderate,PM10,75.6,Satisfactory,PM10,4
+Gangapur Road,2026-03-06,115.2,Moderate,PM10,92.5,Satisfactory,PM10,4
+Gangapur Road,2026-03-07,111.3,Moderate,O3,96.9,Satisfactory,PM10,4
+Gangapur Road,2026-03-08,117.5,Moderate,O3,102.9,Moderate,PM10,4
+Gangapur Road,2026-03-09,107.1,Moderate,O3,102.4,Moderate,PM10,4
+Gangapur Road,2026-03-10,113.0,Moderate,PM2.5,125.9,Moderate,PM10,4
+Gangapur Road,2026-03-11,111.0,Moderate,PM2.5,129.7,Moderate,PM10,4
+Gangapur Road,2026-03-12,112.9,Moderate,PM10,106.1,Moderate,PM10,4
+Gangapur Road,2026-03-13,114.4,Moderate,PM10,107.2,Moderate,PM10,4
+Gangapur Road,2026-03-14,110.4,Moderate,O3,109.8,Moderate,PM10,4
+Gangapur Road,2026-03-15,117.1,Moderate,O3,95.7,Satisfactory,PM10,4
+Gangapur Road,2026-03-16,106.9,Moderate,O3,101.8,Moderate,PM10,4
+Gangapur Road,2026-03-17,113.3,Moderate,PM2.5,123.1,Moderate,PM10,4
+Gangapur Road,2026-03-18,111.3,Moderate,PM2.5,122.9,Moderate,PM10,4
+Gangapur Road,2026-03-19,112.9,Moderate,PM10,103.4,Moderate,PM10,4
+Gangapur Road,2026-03-20,114.4,Moderate,PM10,131.3,Moderate,PM10,3
+Gangapur Road,2026-03-21,110.3,Moderate,O3,88.2,Satisfactory,PM10,3
+Gangapur Road,2026-03-22,117.0,Moderate,O3,77.6,Satisfactory,PM10,4
+Gangapur Road,2026-03-23,106.9,Moderate,O3,106.4,Moderate,PM2.5,4
+Gangapur Road,2026-03-24,113.4,Moderate,PM2.5,89.5,Satisfactory,PM10,4
+Gangapur Road,2026-03-25,111.4,Moderate,PM2.5,94.7,Satisfactory,PM10,4
+Gangapur Road,2026-03-26,112.8,Moderate,PM10,107.3,Moderate,PM10,4
+Gangapur Road,2026-03-27,114.4,Moderate,PM10,124.4,Moderate,PM10,4
+Gangapur Road,2026-03-28,110.3,Moderate,O3,104.9,Moderate,PM10,4
+Gangapur Road,2026-03-29,117.0,Moderate,O3,78.4,Satisfactory,PM10,4
+Gangapur Road,2026-03-30,106.9,Moderate,O3,88.6,Satisfactory,PM10,4
+Gangapur Road,2026-03-31,113.4,Moderate,PM2.5,100.6,Moderate,PM10,4
+Gangapur Road,2026-04-01,108.1,Moderate,PM10,83.1,Satisfactory,PM10,4
+Gangapur Road,2026-04-02,112.2,Moderate,PM10,72.2,Satisfactory,PM10,4
+Gangapur Road,2026-04-03,112.8,Moderate,PM10,76.1,Satisfactory,PM10,4
+Gangapur Road,2026-04-04,107.6,Moderate,PM10,58.8,Satisfactory,PM10,5
+Gangapur Road,2026-04-05,103.3,Moderate,O3,57.0,Satisfactory,PM10,4
+Gangapur Road,2026-04-06,100.3,Moderate,PM10,55.8,Satisfactory,PM10,4
+Gangapur Road,2026-04-07,104.0,Moderate,PM10,72.9,Satisfactory,PM10,4
+Gangapur Road,2026-04-08,109.8,Moderate,PM10,96.3,Satisfactory,PM10,4
+Gangapur Road,2026-04-09,112.9,Moderate,PM10,103.7,Moderate,PM10,4
+Gangapur Road,2026-04-10,113.1,Moderate,PM10,110.8,Moderate,PM10,4
+Gangapur Road,2026-04-11,107.8,Moderate,PM10,114.4,Moderate,PM2.5,4
+Gangapur Road,2026-04-12,103.3,Moderate,O3,92.6,Satisfactory,PM10,4
+Gangapur Road,2026-04-13,100.5,Moderate,PM10,86.8,Satisfactory,PM10,4
+Gangapur Road,2026-04-14,104.1,Moderate,PM10,86.6,Satisfactory,PM10,4
+Gangapur Road,2026-04-15,109.9,Moderate,PM10,80.6,Satisfactory,PM10,3
+Gangapur Road,2026-04-16,113.0,Moderate,PM10,70.6,Satisfactory,PM10,3
+Gangapur Road,2026-04-17,113.2,Moderate,PM10,83.0,Satisfactory,PM10,4
+Gangapur Road,2026-04-18,107.8,Moderate,PM10,96.8,Satisfactory,PM10,4
+Gangapur Road,2026-04-19,103.3,Moderate,O3,126.0,Moderate,PM2.5,4
+Gangapur Road,2026-04-20,100.5,Moderate,PM10,144.8,Moderate,PM2.5,5
+Gangapur Road,2026-04-21,104.1,Moderate,PM10,83.5,Satisfactory,PM10,4
+Gangapur Road,2026-04-22,109.9,Moderate,PM10,92.2,Satisfactory,PM10,4
+Gangapur Road,2026-04-23,113.0,Moderate,PM10,74.7,Satisfactory,PM10,4
+Gangapur Road,2026-04-24,113.2,Moderate,PM10,79.7,Satisfactory,PM10,4
+Gangapur Road,2026-04-25,107.8,Moderate,PM10,87.1,Satisfactory,PM10,3
+Gangapur Road,2026-04-26,103.3,Moderate,O3,91.4,Satisfactory,PM10,3
+Gangapur Road,2026-04-27,100.5,Moderate,PM10,93.7,Satisfactory,PM10,3
+Gangapur Road,2026-04-28,104.1,Moderate,PM10,72.1,Satisfactory,PM10,4
+Gangapur Road,2026-04-29,109.9,Moderate,PM10,63.5,Satisfactory,PM10,4
+Gangapur Road,2026-04-30,113.0,Moderate,PM10,79.0,Satisfactory,PM10,4
+Gangapur Road,2026-05-01,110.3,Moderate,PM10,77.9,Satisfactory,PM10,3
+Gangapur Road,2026-05-02,101.3,Moderate,PM10,59.5,Satisfactory,PM10,4
+Gangapur Road,2026-05-03,92.0,Satisfactory,PM10,65.4,Satisfactory,PM10,4
+Gangapur Road,2026-05-04,92.5,Satisfactory,PM10,72.9,Satisfactory,PM10,4
+Gangapur Road,2026-05-05,98.7,Satisfactory,PM10,56.7,Satisfactory,PM10,4
+Gangapur Road,2026-05-06,105.2,Moderate,PM10,71.7,Satisfactory,PM10,4
+Gangapur Road,2026-05-07,108.8,Moderate,PM10,83.2,Satisfactory,PM10,4
+Gangapur Road,2026-05-08,106.6,Moderate,PM10,92.3,Satisfactory,PM10,3
+Gangapur Road,2026-05-09,98.9,Satisfactory,PM10,97.9,Satisfactory,PM10,3
+Gangapur Road,2026-05-10,88.4,Satisfactory,PM10,84.3,Satisfactory,PM10,3
+Gangapur Road,2026-05-11,86.9,Satisfactory,PM10,95.9,Satisfactory,PM10,3
+Gangapur Road,2026-05-12,93.9,Satisfactory,PM10,77.3,Satisfactory,PM10,4
+Gangapur Road,2026-05-13,103.7,Moderate,PM10,78.6,Satisfactory,PM10,4
+Gangapur Road,2026-05-14,107.6,Moderate,PM10,59.2,Satisfactory,PM10,4
+Gangapur Road,2026-05-15,106.2,Moderate,PM10,51.1,Satisfactory,PM10,5
+Gangapur Road,2026-05-16,98.8,Satisfactory,PM10,47.5,Good,PM10,3
+Gangapur Road,2026-05-17,88.3,Satisfactory,PM10,62.0,Satisfactory,PM10,3
+Gangapur Road,2026-05-18,86.3,Satisfactory,PM10,84.9,Satisfactory,PM10,4
+Gangapur Road,2026-05-19,93.4,Satisfactory,PM10,74.0,Satisfactory,PM10,4
+Gangapur Road,2026-05-20,103.6,Moderate,PM10,51.2,Satisfactory,PM10,4
+Gangapur Road,2026-05-21,107.5,Moderate,PM10,44.3,Good,PM10,4
+Gangapur Road,2026-05-22,106.2,Moderate,PM10,45.9,Good,PM10,4
+Gangapur Road,2026-05-23,98.8,Satisfactory,PM10,42.9,Good,PM10,4
+Gangapur Road,2026-05-24,88.3,Satisfactory,PM10,39.3,Good,PM10,3
+Gangapur Road,2026-05-25,86.2,Satisfactory,PM10,40.1,Good,PM10,4
+Gangapur Road,2026-05-26,93.3,Satisfactory,PM10,30.3,Good,PM10,3
+Gangapur Road,2026-05-27,103.6,Moderate,PM10,40.0,Good,PM10,3
+Gangapur Road,2026-05-28,107.5,Moderate,PM10,48.1,Good,PM10,4
+Gangapur Road,2026-05-29,106.2,Moderate,PM10,65.2,Satisfactory,PM2.5,3
+Gangapur Road,2026-05-30,98.8,Satisfactory,PM10,,,,2
+Gangapur Road,2026-05-31,88.2,Satisfactory,PM10,46.2,Good,PM10,3
+Gangapur Road,2026-06-01,77.1,Satisfactory,PM10,38.3,Good,PM10,3
+Gangapur Road,2026-06-02,75.8,Satisfactory,PM10,36.7,Good,PM10,3
+Gangapur Road,2026-06-03,83.8,Satisfactory,PM10,38.7,Good,PM10,3
+Gangapur Road,2026-06-04,86.6,Satisfactory,PM10,45.8,Good,PM10,3
+Gangapur Road,2026-06-05,79.4,Satisfactory,PM10,46.1,Good,PM10,4
+Gangapur Road,2026-06-06,64.8,Satisfactory,PM10,45.6,Good,PM10,4
+Gangapur Road,2026-06-07,51.7,Satisfactory,PM10,50.0,Satisfactory,PM10,4
+Gangapur Road,2026-06-08,63.0,Satisfactory,CO,41.6,Good,PM10,4
+Gangapur Road,2026-06-09,69.9,Satisfactory,CO,50.7,Satisfactory,PM10,4
+Gangapur Road,2026-06-10,69.3,Satisfactory,CO,46.6,Good,PM10,4
+Gangapur Road,2026-06-11,67.4,Satisfactory,CO,44.1,Good,PM10,4
+Gangapur Road,2026-06-12,64.8,Satisfactory,CO,48.5,Good,PM10,4
+Gangapur Road,2026-06-13,64.6,Satisfactory,CO,46.4,Good,PM10,4
+Gangapur Road,2026-06-14,68.4,Satisfactory,CO,30.1,Good,PM10,4
+Gangapur Road,2026-06-15,75.0,Satisfactory,CO,29.6,Good,PM10,4
+Gangapur Road,2026-06-16,75.5,Satisfactory,CO,34.4,Good,PM10,4
+Gangapur Road,2026-06-17,75.9,Satisfactory,CO,33.3,Good,PM10,4
+Gangapur Road,2026-06-18,70.1,Satisfactory,CO,34.7,Good,PM10,4
+Gangapur Road,2026-06-19,66.7,Satisfactory,CO,38.5,Good,PM10,4
+Gangapur Road,2026-06-20,65.4,Satisfactory,CO,26.3,Good,O3,4
+Gangapur Road,2026-06-21,69.2,Satisfactory,CO,27.7,Good,PM2.5,4
+Gangapur Road,2026-06-22,75.3,Satisfactory,CO,35.9,Good,PM2.5,4
+Gangapur Road,2026-06-23,75.4,Satisfactory,CO,26.4,Good,O3,4
+Gangapur Road,2026-06-24,75.8,Satisfactory,CO,29.5,Good,PM10,4
+Gangapur Road,2026-06-25,70.2,Satisfactory,CO,41.1,Good,PM10,4
+Gangapur Road,2026-06-26,66.8,Satisfactory,CO,36.8,Good,PM10,4
+Gangapur Road,2026-06-27,65.4,Satisfactory,CO,41.8,Good,PM10,4
+Gangapur Road,2026-06-28,69.2,Satisfactory,CO,53.0,Satisfactory,PM10,4
+Gangapur Road,2026-06-29,75.3,Satisfactory,CO,27.1,Good,PM10,4
+Gangapur Road,2026-06-30,75.4,Satisfactory,CO,26.5,Good,O3,4
+Gangapur Road,2026-07-01,75.8,Satisfactory,CO,,,,0
+Gangapur Road,2026-07-02,71.3,Satisfactory,CO,,,,0
+Gangapur Road,2026-07-03,67.9,Satisfactory,CO,,,,0
+Gangapur Road,2026-07-04,65.5,Satisfactory,CO,,,,0
+Gangapur Road,2026-07-05,66.6,Satisfactory,CO,,,,0
+Gangapur Road,2026-07-06,70.6,Satisfactory,CO,,,,0
+Gangapur Road,2026-07-07,73.1,Satisfactory,CO,,,,0
+Gangapur Road,2026-07-08,73.2,Satisfactory,CO,,,,0
+Gangapur Road,2026-07-09,71.1,Satisfactory,CO,,,,0
+Gangapur Road,2026-07-10,67.6,Satisfactory,CO,,,,0
+Gangapur Road,2026-07-11,65.5,Satisfactory,CO,,,,0
+Gangapur Road,2026-07-12,66.6,Satisfactory,CO,,,,0
+Gangapur Road,2026-07-13,70.6,Satisfactory,CO,,,,0
+Gangapur Road,2026-07-14,73.1,Satisfactory,CO,,,,0
+Gangapur Road,2026-07-15,73.2,Satisfactory,CO,,,,0
+Gangapur Road,2026-07-16,71.1,Satisfactory,CO,,,,0
+Gangapur Road,2026-07-17,67.6,Satisfactory,CO,,,,0
+Gangapur Road,2026-07-18,65.5,Satisfactory,CO,,,,0
+Gangapur Road,2026-07-19,66.6,Satisfactory,CO,,,,0
+Gangapur Road,2026-07-20,70.6,Satisfactory,CO,,,,0
+Gangapur Road,2026-07-21,73.1,Satisfactory,CO,,,,0
+Gangapur Road,2026-07-22,73.2,Satisfactory,CO,,,,0
+Gangapur Road,2026-07-23,71.1,Satisfactory,CO,,,,0
+Gangapur Road,2026-07-24,67.6,Satisfactory,CO,,,,0
+Gangapur Road,2026-07-25,65.5,Satisfactory,CO,,,,0
+Gangapur Road,2026-07-26,66.6,Satisfactory,CO,,,,0
+Gangapur Road,2026-07-27,70.6,Satisfactory,CO,,,,0
+Gangapur Road,2026-07-28,73.1,Satisfactory,CO,,,,0
+Gangapur Road,2026-07-29,73.2,Satisfactory,CO,,,,0
+Gangapur Road,2026-07-30,71.1,Satisfactory,CO,,,,0
+Gangapur Road,2026-07-31,67.6,Satisfactory,CO,,,,0
+Gangapur Road,2026-08-01,67.6,Satisfactory,CO,55.2,Satisfactory,PM10,4
+Gangapur Road,2026-08-02,66.7,Satisfactory,CO,36.5,Good,PM10,4
+Gangapur Road,2026-08-03,68.2,Satisfactory,CO,37.2,Good,PM10,4
+Gangapur Road,2026-08-04,70.8,Satisfactory,CO,40.0,Good,PM10,5
+Gangapur Road,2026-08-05,70.6,Satisfactory,CO,51.3,Satisfactory,PM10,4
+Gangapur Road,2026-08-06,70.2,Satisfactory,CO,36.0,Good,PM10,5
+Gangapur Road,2026-08-07,67.5,Satisfactory,CO,42.3,Good,PM10,4
+Gangapur Road,2026-08-08,66.5,Satisfactory,CO,51.0,Satisfactory,PM10,4
+Gangapur Road,2026-08-09,66.6,Satisfactory,CO,63.6,Satisfactory,PM10,4
+Gangapur Road,2026-08-10,68.5,Satisfactory,CO,38.4,Good,PM10,4
+Gangapur Road,2026-08-11,71.0,Satisfactory,CO,33.1,Good,PM10,4
+Gangapur Road,2026-08-12,70.9,Satisfactory,CO,70.7,Satisfactory,PM10,4
+Gangapur Road,2026-08-13,70.5,Satisfactory,CO,34.3,Good,PM10,4
+Gangapur Road,2026-08-14,67.6,Satisfactory,CO,,,,0
+Gangapur Road,2026-08-15,66.5,Satisfactory,CO,,,,0
+Gangapur Road,2026-08-16,66.6,Satisfactory,CO,,,,0
+Gangapur Road,2026-08-17,68.5,Satisfactory,CO,50.5,Satisfactory,PM10,4
+Gangapur Road,2026-08-18,71.1,Satisfactory,CO,,,,2
+Gangapur Road,2026-08-19,71.0,Satisfactory,CO,,,,0
+Gangapur Road,2026-08-20,70.5,Satisfactory,CO,26.4,Good,PM10,4
+Gangapur Road,2026-08-21,67.6,Satisfactory,CO,24.6,Good,PM10,4
+Gangapur Road,2026-08-22,66.5,Satisfactory,CO,25.2,Good,PM10,4
+Gangapur Road,2026-08-23,66.6,Satisfactory,CO,22.8,Good,PM10,4
+Gangapur Road,2026-08-24,68.5,Satisfactory,CO,38.2,Good,PM10,4
+Gangapur Road,2026-08-25,71.1,Satisfactory,CO,37.5,Good,PM10,3
+Gangapur Road,2026-08-26,71.0,Satisfactory,CO,37.3,Good,PM10,3
+Gangapur Road,2026-08-27,70.5,Satisfactory,CO,34.2,Good,PM10,4
+Gangapur Road,2026-08-28,67.6,Satisfactory,CO,30.4,Good,PM10,4
+Gangapur Road,2026-08-29,66.5,Satisfactory,CO,26.6,Good,PM10,3
+Gangapur Road,2026-08-30,66.6,Satisfactory,CO,20.2,Good,PM10,3
+Gangapur Road,2026-08-31,68.5,Satisfactory,CO,24.7,Good,PM10,3
+Gangapur Road,2026-09-01,72.9,Satisfactory,CO,,,,0
+Gangapur Road,2026-09-02,72.5,Satisfactory,CO,,,,0
+Gangapur Road,2026-09-03,70.4,Satisfactory,CO,,,,0
+Gangapur Road,2026-09-04,67.7,Satisfactory,CO,,,,0
+Gangapur Road,2026-09-05,68.0,Satisfactory,CO,,,,0
+Gangapur Road,2026-09-06,67.1,Satisfactory,CO,,,,0
+Gangapur Road,2026-09-07,67.8,Satisfactory,CO,,,,0
+Gangapur Road,2026-09-08,70.2,Satisfactory,CO,,,,0
+Gangapur Road,2026-09-09,70.1,Satisfactory,CO,,,,0
+Gangapur Road,2026-09-10,69.5,Satisfactory,CO,,,,0
+Gangapur Road,2026-09-11,67.8,Satisfactory,CO,,,,0
+Gangapur Road,2026-09-12,68.1,Satisfactory,CO,,,,0
+Gangapur Road,2026-09-13,67.3,Satisfactory,CO,,,,0
+Gangapur Road,2026-09-14,67.9,Satisfactory,CO,,,,0
+Gangapur Road,2026-09-15,70.2,Satisfactory,CO,,,,0
+Gangapur Road,2026-09-16,70.2,Satisfactory,CO,,,,0
+Gangapur Road,2026-09-17,69.6,Satisfactory,CO,,,,0
+Gangapur Road,2026-09-18,67.8,Satisfactory,CO,,,,0
+Gangapur Road,2026-09-19,68.1,Satisfactory,CO,,,,0
+Gangapur Road,2026-09-20,67.3,Satisfactory,CO,,,,0
+Gangapur Road,2026-09-21,67.9,Satisfactory,CO,,,,0
+Gangapur Road,2026-09-22,70.2,Satisfactory,CO,,,,0
+Gangapur Road,2026-09-23,70.2,Satisfactory,CO,,,,0
+Gangapur Road,2026-09-24,69.6,Satisfactory,CO,,,,0
+Gangapur Road,2026-09-25,67.8,Satisfactory,CO,,,,0
+Gangapur Road,2026-09-26,68.1,Satisfactory,CO,,,,0
+Gangapur Road,2026-09-27,67.3,Satisfactory,CO,,,,0
+Gangapur Road,2026-09-28,67.9,Satisfactory,CO,,,,0
+Gangapur Road,2026-09-29,70.2,Satisfactory,CO,,,,0
+Gangapur Road,2026-09-30,70.2,Satisfactory,CO,,,,0
+Gangapur Road,2026-10-01,71.2,Satisfactory,PM10,,,,0
+Gangapur Road,2026-10-02,74.7,Satisfactory,PM10,,,,0
+Gangapur Road,2026-10-03,71.7,Satisfactory,PM10,,,,0
+Gangapur Road,2026-10-04,68.6,Satisfactory,PM10,,,,0
+Gangapur Road,2026-10-05,72.7,Satisfactory,PM10,,,,0
+Gangapur Road,2026-10-06,80.3,Satisfactory,PM10,,,,0
+Gangapur Road,2026-10-07,87.8,Satisfactory,PM10,,,,0
+Gangapur Road,2026-10-08,91.9,Satisfactory,PM10,,,,0
+Gangapur Road,2026-10-09,92.7,Satisfactory,PM10,,,,0
+Gangapur Road,2026-10-10,85.4,Satisfactory,PM10,,,,0
+Gangapur Road,2026-10-11,76.6,Satisfactory,PM10,,,,0
+Gangapur Road,2026-10-12,78.3,Satisfactory,PM10,,,,0
+Gangapur Road,2026-10-13,90.4,Satisfactory,PM10,,,,0
+Gangapur Road,2026-10-14,102.6,Moderate,PM10,,,,0
+Gangapur Road,2026-10-15,106.0,Moderate,PM10,,,,0
+Gangapur Road,2026-10-16,103.2,Moderate,PM10,,,,0
+Gangapur Road,2026-10-17,95.9,Satisfactory,PM10,,,,0
+Gangapur Road,2026-10-18,87.3,Satisfactory,PM10,,,,0
+Gangapur Road,2026-10-19,86.1,Satisfactory,PM10,,,,0
+Gangapur Road,2026-10-20,90.1,Satisfactory,PM10,,,,0
+Gangapur Road,2026-10-21,95.5,Satisfactory,PM10,,,,0
+Gangapur Road,2026-10-22,96.8,Satisfactory,PM10,,,,0
+Gangapur Road,2026-10-23,94.9,Satisfactory,PM10,,,,0
+Gangapur Road,2026-10-24,86.9,Satisfactory,PM10,,,,0
+Gangapur Road,2026-10-25,78.4,Satisfactory,PM10,,,,0
+Gangapur Road,2026-10-26,77.6,Satisfactory,PM10,,,,0
+Gangapur Road,2026-10-27,85.7,Satisfactory,PM10,,,,0
+Gangapur Road,2026-10-28,96.1,Satisfactory,PM10,,,,0
+Gangapur Road,2026-10-29,100.6,Moderate,PM10,,,,0
+Gangapur Road,2026-10-30,98.9,Satisfactory,PM10,,,,0
+Gangapur Road,2026-10-31,92.3,Satisfactory,PM10,,,,0
+Gangapur Road,2026-11-01,86.9,Satisfactory,PM10,,,,0
+Gangapur Road,2026-11-02,92.1,Satisfactory,PM10,,,,0
+Gangapur Road,2026-11-03,102.3,Moderate,PM10,,,,0
+Gangapur Road,2026-11-04,111.3,Moderate,PM10,,,,0
+Gangapur Road,2026-11-05,119.7,Moderate,PM10,,,,0
+Gangapur Road,2026-11-06,123.7,Moderate,PM10,,,,0
+Gangapur Road,2026-11-07,116.8,Moderate,PM10,,,,0
+Gangapur Road,2026-11-08,107.7,Moderate,PM10,,,,0
+Gangapur Road,2026-11-09,103.4,Moderate,PM10,,,,0
+Gangapur Road,2026-11-10,103.0,Moderate,PM10,,,,0
+Gangapur Road,2026-11-11,102.8,Moderate,PM10,,,,0
+Gangapur Road,2026-11-12,103.0,Moderate,PM10,,,,0
+Gangapur Road,2026-11-13,104.7,Moderate,PM10,,,,0
+Gangapur Road,2026-11-14,105.6,Moderate,PM10,,,,0
+Gangapur Road,2026-11-15,108.0,Moderate,O3,,,,0
+Gangapur Road,2026-11-16,111.1,Moderate,O3,,,,0
+Gangapur Road,2026-11-17,114.3,Moderate,PM10,,,,0
+Gangapur Road,2026-11-18,113.2,Moderate,PM10,,,,0
+Gangapur Road,2026-11-19,111.8,Moderate,O3,,,,0
+Gangapur Road,2026-11-20,120.5,Moderate,O3,,,,0
+Gangapur Road,2026-11-21,129.9,Moderate,O3,,,,0
+Gangapur Road,2026-11-22,130.2,Moderate,O3,,,,0
+Gangapur Road,2026-11-23,120.6,Moderate,O3,,,,0
+Gangapur Road,2026-11-24,106.0,Moderate,O3,,,,0
+Gangapur Road,2026-11-25,102.7,Moderate,CO,,,,0
+Gangapur Road,2026-11-26,100.6,Moderate,CO,,,,0
+Gangapur Road,2026-11-27,103.0,Moderate,O3,,,,0
+Gangapur Road,2026-11-28,116.2,Moderate,O3,,,,0
+Gangapur Road,2026-11-29,122.3,Moderate,O3,,,,0
+Gangapur Road,2026-11-30,112.8,Moderate,O3,,,,0
+Gangapur Road,2026-12-01,103.6,Moderate,CO,,,,0
+Gangapur Road,2026-12-02,103.1,Moderate,CO,,,,0
+Gangapur Road,2026-12-03,107.5,Moderate,PM10,,,,0
+Gangapur Road,2026-12-04,108.2,Moderate,PM10,,,,0
+Gangapur Road,2026-12-05,110.6,Moderate,O3,,,,0
+Gangapur Road,2026-12-06,119.0,Moderate,O3,,,,0
+Gangapur Road,2026-12-07,117.4,Moderate,O3,,,,0
+Gangapur Road,2026-12-08,122.4,Moderate,PM10,,,,0
+Gangapur Road,2026-12-09,121.5,Moderate,PM10,,,,0
+Gangapur Road,2026-12-10,119.9,Moderate,O3,,,,0
+Gangapur Road,2026-12-11,128.9,Moderate,O3,,,,0
+Gangapur Road,2026-12-12,134.7,Moderate,O3,,,,0
+Gangapur Road,2026-12-13,133.5,Moderate,O3,,,,0
+Gangapur Road,2026-12-14,124.3,Moderate,O3,,,,0
+Gangapur Road,2026-12-15,112.5,Moderate,O3,,,,0
+Gangapur Road,2026-12-16,103.7,Moderate,CO,,,,0
+Gangapur Road,2026-12-17,104.6,Moderate,PM10,,,,0
+Gangapur Road,2026-12-18,109.6,Moderate,O3,,,,0
+Gangapur Road,2026-12-19,122.2,Moderate,O3,,,,0
+Gangapur Road,2026-12-20,126.7,Moderate,O3,,,,0
+Gangapur Road,2026-12-21,118.9,Moderate,O3,,,,0
+Gangapur Road,2026-12-22,107.9,Moderate,O3,,,,0
+Gangapur Road,2026-12-23,103.4,Moderate,CO,,,,0
+Gangapur Road,2026-12-24,105.0,Moderate,PM10,,,,0
+Gangapur Road,2026-12-25,107.2,Moderate,O3,,,,0
+Gangapur Road,2026-12-26,121.0,Moderate,O3,,,,0
+Gangapur Road,2026-12-27,126.6,Moderate,O3,,,,0
+Gangapur Road,2026-12-28,119.2,Moderate,O3,,,,0
+Gangapur Road,2026-12-29,108.4,Moderate,O3,,,,0
+Gangapur Road,2026-12-30,103.4,Moderate,CO,,,,0
+Gangapur Road,2026-12-31,104.9,Moderate,PM10,,,,0
+Pandav Nagari,2026-01-01,117.8,Moderate,PM10,,,,0
+Pandav Nagari,2026-01-02,182.0,Moderate,PM2.5,,,,0
+Pandav Nagari,2026-01-03,208.0,Poor,PM2.5,,,,0
+Pandav Nagari,2026-01-04,183.0,Moderate,PM2.5,,,,0
+Pandav Nagari,2026-01-05,104.9,Moderate,PM10,,,,0
+Pandav Nagari,2026-01-06,71.4,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-01-07,79.9,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-01-08,111.0,Moderate,PM10,,,,0
+Pandav Nagari,2026-01-09,135.0,Moderate,PM2.5,,,,0
+Pandav Nagari,2026-01-10,181.1,Moderate,PM2.5,,,,0
+Pandav Nagari,2026-01-11,176.5,Moderate,PM2.5,,,,0
+Pandav Nagari,2026-01-12,139.1,Moderate,PM2.5,,,,0
+Pandav Nagari,2026-01-13,118.6,Moderate,PM10,,,,0
+Pandav Nagari,2026-01-14,116.7,Moderate,PM10,,,,0
+Pandav Nagari,2026-01-15,119.2,Moderate,PM10,,,,0
+Pandav Nagari,2026-01-16,159.8,Moderate,PM2.5,,,,0
+Pandav Nagari,2026-01-17,208.6,Poor,PM2.5,,,,0
+Pandav Nagari,2026-01-18,261.3,Poor,PM2.5,,,,0
+Pandav Nagari,2026-01-19,264.3,Poor,PM2.5,,,,0
+Pandav Nagari,2026-01-20,232.5,Poor,PM2.5,,,,0
+Pandav Nagari,2026-01-21,212.4,Poor,PM2.5,,,,0
+Pandav Nagari,2026-01-22,213.6,Poor,PM2.5,,,,0
+Pandav Nagari,2026-01-23,239.2,Poor,PM2.5,,,,0
+Pandav Nagari,2026-01-24,269.4,Poor,PM2.5,,,,0
+Pandav Nagari,2026-01-25,273.2,Poor,PM2.5,,,,0
+Pandav Nagari,2026-01-26,256.3,Poor,PM2.5,,,,0
+Pandav Nagari,2026-01-27,229.8,Poor,PM2.5,,,,0
+Pandav Nagari,2026-01-28,211.9,Poor,PM2.5,,,,0
+Pandav Nagari,2026-01-29,213.5,Poor,PM2.5,,,,0
+Pandav Nagari,2026-01-30,239.2,Poor,PM2.5,,,,0
+Pandav Nagari,2026-01-31,269.4,Poor,PM2.5,,,,0
+Pandav Nagari,2026-02-01,255.7,Poor,PM2.5,,,,0
+Pandav Nagari,2026-02-02,226.5,Poor,PM2.5,,,,0
+Pandav Nagari,2026-02-03,196.6,Moderate,PM2.5,,,,0
+Pandav Nagari,2026-02-04,182.6,Moderate,PM2.5,,,,0
+Pandav Nagari,2026-02-05,191.9,Moderate,PM2.5,,,,0
+Pandav Nagari,2026-02-06,217.6,Poor,PM2.5,,,,0
+Pandav Nagari,2026-02-07,241.7,Poor,PM2.5,,,,0
+Pandav Nagari,2026-02-08,245.6,Poor,PM2.5,,,,0
+Pandav Nagari,2026-02-09,224.6,Poor,PM2.5,,,,0
+Pandav Nagari,2026-02-10,196.2,Moderate,PM2.5,,,,0
+Pandav Nagari,2026-02-11,182.6,Moderate,PM2.5,,,,0
+Pandav Nagari,2026-02-12,191.9,Moderate,PM2.5,,,,0
+Pandav Nagari,2026-02-13,217.6,Poor,PM2.5,,,,0
+Pandav Nagari,2026-02-14,241.7,Poor,PM2.5,,,,0
+Pandav Nagari,2026-02-15,245.6,Poor,PM2.5,,,,0
+Pandav Nagari,2026-02-16,224.6,Poor,PM2.5,,,,0
+Pandav Nagari,2026-02-17,196.2,Moderate,PM2.5,,,,0
+Pandav Nagari,2026-02-18,182.6,Moderate,PM2.5,,,,0
+Pandav Nagari,2026-02-19,191.9,Moderate,PM2.5,,,,0
+Pandav Nagari,2026-02-20,217.6,Poor,PM2.5,,,,0
+Pandav Nagari,2026-02-21,241.7,Poor,PM2.5,,,,0
+Pandav Nagari,2026-02-22,245.6,Poor,PM2.5,,,,0
+Pandav Nagari,2026-02-23,224.6,Poor,PM2.5,,,,0
+Pandav Nagari,2026-02-24,196.2,Moderate,PM2.5,,,,0
+Pandav Nagari,2026-02-25,182.6,Moderate,PM2.5,,,,0
+Pandav Nagari,2026-02-26,191.9,Moderate,PM2.5,,,,0
+Pandav Nagari,2026-02-27,217.6,Poor,PM2.5,,,,0
+Pandav Nagari,2026-02-28,241.7,Poor,PM2.5,,,,0
+Pandav Nagari,2026-03-01,213.0,Poor,PM2.5,,,,0
+Pandav Nagari,2026-03-02,185.4,Moderate,PM2.5,,,,0
+Pandav Nagari,2026-03-03,160.2,Moderate,PM2.5,,,,0
+Pandav Nagari,2026-03-04,144.2,Moderate,PM2.5,,,,0
+Pandav Nagari,2026-03-05,155.7,Moderate,PM2.5,,,,0
+Pandav Nagari,2026-03-06,186.9,Moderate,PM2.5,,,,0
+Pandav Nagari,2026-03-07,209.7,Poor,PM2.5,,,,0
+Pandav Nagari,2026-03-08,207.3,Poor,PM2.5,,,,0
+Pandav Nagari,2026-03-09,186.1,Moderate,PM2.5,,,,0
+Pandav Nagari,2026-03-10,160.5,Moderate,PM2.5,,,,0
+Pandav Nagari,2026-03-11,144.4,Moderate,PM2.5,,,,0
+Pandav Nagari,2026-03-12,155.7,Moderate,PM2.5,,,,0
+Pandav Nagari,2026-03-13,186.9,Moderate,PM2.5,,,,0
+Pandav Nagari,2026-03-14,209.7,Poor,PM2.5,,,,0
+Pandav Nagari,2026-03-15,207.3,Poor,PM2.5,,,,0
+Pandav Nagari,2026-03-16,186.1,Moderate,PM2.5,,,,0
+Pandav Nagari,2026-03-17,160.5,Moderate,PM2.5,,,,0
+Pandav Nagari,2026-03-18,144.4,Moderate,PM2.5,,,,0
+Pandav Nagari,2026-03-19,155.7,Moderate,PM2.5,,,,0
+Pandav Nagari,2026-03-20,186.9,Moderate,PM2.5,,,,0
+Pandav Nagari,2026-03-21,209.7,Poor,PM2.5,,,,0
+Pandav Nagari,2026-03-22,207.3,Poor,PM2.5,,,,0
+Pandav Nagari,2026-03-23,186.1,Moderate,PM2.5,,,,0
+Pandav Nagari,2026-03-24,160.5,Moderate,PM2.5,,,,0
+Pandav Nagari,2026-03-25,144.4,Moderate,PM2.5,,,,0
+Pandav Nagari,2026-03-26,155.7,Moderate,PM2.5,,,,0
+Pandav Nagari,2026-03-27,186.9,Moderate,PM2.5,,,,0
+Pandav Nagari,2026-03-28,209.7,Poor,PM2.5,,,,0
+Pandav Nagari,2026-03-29,207.3,Poor,PM2.5,,,,0
+Pandav Nagari,2026-03-30,186.1,Moderate,PM2.5,,,,0
+Pandav Nagari,2026-03-31,160.5,Moderate,PM2.5,,,,0
+Pandav Nagari,2026-04-01,130.3,Moderate,PM2.5,,,,0
+Pandav Nagari,2026-04-02,86.3,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-04-03,72.9,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-04-04,80.6,Satisfactory,O3,,,,0
+Pandav Nagari,2026-04-05,77.9,Satisfactory,O3,,,,0
+Pandav Nagari,2026-04-06,74.6,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-04-07,73.1,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-04-08,66.9,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-04-09,70.0,Satisfactory,O3,,,,0
+Pandav Nagari,2026-04-10,74.5,Satisfactory,O3,,,,0
+Pandav Nagari,2026-04-11,78.9,Satisfactory,O3,,,,0
+Pandav Nagari,2026-04-12,78.1,Satisfactory,O3,,,,0
+Pandav Nagari,2026-04-13,80.3,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-04-14,75.3,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-04-15,68.1,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-04-16,70.6,Satisfactory,O3,,,,0
+Pandav Nagari,2026-04-17,74.9,Satisfactory,O3,,,,0
+Pandav Nagari,2026-04-18,79.1,Satisfactory,O3,,,,0
+Pandav Nagari,2026-04-19,78.3,Satisfactory,O3,,,,0
+Pandav Nagari,2026-04-20,80.5,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-04-21,75.3,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-04-22,68.1,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-04-23,70.6,Satisfactory,O3,,,,0
+Pandav Nagari,2026-04-24,74.9,Satisfactory,O3,,,,0
+Pandav Nagari,2026-04-25,79.1,Satisfactory,O3,,,,0
+Pandav Nagari,2026-04-26,78.3,Satisfactory,O3,,,,0
+Pandav Nagari,2026-04-27,80.5,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-04-28,75.3,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-04-29,68.1,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-04-30,70.6,Satisfactory,O3,,,,0
+Pandav Nagari,2026-05-01,71.9,Satisfactory,O3,,,,0
+Pandav Nagari,2026-05-02,74.7,Satisfactory,O3,,,,0
+Pandav Nagari,2026-05-03,73.1,Satisfactory,O3,,,,0
+Pandav Nagari,2026-05-04,71.9,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-05-05,56.4,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-05-06,49.6,Good,O3,,,,0
+Pandav Nagari,2026-05-07,53.2,Satisfactory,O3,,,,0
+Pandav Nagari,2026-05-08,56.8,Satisfactory,O3,,,,0
+Pandav Nagari,2026-05-09,59.9,Satisfactory,O3,,,,0
+Pandav Nagari,2026-05-10,62.5,Satisfactory,O3,,,,0
+Pandav Nagari,2026-05-11,51.9,Satisfactory,O3,,,,0
+Pandav Nagari,2026-05-12,40.2,Good,O3,,,,0
+Pandav Nagari,2026-05-13,40.8,Good,O3,,,,0
+Pandav Nagari,2026-05-14,42.2,Good,O3,,,,0
+Pandav Nagari,2026-05-15,37.2,Good,O3,,,,0
+Pandav Nagari,2026-05-16,34.0,Good,O3,,,,0
+Pandav Nagari,2026-05-17,37.1,Good,O3,,,,0
+Pandav Nagari,2026-05-18,41.4,Good,O3,,,,0
+Pandav Nagari,2026-05-19,43.0,Good,PM10,,,,0
+Pandav Nagari,2026-05-20,42.5,Good,PM10,,,,0
+Pandav Nagari,2026-05-21,41.1,Good,PM10,,,,0
+Pandav Nagari,2026-05-22,39.6,Good,PM10,,,,0
+Pandav Nagari,2026-05-23,37.9,Good,O3,,,,0
+Pandav Nagari,2026-05-24,39.9,Good,O3,,,,0
+Pandav Nagari,2026-05-25,42.1,Good,O3,,,,0
+Pandav Nagari,2026-05-26,43.1,Good,PM10,,,,0
+Pandav Nagari,2026-05-27,42.4,Good,PM10,,,,0
+Pandav Nagari,2026-05-28,41.1,Good,PM10,,,,0
+Pandav Nagari,2026-05-29,39.6,Good,PM10,,,,0
+Pandav Nagari,2026-05-30,37.9,Good,O3,,,,0
+Pandav Nagari,2026-05-31,39.9,Good,O3,,,,0
+Pandav Nagari,2026-06-01,41.6,Good,PM10,,,,0
+Pandav Nagari,2026-06-02,42.7,Good,PM10,,,,0
+Pandav Nagari,2026-06-03,41.4,Good,PM10,,,,0
+Pandav Nagari,2026-06-04,40.5,Good,PM10,,,,0
+Pandav Nagari,2026-06-05,41.6,Good,PM10,,,,0
+Pandav Nagari,2026-06-06,40.6,Good,PM10,,,,0
+Pandav Nagari,2026-06-07,40.3,Good,PM10,,,,0
+Pandav Nagari,2026-06-08,43.8,Good,PM10,,,,0
+Pandav Nagari,2026-06-09,44.5,Good,PM10,,,,0
+Pandav Nagari,2026-06-10,42.1,Good,PM10,,,,0
+Pandav Nagari,2026-06-11,40.7,Good,PM10,,,,0
+Pandav Nagari,2026-06-12,41.6,Good,PM10,,,,0
+Pandav Nagari,2026-06-13,40.6,Good,PM10,,,,0
+Pandav Nagari,2026-06-14,40.3,Good,PM10,,,,0
+Pandav Nagari,2026-06-15,43.8,Good,PM10,,,,0
+Pandav Nagari,2026-06-16,44.5,Good,PM10,,,,0
+Pandav Nagari,2026-06-17,42.1,Good,PM10,,,,0
+Pandav Nagari,2026-06-18,40.7,Good,PM10,,,,0
+Pandav Nagari,2026-06-19,41.6,Good,PM10,,,,0
+Pandav Nagari,2026-06-20,40.6,Good,PM10,,,,0
+Pandav Nagari,2026-06-21,40.3,Good,PM10,,,,0
+Pandav Nagari,2026-06-22,43.8,Good,PM10,,,,0
+Pandav Nagari,2026-06-23,44.5,Good,PM10,,,,0
+Pandav Nagari,2026-06-24,42.1,Good,PM10,,,,0
+Pandav Nagari,2026-06-25,40.7,Good,PM10,,,,0
+Pandav Nagari,2026-06-26,41.6,Good,PM10,,,,0
+Pandav Nagari,2026-06-27,40.6,Good,PM10,,,,0
+Pandav Nagari,2026-06-28,40.3,Good,PM10,,,,0
+Pandav Nagari,2026-06-29,43.8,Good,PM10,,,,0
+Pandav Nagari,2026-06-30,44.5,Good,PM10,,,,0
+Pandav Nagari,2026-07-01,44.1,Good,PM10,,,,0
+Pandav Nagari,2026-07-02,44.0,Good,PM10,,,,0
+Pandav Nagari,2026-07-03,46.2,Good,PM10,,,,0
+Pandav Nagari,2026-07-04,47.1,Good,PM10,,,,0
+Pandav Nagari,2026-07-05,44.6,Good,PM10,,,,0
+Pandav Nagari,2026-07-06,45.1,Good,PM10,,,,0
+Pandav Nagari,2026-07-07,45.5,Good,PM10,,,,0
+Pandav Nagari,2026-07-08,44.3,Good,PM10,,,,0
+Pandav Nagari,2026-07-09,44.4,Good,PM10,,,,0
+Pandav Nagari,2026-07-10,46.5,Good,PM10,,,,0
+Pandav Nagari,2026-07-11,47.3,Good,PM10,,,,0
+Pandav Nagari,2026-07-12,44.7,Good,PM10,,,,0
+Pandav Nagari,2026-07-13,45.1,Good,PM10,,,,0
+Pandav Nagari,2026-07-14,45.5,Good,PM10,,,,0
+Pandav Nagari,2026-07-15,44.3,Good,PM10,,,,0
+Pandav Nagari,2026-07-16,44.4,Good,PM10,,,,0
+Pandav Nagari,2026-07-17,46.5,Good,PM10,,,,0
+Pandav Nagari,2026-07-18,47.3,Good,PM10,,,,0
+Pandav Nagari,2026-07-19,44.7,Good,PM10,,,,0
+Pandav Nagari,2026-07-20,45.1,Good,PM10,,,,0
+Pandav Nagari,2026-07-21,45.5,Good,PM10,,,,0
+Pandav Nagari,2026-07-22,44.3,Good,PM10,,,,0
+Pandav Nagari,2026-07-23,44.4,Good,PM10,,,,0
+Pandav Nagari,2026-07-24,46.5,Good,PM10,,,,0
+Pandav Nagari,2026-07-25,47.3,Good,PM10,,,,0
+Pandav Nagari,2026-07-26,44.7,Good,PM10,,,,0
+Pandav Nagari,2026-07-27,45.1,Good,PM10,,,,0
+Pandav Nagari,2026-07-28,45.5,Good,PM10,,,,0
+Pandav Nagari,2026-07-29,44.3,Good,PM10,,,,0
+Pandav Nagari,2026-07-30,44.4,Good,PM10,,,,0
+Pandav Nagari,2026-07-31,46.5,Good,PM10,,,,0
+Pandav Nagari,2026-08-01,45.5,Good,PM10,,,,0
+Pandav Nagari,2026-08-02,43.0,Good,PM10,,,,0
+Pandav Nagari,2026-08-03,43.6,Good,PM10,,,,0
+Pandav Nagari,2026-08-04,44.5,Good,PM10,,,,0
+Pandav Nagari,2026-08-05,44.7,Good,PM10,,,,0
+Pandav Nagari,2026-08-06,45.5,Good,PM10,,,,0
+Pandav Nagari,2026-08-07,48.6,Good,PM10,,,,0
+Pandav Nagari,2026-08-08,48.1,Good,PM10,,,,0
+Pandav Nagari,2026-08-09,44.7,Good,PM10,,,,0
+Pandav Nagari,2026-08-10,44.6,Good,PM10,,,,0
+Pandav Nagari,2026-08-11,45.0,Good,PM10,,,,0
+Pandav Nagari,2026-08-12,45.0,Good,PM10,,,,0
+Pandav Nagari,2026-08-13,45.6,Good,PM10,,,,0
+Pandav Nagari,2026-08-14,48.6,Good,PM10,,,,0
+Pandav Nagari,2026-08-15,48.1,Good,PM10,,,,0
+Pandav Nagari,2026-08-16,44.7,Good,PM10,,,,0
+Pandav Nagari,2026-08-17,44.6,Good,PM10,,,,0
+Pandav Nagari,2026-08-18,45.0,Good,PM10,,,,0
+Pandav Nagari,2026-08-19,45.0,Good,PM10,,,,0
+Pandav Nagari,2026-08-20,45.6,Good,PM10,,,,0
+Pandav Nagari,2026-08-21,48.6,Good,PM10,,,,0
+Pandav Nagari,2026-08-22,48.1,Good,PM10,,,,0
+Pandav Nagari,2026-08-23,44.7,Good,PM10,,,,0
+Pandav Nagari,2026-08-24,44.6,Good,PM10,,,,0
+Pandav Nagari,2026-08-25,45.0,Good,PM10,,,,0
+Pandav Nagari,2026-08-26,45.0,Good,PM10,,,,0
+Pandav Nagari,2026-08-27,45.6,Good,PM10,,,,0
+Pandav Nagari,2026-08-28,48.6,Good,PM10,,,,0
+Pandav Nagari,2026-08-29,48.1,Good,PM10,,,,0
+Pandav Nagari,2026-08-30,44.7,Good,PM10,,,,0
+Pandav Nagari,2026-08-31,44.6,Good,PM10,,,,0
+Pandav Nagari,2026-09-01,42.4,Good,PM10,,,,0
+Pandav Nagari,2026-09-02,42.6,Good,PM10,,,,0
+Pandav Nagari,2026-09-03,48.1,Good,PM10,,,,0
+Pandav Nagari,2026-09-04,56.8,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-09-05,58.1,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-09-06,59.7,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-09-07,57.6,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-09-08,51.7,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-09-09,47.9,Good,PM10,,,,0
+Pandav Nagari,2026-09-10,50.2,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-09-11,57.9,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-09-12,62.8,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-09-13,72.0,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-09-14,76.9,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-09-15,76.9,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-09-16,72.3,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-09-17,75.7,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-09-18,72.7,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-09-19,60.1,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-09-20,45.7,Good,PM10,,,,0
+Pandav Nagari,2026-09-21,41.5,Good,PM10,,,,0
+Pandav Nagari,2026-09-22,41.2,Good,PM10,,,,0
+Pandav Nagari,2026-09-23,42.2,Good,PM10,,,,0
+Pandav Nagari,2026-09-24,48.1,Good,PM10,,,,0
+Pandav Nagari,2026-09-25,56.9,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-09-26,58.6,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-09-27,62.0,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-09-28,63.9,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-09-29,60.3,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-09-30,55.3,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-10-01,55.4,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-10-02,69.8,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-10-03,93.2,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-10-04,100.9,Moderate,PM10,,,,0
+Pandav Nagari,2026-10-05,75.1,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-10-06,56.4,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-10-07,57.9,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-10-08,65.4,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-10-09,74.0,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-10-10,92.1,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-10-11,89.1,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-10-12,64.8,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-10-13,52.9,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-10-14,54.7,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-10-15,63.9,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-10-16,76.3,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-10-17,98.9,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-10-18,106.3,Moderate,PM10,,,,0
+Pandav Nagari,2026-10-19,84.9,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-10-20,60.0,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-10-21,60.8,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-10-22,66.7,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-10-23,73.6,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-10-24,89.6,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-10-25,84.7,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-10-26,59.9,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-10-27,51.5,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-10-28,53.8,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-10-29,63.8,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-10-30,78.0,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-10-31,100.5,Moderate,PM10,,,,0
+Pandav Nagari,2026-11-01,111.5,Moderate,PM10,,,,0
+Pandav Nagari,2026-11-02,90.2,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-11-03,58.1,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-11-04,60.8,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-11-05,72.6,Satisfactory,PM10,,,,0
+Pandav Nagari,2026-11-06,101.7,Moderate,PM10,,,,0
+Pandav Nagari,2026-11-07,156.2,Moderate,PM2.5,,,,0
+Pandav Nagari,2026-11-08,305.9,Very Poor,PM2.5,,,,0
+Pandav Nagari,2026-11-09,325.8,Very Poor,PM2.5,,,,0
+Pandav Nagari,2026-11-10,320.5,Very Poor,PM2.5,,,,0
+Pandav Nagari,2026-11-11,312.6,Very Poor,PM2.5,,,,0
+Pandav Nagari,2026-11-12,308.5,Very Poor,PM2.5,,,,0
+Pandav Nagari,2026-11-13,310.7,Very Poor,PM2.5,,,,0
+Pandav Nagari,2026-11-14,324.6,Very Poor,PM2.5,,,,0
+Pandav Nagari,2026-11-15,328.5,Very Poor,PM2.5,,,,0
+Pandav Nagari,2026-11-16,322.9,Very Poor,PM2.5,,,,0
+Pandav Nagari,2026-11-17,317.6,Very Poor,PM2.5,,,,0
+Pandav Nagari,2026-11-18,311.8,Very Poor,PM2.5,,,,0
+Pandav Nagari,2026-11-19,308.1,Very Poor,PM2.5,,,,0
+Pandav Nagari,2026-11-20,310.3,Very Poor,PM2.5,,,,0
+Pandav Nagari,2026-11-21,324.5,Very Poor,PM2.5,,,,0
+Pandav Nagari,2026-11-22,328.5,Very Poor,PM2.5,,,,0
+Pandav Nagari,2026-11-23,322.9,Very Poor,PM2.5,,,,0
+Pandav Nagari,2026-11-24,317.6,Very Poor,PM2.5,,,,0
+Pandav Nagari,2026-11-25,311.8,Very Poor,PM2.5,,,,0
+Pandav Nagari,2026-11-26,308.1,Very Poor,PM2.5,,,,0
+Pandav Nagari,2026-11-27,310.3,Very Poor,PM2.5,,,,0
+Pandav Nagari,2026-11-28,324.5,Very Poor,PM2.5,,,,0
+Pandav Nagari,2026-11-29,328.5,Very Poor,PM2.5,,,,0
+Pandav Nagari,2026-11-30,322.9,Very Poor,PM2.5,,,,0
+Pandav Nagari,2026-12-01,316.6,Very Poor,PM2.5,,,,0
+Pandav Nagari,2026-12-02,306.9,Very Poor,PM2.5,,,,0
+Pandav Nagari,2026-12-03,302.4,Very Poor,PM2.5,,,,0
+Pandav Nagari,2026-12-04,302.5,Very Poor,PM2.5,,,,0
+Pandav Nagari,2026-12-05,314.9,Very Poor,PM2.5,,,,0
+Pandav Nagari,2026-12-06,326.5,Very Poor,PM2.5,,,,0
+Pandav Nagari,2026-12-07,321.5,Very Poor,PM2.5,,,,0
+Pandav Nagari,2026-12-08,312.7,Very Poor,PM2.5,,,,0
+Pandav Nagari,2026-12-09,306.5,Very Poor,PM2.5,,,,0
+Pandav Nagari,2026-12-10,301.9,Very Poor,PM2.5,,,,0
+Pandav Nagari,2026-12-11,301.6,Very Poor,PM2.5,,,,0
+Pandav Nagari,2026-12-12,313.5,Very Poor,PM2.5,,,,0
+Pandav Nagari,2026-12-13,326.9,Very Poor,PM2.5,,,,0
+Pandav Nagari,2026-12-14,322.2,Very Poor,PM2.5,,,,0
+Pandav Nagari,2026-12-15,312.9,Very Poor,PM2.5,,,,0
+Pandav Nagari,2026-12-16,306.5,Very Poor,PM2.5,,,,0
+Pandav Nagari,2026-12-17,301.9,Very Poor,PM2.5,,,,0
+Pandav Nagari,2026-12-18,301.7,Very Poor,PM2.5,,,,0
+Pandav Nagari,2026-12-19,313.6,Very Poor,PM2.5,,,,0
+Pandav Nagari,2026-12-20,326.9,Very Poor,PM2.5,,,,0
+Pandav Nagari,2026-12-21,322.2,Very Poor,PM2.5,,,,0
+Pandav Nagari,2026-12-22,312.9,Very Poor,PM2.5,,,,0
+Pandav Nagari,2026-12-23,306.5,Very Poor,PM2.5,,,,0
+Pandav Nagari,2026-12-24,301.9,Very Poor,PM2.5,,,,0
+Pandav Nagari,2026-12-25,301.7,Very Poor,PM2.5,,,,0
+Pandav Nagari,2026-12-26,313.6,Very Poor,PM2.5,,,,0
+Pandav Nagari,2026-12-27,326.9,Very Poor,PM2.5,,,,0
+Pandav Nagari,2026-12-28,322.2,Very Poor,PM2.5,,,,0
+Pandav Nagari,2026-12-29,312.9,Very Poor,PM2.5,,,,0
+Pandav Nagari,2026-12-30,306.5,Very Poor,PM2.5,,,,0
+Pandav Nagari,2026-12-31,301.9,Very Poor,PM2.5,,,,0
+Hirwadi,2026-01-01,107.4,Moderate,PM10,83.5,Satisfactory,PM2.5,6
+Hirwadi,2026-01-02,155.2,Moderate,PM10,96.9,Satisfactory,PM10,6
+Hirwadi,2026-01-03,178.2,Moderate,PM2.5,123.9,Moderate,PM2.5,6
+Hirwadi,2026-01-04,202.9,Poor,PM2.5,135.0,Moderate,PM2.5,6
+Hirwadi,2026-01-05,217.3,Poor,PM2.5,144.4,Moderate,PM2.5,6
+Hirwadi,2026-01-06,215.6,Poor,PM2.5,125.8,Moderate,PM2.5,6
+Hirwadi,2026-01-07,204.1,Poor,PM2.5,95.2,Satisfactory,PM2.5,6
+Hirwadi,2026-01-08,190.2,Moderate,PM2.5,76.1,Satisfactory,PM10,6
+Hirwadi,2026-01-09,189.0,Moderate,PM2.5,91.7,Satisfactory,PM10,6
+Hirwadi,2026-01-10,206.8,Poor,PM2.5,80.8,Satisfactory,PM10,6
+Hirwadi,2026-01-11,223.7,Poor,PM2.5,79.3,Satisfactory,O3,6
+Hirwadi,2026-01-12,224.3,Poor,PM2.5,74.5,Satisfactory,PM10,6
+Hirwadi,2026-01-13,214.6,Poor,PM2.5,89.9,Satisfactory,PM10,6
+Hirwadi,2026-01-14,203.0,Poor,PM2.5,81.3,Satisfactory,PM10,6
+Hirwadi,2026-01-15,189.6,Moderate,PM2.5,,,,0
+Hirwadi,2026-01-16,188.6,Moderate,PM2.5,106.1,Moderate,PM10,6
+Hirwadi,2026-01-17,207.1,Poor,PM2.5,86.2,Satisfactory,PM10,7
+Hirwadi,2026-01-18,224.8,Poor,PM2.5,72.9,Satisfactory,O3,6
+Hirwadi,2026-01-19,225.9,Poor,PM2.5,,,,0
+Hirwadi,2026-01-20,215.8,Poor,PM2.5,95.7,Satisfactory,PM10,7
+Hirwadi,2026-01-21,203.9,Poor,PM2.5,100.4,Moderate,PM10,6
+Hirwadi,2026-01-22,190.1,Moderate,PM2.5,75.2,Satisfactory,PM10,6
+Hirwadi,2026-01-23,188.8,Moderate,PM2.5,93.8,Satisfactory,O3,6
+Hirwadi,2026-01-24,207.4,Poor,PM2.5,82.1,Satisfactory,PM10,7
+Hirwadi,2026-01-25,225.2,Poor,PM2.5,100.6,Moderate,PM10,7
+Hirwadi,2026-01-26,226.4,Poor,PM2.5,105.1,Moderate,PM10,7
+Hirwadi,2026-01-27,216.2,Poor,PM2.5,92.3,Satisfactory,PM10,6
+Hirwadi,2026-01-28,204.3,Poor,PM2.5,78.8,Satisfactory,PM10,6
+Hirwadi,2026-01-29,190.3,Moderate,PM2.5,90.9,Satisfactory,PM10,6
+Hirwadi,2026-01-30,188.9,Moderate,PM2.5,96.8,Satisfactory,PM10,6
+Hirwadi,2026-01-31,207.5,Poor,PM2.5,,,,0
+Hirwadi,2026-02-01,225.7,Poor,PM2.5,,,,0
+Hirwadi,2026-02-02,234.5,Poor,PM2.5,107.3,Moderate,PM10,6
+Hirwadi,2026-02-03,232.8,Poor,PM2.5,106.2,Moderate,PM10,7
+Hirwadi,2026-02-04,220.2,Poor,PM2.5,101.0,Moderate,PM10,7
+Hirwadi,2026-02-05,203.2,Poor,PM2.5,105.6,Moderate,PM10,5
+Hirwadi,2026-02-06,196.8,Moderate,PM2.5,112.5,Moderate,PM10,5
+Hirwadi,2026-02-07,216.5,Poor,PM2.5,92.7,Satisfactory,PM10,7
+Hirwadi,2026-02-08,249.5,Poor,PM2.5,86.5,Satisfactory,PM2.5,6
+Hirwadi,2026-02-09,264.3,Poor,PM2.5,97.3,Satisfactory,PM10,6
+Hirwadi,2026-02-10,257.9,Poor,PM2.5,91.1,Satisfactory,O3,6
+Hirwadi,2026-02-11,237.8,Poor,PM2.5,108.3,Moderate,PM10,6
+Hirwadi,2026-02-12,217.2,Poor,PM2.5,93.8,Satisfactory,PM10,6
+Hirwadi,2026-02-13,211.0,Poor,PM2.5,101.8,Moderate,PM10,6
+Hirwadi,2026-02-14,224.9,Poor,PM2.5,109.4,Moderate,PM10,6
+Hirwadi,2026-02-15,253.0,Poor,PM2.5,90.0,Satisfactory,O3,6
+Hirwadi,2026-02-16,269.0,Poor,PM2.5,96.6,Satisfactory,PM10,6
+Hirwadi,2026-02-17,262.2,Poor,PM2.5,109.2,Moderate,PM10,6
+Hirwadi,2026-02-18,240.4,Poor,PM2.5,101.5,Moderate,PM10,6
+Hirwadi,2026-02-19,219.3,Poor,PM2.5,93.8,Satisfactory,PM10,6
+Hirwadi,2026-02-20,213.7,Poor,PM2.5,94.9,Satisfactory,PM10,6
+Hirwadi,2026-02-21,226.6,Poor,PM2.5,95.5,Satisfactory,PM10,6
+Hirwadi,2026-02-22,253.3,Poor,PM2.5,77.3,Satisfactory,PM10,6
+Hirwadi,2026-02-23,269.3,Poor,PM2.5,75.3,Satisfactory,PM10,6
+Hirwadi,2026-02-24,262.3,Poor,PM2.5,92.4,Satisfactory,PM10,5
+Hirwadi,2026-02-25,240.3,Poor,PM2.5,81.1,Satisfactory,PM10,6
+Hirwadi,2026-02-26,219.3,Poor,PM2.5,55.2,Satisfactory,O3,6
+Hirwadi,2026-02-27,213.9,Poor,PM2.5,50.1,Satisfactory,O3,6
+Hirwadi,2026-02-28,226.8,Poor,PM2.5,59.8,Satisfactory,O3,6
+Hirwadi,2026-03-01,254.1,Poor,PM2.5,72.4,Satisfactory,O3,6
+Hirwadi,2026-03-02,273.2,Poor,PM2.5,77.1,Satisfactory,O3,6
+Hirwadi,2026-03-03,263.9,Poor,PM2.5,90.3,Satisfactory,PM2.5,6
+Hirwadi,2026-03-04,238.3,Poor,PM2.5,77.7,Satisfactory,PM10,6
+Hirwadi,2026-03-05,218.3,Poor,PM2.5,70.9,Satisfactory,O3,5
+Hirwadi,2026-03-06,216.1,Poor,PM2.5,92.1,Satisfactory,PM10,5
+Hirwadi,2026-03-07,230.6,Poor,PM2.5,86.6,Satisfactory,PM10,5
+Hirwadi,2026-03-08,251.2,Poor,PM2.5,85.4,Satisfactory,PM10,6
+Hirwadi,2026-03-09,257.2,Poor,PM2.5,101.6,Moderate,PM10,5
+Hirwadi,2026-03-10,244.8,Poor,PM2.5,100.2,Moderate,PM10,6
+Hirwadi,2026-03-11,228.0,Poor,PM2.5,,,,0
+Hirwadi,2026-03-12,217.2,Poor,PM2.5,106.0,Moderate,PM10,6
+Hirwadi,2026-03-13,218.4,Poor,PM2.5,94.4,Satisfactory,O3,6
+Hirwadi,2026-03-14,233.2,Poor,PM2.5,101.3,Moderate,PM10,6
+Hirwadi,2026-03-15,252.9,Poor,PM2.5,76.6,Satisfactory,PM10,6
+Hirwadi,2026-03-16,257.8,Poor,PM2.5,79.5,Satisfactory,PM10,6
+Hirwadi,2026-03-17,244.8,Poor,PM2.5,104.9,Moderate,PM10,6
+Hirwadi,2026-03-18,227.8,Poor,PM2.5,123.6,Moderate,PM10,6
+Hirwadi,2026-03-19,217.1,Poor,PM2.5,91.9,Satisfactory,PM10,6
+Hirwadi,2026-03-20,218.4,Poor,PM2.5,90.3,Satisfactory,PM10,6
+Hirwadi,2026-03-21,233.2,Poor,PM2.5,68.3,Satisfactory,O3,6
+Hirwadi,2026-03-22,252.9,Poor,PM2.5,122.2,Moderate,PM10,6
+Hirwadi,2026-03-23,257.9,Poor,PM2.5,90.3,Satisfactory,O3,6
+Hirwadi,2026-03-24,244.8,Poor,PM2.5,83.1,Satisfactory,PM10,6
+Hirwadi,2026-03-25,227.8,Poor,PM2.5,82.2,Satisfactory,PM10,6
+Hirwadi,2026-03-26,217.1,Poor,PM2.5,110.0,Moderate,PM10,6
+Hirwadi,2026-03-27,218.4,Poor,PM2.5,104.4,Moderate,PM10,6
+Hirwadi,2026-03-28,233.2,Poor,PM2.5,70.4,Satisfactory,PM10,6
+Hirwadi,2026-03-29,252.9,Poor,PM2.5,61.7,Satisfactory,O3,6
+Hirwadi,2026-03-30,257.9,Poor,PM2.5,75.1,Satisfactory,PM10,6
+Hirwadi,2026-03-31,244.8,Poor,PM2.5,120.9,Moderate,PM10,6
+Hirwadi,2026-04-01,223.7,Poor,PM2.5,88.6,Satisfactory,PM10,6
+Hirwadi,2026-04-02,211.5,Poor,PM2.5,90.7,Satisfactory,PM10,6
+Hirwadi,2026-04-03,210.8,Poor,PM2.5,81.3,Satisfactory,PM10,5
+Hirwadi,2026-04-04,226.0,Poor,PM2.5,71.1,Satisfactory,PM10,6
+Hirwadi,2026-04-05,242.1,Poor,PM2.5,67.3,Satisfactory,O3,6
+Hirwadi,2026-04-06,240.1,Poor,PM2.5,70.2,Satisfactory,PM10,6
+Hirwadi,2026-04-07,230.2,Poor,PM2.5,72.1,Satisfactory,PM10,6
+Hirwadi,2026-04-08,221.8,Poor,PM2.5,81.9,Satisfactory,PM10,6
+Hirwadi,2026-04-09,214.7,Poor,PM2.5,111.6,Moderate,PM10,6
+Hirwadi,2026-04-10,214.2,Poor,PM2.5,131.4,Moderate,PM10,6
+Hirwadi,2026-04-11,226.6,Poor,PM2.5,103.8,Moderate,PM10,6
+Hirwadi,2026-04-12,240.1,Poor,PM2.5,94.8,Satisfactory,O3,6
+Hirwadi,2026-04-13,237.9,Poor,PM2.5,75.8,Satisfactory,O3,6
+Hirwadi,2026-04-14,229.3,Poor,PM2.5,62.2,Satisfactory,PM2.5,6
+Hirwadi,2026-04-15,221.6,Poor,PM2.5,62.9,Satisfactory,PM10,6
+Hirwadi,2026-04-16,214.8,Poor,PM2.5,57.8,Satisfactory,O3,6
+Hirwadi,2026-04-17,214.4,Poor,PM2.5,70.7,Satisfactory,PM10,6
+Hirwadi,2026-04-18,226.7,Poor,PM2.5,96.7,Satisfactory,PM10,6
+Hirwadi,2026-04-19,240.2,Poor,PM2.5,89.5,Satisfactory,PM10,6
+Hirwadi,2026-04-20,237.9,Poor,PM2.5,100.8,Moderate,PM10,6
+Hirwadi,2026-04-21,229.3,Poor,PM2.5,80.2,Satisfactory,PM10,6
+Hirwadi,2026-04-22,221.6,Poor,PM2.5,87.1,Satisfactory,PM10,6
+Hirwadi,2026-04-23,214.8,Poor,PM2.5,75.2,Satisfactory,O3,6
+Hirwadi,2026-04-24,214.4,Poor,PM2.5,79.6,Satisfactory,PM10,6
+Hirwadi,2026-04-25,226.7,Poor,PM2.5,83.4,Satisfactory,PM10,6
+Hirwadi,2026-04-26,240.2,Poor,PM2.5,81.0,Satisfactory,PM10,6
+Hirwadi,2026-04-27,237.9,Poor,PM2.5,93.9,Satisfactory,PM10,6
+Hirwadi,2026-04-28,229.3,Poor,PM2.5,63.5,Satisfactory,PM10,6
+Hirwadi,2026-04-29,221.6,Poor,PM2.5,56.6,Satisfactory,PM10,6
+Hirwadi,2026-04-30,214.8,Poor,PM2.5,61.5,Satisfactory,PM10,6
+Hirwadi,2026-05-01,206.5,Poor,PM2.5,50.5,Satisfactory,O3,6
+Hirwadi,2026-05-02,202.5,Poor,PM2.5,52.5,Satisfactory,PM10,6
+Hirwadi,2026-05-03,210.2,Poor,PM2.5,56.4,Satisfactory,PM10,6
+Hirwadi,2026-05-04,210.4,Poor,PM2.5,55.0,Satisfactory,PM10,6
+Hirwadi,2026-05-05,203.3,Poor,PM2.5,56.3,Satisfactory,O3,6
+Hirwadi,2026-05-06,203.9,Poor,PM2.5,65.4,Satisfactory,PM10,6
+Hirwadi,2026-05-07,205.7,Poor,PM2.5,79.1,Satisfactory,PM10,6
+Hirwadi,2026-05-08,207.3,Poor,PM2.5,80.0,Satisfactory,PM10,6
+Hirwadi,2026-05-09,215.1,Poor,PM2.5,78.8,Satisfactory,PM10,6
+Hirwadi,2026-05-10,224.0,Poor,PM2.5,77.9,Satisfactory,PM10,6
+Hirwadi,2026-05-11,218.5,Poor,PM2.5,84.1,Satisfactory,O3,6
+Hirwadi,2026-05-12,206.1,Poor,PM2.5,80.0,Satisfactory,O3,6
+Hirwadi,2026-05-13,203.3,Poor,PM2.5,68.8,Satisfactory,O3,6
+Hirwadi,2026-05-14,204.4,Poor,PM2.5,58.0,Satisfactory,O3,6
+Hirwadi,2026-05-15,206.2,Poor,PM2.5,50.0,Good,O3,6
+Hirwadi,2026-05-16,214.1,Poor,PM2.5,64.0,Satisfactory,O3,7
+Hirwadi,2026-05-17,223.4,Poor,PM2.5,60.9,Satisfactory,O3,7
+Hirwadi,2026-05-18,218.4,Poor,PM2.5,65.6,Satisfactory,PM10,7
+Hirwadi,2026-05-19,206.2,Poor,PM2.5,69.2,Satisfactory,PM10,7
+Hirwadi,2026-05-20,203.3,Poor,PM2.5,45.5,Good,O3,7
+Hirwadi,2026-05-21,204.5,Poor,PM2.5,52.4,Satisfactory,O3,7
+Hirwadi,2026-05-22,206.3,Poor,PM2.5,46.9,Good,O3,7
+Hirwadi,2026-05-23,214.1,Poor,PM2.5,47.6,Good,O3,7
+Hirwadi,2026-05-24,223.4,Poor,PM2.5,38.4,Good,O3,5
+Hirwadi,2026-05-25,218.4,Poor,PM2.5,38.9,Good,CO,7
+Hirwadi,2026-05-26,206.2,Poor,PM2.5,46.7,Good,O3,7
+Hirwadi,2026-05-27,203.3,Poor,PM2.5,43.8,Good,O3,7
+Hirwadi,2026-05-28,204.5,Poor,PM2.5,44.2,Good,PM10,7
+Hirwadi,2026-05-29,206.3,Poor,PM2.5,56.9,Satisfactory,PM10,7
+Hirwadi,2026-05-30,214.1,Poor,PM2.5,56.2,Satisfactory,PM10,7
+Hirwadi,2026-05-31,223.4,Poor,PM2.5,51.0,Satisfactory,PM10,7
+Hirwadi,2026-06-01,209.0,Poor,PM2.5,50.0,Good,PM10,6
+Hirwadi,2026-06-02,181.4,Moderate,PM10,65.3,Satisfactory,O3,7
+Hirwadi,2026-06-03,178.6,Moderate,PM2.5,60.3,Satisfactory,O3,6
+Hirwadi,2026-06-04,192.4,Moderate,PM2.5,51.3,Satisfactory,O3,6
+Hirwadi,2026-06-05,201.0,Poor,PM2.5,,,,5
+Hirwadi,2026-06-06,210.9,Poor,PM2.5,35.5,Good,PM2.5,7
+Hirwadi,2026-06-07,224.0,Poor,PM2.5,37.7,Good,PM2.5,7
+Hirwadi,2026-06-08,215.0,Poor,PM2.5,44.9,Good,PM10,6
+Hirwadi,2026-06-09,193.0,Moderate,PM2.5,66.2,Satisfactory,PM10,7
+Hirwadi,2026-06-10,186.6,Moderate,PM2.5,62.4,Satisfactory,PM10,7
+Hirwadi,2026-06-11,193.8,Moderate,PM2.5,63.6,Satisfactory,PM10,7
+Hirwadi,2026-06-12,200.6,Poor,PM2.5,69.1,Satisfactory,PM10,7
+Hirwadi,2026-06-13,208.7,Poor,PM2.5,60.0,Satisfactory,PM10,7
+Hirwadi,2026-06-14,220.1,Poor,PM2.5,50.4,Satisfactory,PM10,7
+Hirwadi,2026-06-15,211.8,Poor,PM2.5,44.6,Good,PM10,7
+Hirwadi,2026-06-16,191.5,Moderate,PM2.5,44.8,Good,PM10,7
+Hirwadi,2026-06-17,186.7,Moderate,PM2.5,43.8,Good,PM10,7
+Hirwadi,2026-06-18,194.4,Moderate,PM2.5,41.9,Good,PM10,7
+Hirwadi,2026-06-19,201.0,Poor,PM2.5,43.4,Good,O3,7
+Hirwadi,2026-06-20,209.2,Poor,PM2.5,37.5,Good,O3,7
+Hirwadi,2026-06-21,220.4,Poor,PM2.5,34.9,Good,O3,7
+Hirwadi,2026-06-22,211.8,Poor,PM2.5,,,,0
+Hirwadi,2026-06-23,191.4,Moderate,PM2.5,,,,3
+Hirwadi,2026-06-24,186.6,Moderate,PM2.5,40.5,Good,PM10,7
+Hirwadi,2026-06-25,194.3,Moderate,PM2.5,49.0,Good,PM10,7
+Hirwadi,2026-06-26,201.0,Poor,PM2.5,48.8,Good,PM10,7
+Hirwadi,2026-06-27,209.2,Poor,PM2.5,46.8,Good,PM10,7
+Hirwadi,2026-06-28,220.5,Poor,PM2.5,46.1,Good,PM10,7
+Hirwadi,2026-06-29,211.8,Poor,PM2.5,35.6,Good,CO,7
+Hirwadi,2026-06-30,191.4,Moderate,PM2.5,34.9,Good,CO,7
+Hirwadi,2026-07-01,185.6,Moderate,PM2.5,,,,0
+Hirwadi,2026-07-02,186.3,Moderate,PM2.5,,,,0
+Hirwadi,2026-07-03,195.0,Moderate,PM2.5,,,,0
+Hirwadi,2026-07-04,202.5,Poor,PM2.5,,,,0
+Hirwadi,2026-07-05,217.0,Poor,PM2.5,,,,0
+Hirwadi,2026-07-06,217.3,Poor,PM2.5,,,,0
+Hirwadi,2026-07-07,201.9,Poor,PM2.5,,,,0
+Hirwadi,2026-07-08,194.2,Moderate,PM2.5,,,,0
+Hirwadi,2026-07-09,199.1,Moderate,PM2.5,,,,0
+Hirwadi,2026-07-10,201.9,Poor,PM2.5,,,,0
+Hirwadi,2026-07-11,208.2,Poor,PM2.5,,,,0
+Hirwadi,2026-07-12,221.4,Poor,PM2.5,,,,0
+Hirwadi,2026-07-13,217.3,Poor,PM2.5,,,,0
+Hirwadi,2026-07-14,199.3,Moderate,PM2.5,,,,0
+Hirwadi,2026-07-15,191.6,Moderate,PM2.5,,,,0
+Hirwadi,2026-07-16,198.1,Moderate,PM2.5,,,,0
+Hirwadi,2026-07-17,201.7,Poor,PM2.5,,,,0
+Hirwadi,2026-07-18,208.3,Poor,PM2.5,,,,0
+Hirwadi,2026-07-19,221.8,Poor,PM2.5,,,,0
+Hirwadi,2026-07-20,217.8,Poor,PM2.5,,,,0
+Hirwadi,2026-07-21,199.6,Moderate,PM2.5,,,,0
+Hirwadi,2026-07-22,191.6,Moderate,PM2.5,,,,0
+Hirwadi,2026-07-23,198.0,Moderate,PM2.5,,,,0
+Hirwadi,2026-07-24,201.6,Poor,PM2.5,,,,0
+Hirwadi,2026-07-25,208.2,Poor,PM2.5,,,,0
+Hirwadi,2026-07-26,221.7,Poor,PM2.5,,,,0
+Hirwadi,2026-07-27,217.8,Poor,PM2.5,,,,0
+Hirwadi,2026-07-28,199.6,Moderate,PM2.5,,,,0
+Hirwadi,2026-07-29,191.7,Moderate,PM2.5,,,,0
+Hirwadi,2026-07-30,198.0,Moderate,PM2.5,,,,0
+Hirwadi,2026-07-31,201.6,Poor,PM2.5,,,,0
+Hirwadi,2026-08-01,208.6,Poor,PM2.5,35.8,Good,CO,6
+Hirwadi,2026-08-02,213.9,Poor,PM2.5,17.9,Good,PM10,4
+Hirwadi,2026-08-03,217.3,Poor,PM2.5,31.6,Good,CO,6
+Hirwadi,2026-08-04,209.5,Poor,PM2.5,31.1,Good,CO,6
+Hirwadi,2026-08-05,204.6,Poor,PM2.5,31.8,Good,CO,6
+Hirwadi,2026-08-06,203.4,Poor,PM2.5,23.7,Good,CO,6
+Hirwadi,2026-08-07,201.6,Poor,PM2.5,43.0,Good,O3,7
+Hirwadi,2026-08-08,211.3,Poor,PM2.5,28.1,Good,O3,7
+Hirwadi,2026-08-09,230.6,Poor,PM2.5,31.1,Good,O3,5
+Hirwadi,2026-08-10,236.3,Poor,PM2.5,23.9,Good,O3,7
+Hirwadi,2026-08-11,223.3,Poor,PM2.5,33.4,Good,O3,7
+Hirwadi,2026-08-12,209.6,Poor,PM2.5,125.1,Moderate,O3,7
+Hirwadi,2026-08-13,205.0,Poor,PM2.5,70.2,Satisfactory,O3,7
+Hirwadi,2026-08-14,202.4,Poor,PM2.5,,,,0
+Hirwadi,2026-08-15,210.1,Poor,PM2.5,,,,0
+Hirwadi,2026-08-16,227.8,Poor,PM2.5,,,,0
+Hirwadi,2026-08-17,233.4,Poor,PM2.5,37.9,Good,PM10,7
+Hirwadi,2026-08-18,221.5,Poor,PM2.5,35.4,Good,PM10,7
+Hirwadi,2026-08-19,209.2,Poor,PM2.5,,,,0
+Hirwadi,2026-08-20,205.1,Poor,PM2.5,34.9,Good,PM10,7
+Hirwadi,2026-08-21,202.5,Poor,PM2.5,32.2,Good,CO,7
+Hirwadi,2026-08-22,210.6,Poor,PM2.5,34.9,Good,CO,7
+Hirwadi,2026-08-23,228.5,Poor,PM2.5,36.1,Good,CO,4
+Hirwadi,2026-08-24,233.9,Poor,PM2.5,43.3,Good,PM10,4
+Hirwadi,2026-08-25,221.7,Poor,PM2.5,54.4,Satisfactory,PM10,6
+Hirwadi,2026-08-26,209.2,Poor,PM2.5,,,,0
+Hirwadi,2026-08-27,205.0,Poor,PM2.5,,,,0
+Hirwadi,2026-08-28,202.5,Poor,PM2.5,44.6,Good,CO,7
+Hirwadi,2026-08-29,210.5,Poor,PM2.5,46.7,Good,CO,6
+Hirwadi,2026-08-30,228.4,Poor,PM2.5,48.1,Good,CO,6
+Hirwadi,2026-08-31,233.8,Poor,PM2.5,48.1,Good,CO,7
+Hirwadi,2026-09-01,226.8,Poor,PM2.5,,,,0
+Hirwadi,2026-09-02,209.5,Poor,PM2.5,,,,0
+Hirwadi,2026-09-03,203.2,Poor,PM2.5,,,,0
+Hirwadi,2026-09-04,192.9,Moderate,PM2.5,,,,0
+Hirwadi,2026-09-05,199.8,Moderate,PM2.5,,,,0
+Hirwadi,2026-09-06,213.4,Poor,PM2.5,,,,0
+Hirwadi,2026-09-07,220.3,Poor,PM2.5,,,,0
+Hirwadi,2026-09-08,218.3,Poor,PM2.5,,,,0
+Hirwadi,2026-09-09,208.6,Poor,PM2.5,,,,0
+Hirwadi,2026-09-10,195.9,Moderate,PM2.5,,,,0
+Hirwadi,2026-09-11,189.0,Moderate,PM2.5,,,,0
+Hirwadi,2026-09-12,199.4,Moderate,PM2.5,,,,0
+Hirwadi,2026-09-13,209.2,Poor,PM2.5,,,,0
+Hirwadi,2026-09-14,214.0,Poor,PM2.5,,,,0
+Hirwadi,2026-09-15,214.2,Poor,PM2.5,,,,0
+Hirwadi,2026-09-16,206.5,Poor,PM2.5,,,,0
+Hirwadi,2026-09-17,193.7,Moderate,PM2.5,,,,0
+Hirwadi,2026-09-18,189.2,Moderate,PM2.5,,,,0
+Hirwadi,2026-09-19,198.7,Moderate,PM2.5,,,,0
+Hirwadi,2026-09-20,206.8,Poor,PM2.5,,,,0
+Hirwadi,2026-09-21,210.9,Poor,PM2.5,,,,0
+Hirwadi,2026-09-22,211.9,Poor,PM2.5,,,,0
+Hirwadi,2026-09-23,205.4,Poor,PM2.5,,,,0
+Hirwadi,2026-09-24,193.3,Moderate,PM2.5,,,,0
+Hirwadi,2026-09-25,189.6,Moderate,PM2.5,,,,0
+Hirwadi,2026-09-26,198.3,Moderate,PM2.5,,,,0
+Hirwadi,2026-09-27,205.6,Poor,PM2.5,,,,0
+Hirwadi,2026-09-28,209.2,Poor,PM2.5,,,,0
+Hirwadi,2026-09-29,210.3,Poor,PM2.5,,,,0
+Hirwadi,2026-09-30,204.6,Poor,PM2.5,,,,0
+Hirwadi,2026-10-01,197.8,Moderate,PM2.5,,,,0
+Hirwadi,2026-10-02,195.3,Moderate,PM2.5,,,,0
+Hirwadi,2026-10-03,198.5,Moderate,PM2.5,,,,0
+Hirwadi,2026-10-04,196.9,Moderate,PM2.5,,,,0
+Hirwadi,2026-10-05,188.8,Moderate,PM10,,,,0
+Hirwadi,2026-10-06,188.6,Moderate,PM10,,,,0
+Hirwadi,2026-10-07,184.9,Moderate,PM10,,,,0
+Hirwadi,2026-10-08,180.6,Moderate,PM10,,,,0
+Hirwadi,2026-10-09,175.4,Moderate,PM10,,,,0
+Hirwadi,2026-10-10,174.0,Moderate,PM10,,,,0
+Hirwadi,2026-10-11,177.4,Moderate,PM10,,,,0
+Hirwadi,2026-10-12,181.4,Moderate,PM10,,,,0
+Hirwadi,2026-10-13,184.0,Moderate,PM10,,,,0
+Hirwadi,2026-10-14,185.1,Moderate,PM10,,,,0
+Hirwadi,2026-10-15,184.3,Moderate,PM10,,,,0
+Hirwadi,2026-10-16,179.4,Moderate,PM10,,,,0
+Hirwadi,2026-10-17,172.5,Moderate,PM10,,,,0
+Hirwadi,2026-10-18,170.6,Moderate,PM10,,,,0
+Hirwadi,2026-10-19,171.4,Moderate,PM10,,,,0
+Hirwadi,2026-10-20,170.4,Moderate,PM10,,,,0
+Hirwadi,2026-10-21,168.4,Moderate,PM10,,,,0
+Hirwadi,2026-10-22,164.8,Moderate,PM10,,,,0
+Hirwadi,2026-10-23,159.8,Moderate,PM10,,,,0
+Hirwadi,2026-10-24,156.0,Moderate,PM10,,,,0
+Hirwadi,2026-10-25,152.6,Moderate,PM10,,,,0
+Hirwadi,2026-10-26,147.4,Moderate,PM10,,,,0
+Hirwadi,2026-10-27,145.5,Moderate,PM10,,,,0
+Hirwadi,2026-10-28,145.7,Moderate,PM10,,,,0
+Hirwadi,2026-10-29,149.4,Moderate,PM10,,,,0
+Hirwadi,2026-10-30,150.4,Moderate,PM10,,,,0
+Hirwadi,2026-10-31,141.7,Moderate,PM10,,,,0
+Hirwadi,2026-11-01,124.9,Moderate,PM10,,,,0
+Hirwadi,2026-11-02,127.3,Moderate,PM10,,,,0
+Hirwadi,2026-11-03,139.5,Moderate,PM10,,,,0
+Hirwadi,2026-11-04,151.4,Moderate,PM10,,,,0
+Hirwadi,2026-11-05,157.3,Moderate,PM10,,,,0
+Hirwadi,2026-11-06,153.8,Moderate,PM10,,,,0
+Hirwadi,2026-11-07,140.2,Moderate,PM10,,,,0
+Hirwadi,2026-11-08,128.3,Moderate,PM10,,,,0
+Hirwadi,2026-11-09,126.8,Moderate,PM10,,,,0
+Hirwadi,2026-11-10,133.9,Moderate,PM10,,,,0
+Hirwadi,2026-11-11,144.6,Moderate,PM10,,,,0
+Hirwadi,2026-11-12,152.4,Moderate,PM10,,,,0
+Hirwadi,2026-11-13,152.8,Moderate,PM10,,,,0
+Hirwadi,2026-11-14,144.2,Moderate,PM10,,,,0
+Hirwadi,2026-11-15,131.5,Moderate,PM10,,,,0
+Hirwadi,2026-11-16,128.0,Moderate,PM10,,,,0
+Hirwadi,2026-11-17,133.9,Moderate,PM10,,,,0
+Hirwadi,2026-11-18,144.2,Moderate,PM10,,,,0
+Hirwadi,2026-11-19,151.9,Moderate,PM10,,,,0
+Hirwadi,2026-11-20,152.3,Moderate,PM10,,,,0
+Hirwadi,2026-11-21,143.6,Moderate,PM10,,,,0
+Hirwadi,2026-11-22,131.3,Moderate,PM10,,,,0
+Hirwadi,2026-11-23,128.1,Moderate,PM10,,,,0
+Hirwadi,2026-11-24,134.1,Moderate,PM10,,,,0
+Hirwadi,2026-11-25,144.4,Moderate,PM10,,,,0
+Hirwadi,2026-11-26,152.0,Moderate,PM10,,,,0
+Hirwadi,2026-11-27,152.3,Moderate,PM10,,,,0
+Hirwadi,2026-11-28,143.6,Moderate,PM10,,,,0
+Hirwadi,2026-11-29,131.3,Moderate,PM10,,,,0
+Hirwadi,2026-11-30,128.1,Moderate,PM10,,,,0
+Hirwadi,2026-12-01,134.2,Moderate,PM10,,,,0
+Hirwadi,2026-12-02,150.1,Moderate,PM10,,,,0
+Hirwadi,2026-12-03,160.3,Moderate,PM10,,,,0
+Hirwadi,2026-12-04,157.9,Moderate,PM10,,,,0
+Hirwadi,2026-12-05,146.3,Moderate,PM10,,,,0
+Hirwadi,2026-12-06,133.7,Moderate,PM10,,,,0
+Hirwadi,2026-12-07,128.8,Moderate,PM10,,,,0
+Hirwadi,2026-12-08,133.8,Moderate,PM10,,,,0
+Hirwadi,2026-12-09,146.4,Moderate,PM10,,,,0
+Hirwadi,2026-12-10,154.7,Moderate,PM10,,,,0
+Hirwadi,2026-12-11,154.5,Moderate,PM10,,,,0
+Hirwadi,2026-12-12,148.3,Moderate,PM10,,,,0
+Hirwadi,2026-12-13,138.8,Moderate,PM10,,,,0
+Hirwadi,2026-12-14,133.8,Moderate,PM10,,,,0
+Hirwadi,2026-12-15,138.1,Moderate,PM10,,,,0
+Hirwadi,2026-12-16,149.6,Moderate,PM10,,,,0
+Hirwadi,2026-12-17,156.1,Moderate,PM10,,,,0
+Hirwadi,2026-12-18,154.3,Moderate,PM10,,,,0
+Hirwadi,2026-12-19,147.0,Moderate,PM10,,,,0
+Hirwadi,2026-12-20,136.7,Moderate,PM10,,,,0
+Hirwadi,2026-12-21,131.4,Moderate,PM10,,,,0
+Hirwadi,2026-12-22,135.7,Moderate,PM10,,,,0
+Hirwadi,2026-12-23,147.8,Moderate,PM10,,,,0
+Hirwadi,2026-12-24,155.4,Moderate,PM10,,,,0
+Hirwadi,2026-12-25,154.4,Moderate,PM10,,,,0
+Hirwadi,2026-12-26,147.6,Moderate,PM10,,,,0
+Hirwadi,2026-12-27,137.4,Moderate,PM10,,,,0
+Hirwadi,2026-12-28,132.1,Moderate,PM10,,,,0
+Hirwadi,2026-12-29,136.4,Moderate,PM10,,,,0
+Hirwadi,2026-12-30,148.3,Moderate,PM10,,,,0
+Hirwadi,2026-12-31,155.5,Moderate,PM10,,,,0
