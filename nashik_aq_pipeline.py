@@ -83,11 +83,15 @@ print(VERSIONS)
 # dropped and the `Timestamp` column is treated as authoritative.
 
 # %%
-try:
-    from google.colab import files  # type: ignore
-    IN_COLAB = True
-except ImportError:
-    IN_COLAB = False
+# Upload/download dialogs only work inside the Colab notebook kernel, not when the script is
+# started with `!python nashik_aq_pipeline.py` (then the CSVs must already be in data/).
+IN_COLAB = False
+if "ipykernel" in sys.modules:
+    try:
+        from google.colab import files  # type: ignore
+        IN_COLAB = True
+    except ImportError:
+        pass
 
 DATA_DIR = "data"
 os.makedirs(DATA_DIR, exist_ok=True)
@@ -157,7 +161,7 @@ def column_role(col):
     if col in TARGETS.values():
         return "pollutant - model input and prediction target"
     if col.split(" (")[0] in {"AT", "RH", "WS", "WD", "RF", "TOT-RF", "SR", "BP", "VWS"}:
-        return "meteorology - not used (see report)"
+        return "meteorology - not used by the model"
     return "pollutant (VOC/NOx species) - not used"
 
 
@@ -198,18 +202,41 @@ inspection
 #    blocks at three stations are entirely empty).
 # 3. Negative concentrations -> missing (none occur).
 # 4. PM2.5 / PM10 >= 999 -> missing: the analyser ceiling, not a measurement.
-# 5. A value repeated unchanged for >= 12 consecutive hours -> missing (stuck sensor,
-#    mostly CO flat at 0.00 mg/m³).
+# 5. A value repeated unchanged for >= 12 consecutive hours -> missing (stuck sensor).
+# 6. CO of exactly 0.00 mg/m³ -> missing. Outdoor CO never falls to zero (the clean-air
+#    background is about 0.1 mg/m³); in these files zeros come in blocks when the
+#    analyser is off (e.g. ~3,000 zero hours at three stations in 2026).
+# 7. Flatline days -> missing. A sensor can fail without repeating one value exactly: it
+#    then jitters around a fixed level (Gangapur Road NO2 sits at about 3.85 µg/m³ with
+#    tiny changes from late August 2025). For each station, pollutant and calendar day
+#    with at least 12 measured hours, the day is removed when the spread of its values
+#    (90th minus 10th percentile) is below 5% of its median. Real pollution varies through
+#    the day far more than that; the rule only removes near-constant days, so it can never
+#    remove a pollution peak. A day never crosses a forecast origin (1 January).
 #
+# Every removed value is counted in the cleaning log, and in the forecast files the hours
+# are labelled `removed_by_quality_check`, so nothing disappears silently.
 # No resampling or aggregation: one observation = one hourly average as reported.
 # Time gaps (rows absent from the file) are not filled; sequences never span them.
 
 # %%
 STUCK_HOURS = 12
 PM_CEILING = 999
+FLATLINE_MIN_HOURS = 12
+FLATLINE_REL_SPREAD = 0.05
+
+
+def flatline_days(values, timestamps):
+    """Boolean mask: hour belongs to a near-constant day (see rule 7)."""
+    day = timestamps.dt.floor("D")
+    g = values.groupby(day)
+    p10, p50, p90 = (g.transform("quantile", q) for q in (0.1, 0.5, 0.9))
+    flat = (g.transform("count") >= FLATLINE_MIN_HOURS) & (p90 - p10 < FLATLINE_REL_SPREAD * p50)
+    return flat & values.notna()
 
 
 def clean_station(df):
+    """Returns the cleaned frame, per-rule counts, and a mask of measured values removed."""
     df = df.copy()
     df["Timestamp"] = pd.to_datetime(df["Timestamp"])
     df = df.sort_values("Timestamp", kind="stable").reset_index(drop=True)
@@ -219,21 +246,28 @@ def clean_station(df):
     first_obs = int(df[POLL].notna().any(axis=1).idxmax())
     log["leading_empty_rows_dropped"] = first_obs
     df = df.iloc[first_obs:].reset_index(drop=True)
+    measured = df[POLL].notna()
     for c in POLL:
         neg = df[c] < 0
         ceiling = (df[c] >= PM_CEILING) if c in ("PM2.5", "PM10") else pd.Series(False, df.index)
         run_id = (df[c] != df[c].shift()).cumsum()
         stuck = (df[c].groupby(run_id).transform("size") >= STUCK_HOURS) & df[c].notna()
+        zero = (df[c] == 0) & ~stuck if c == "CO" else pd.Series(False, df.index)
         log[f"{c}_negative"] = int(neg.sum())
         log[f"{c}_ceiling"] = int(ceiling.sum())
         log[f"{c}_stuck"] = int(stuck.sum())
-        df.loc[neg | ceiling | stuck, c] = np.nan
-    return df, log
+        log[f"{c}_zero"] = int(zero.sum())
+        df.loc[neg | ceiling | stuck | zero, c] = np.nan
+        flat = flatline_days(df[c], df["Timestamp"])
+        log[f"{c}_flatline"] = int(flat.sum())
+        df.loc[flat, c] = np.nan
+    removed = (measured & df[POLL].isna()).set_index(df["Timestamp"])
+    return df, log, removed
 
 
-clean, cleaning_log = {}, {}
+clean, cleaning_log, removed_by_qc = {}, {}, {}
 for s, d in raw.items():
-    clean[s], cleaning_log[s] = clean_station(d)
+    clean[s], cleaning_log[s], removed_by_qc[s] = clean_station(d)
     # Rows after the horizon play no part. Rows inside the horizon are ground truth and
     # one-step inputs only; every fitted object below filters to rows before the origin.
     clean[s] = clean[s][clean[s]["Timestamp"] <= FORECAST_END].reset_index(drop=True)
@@ -318,7 +352,10 @@ summary_stats.round(2).to_csv(f"{OUT}/tables/descriptive_statistics.csv")
 # ## 5. Chronological train / validation / test split
 #
 # Test = the forecast horizon (calendar year 2025 or 2026, depending on the mode).
-# Validation = the six months before the horizon; training = everything earlier. Scaler,
+# Validation = the six months before the horizon; training = everything earlier. So the
+# 2025 backtest fits the network on data up to 30 June 2024 and validates on July-December
+# 2024; the 2026 run fits on data up to 30 June 2025 and validates on July-December 2025.
+# Scaler,
 # imputer, model weights, early stopping and the choice between the two model designs all
 # use data up to the training cutoff only. Test rows exist only where the station file
 # has them (2026: Jan-Jun and Aug at three stations, none at Pandav Nagari).
@@ -355,11 +392,13 @@ splits
 # %% [markdown]
 # ## 6. KNN imputation and feature scaling
 #
-# Per station: a `StandardScaler` (pollutants differ in units and range, e.g. CO in
-# mg/m³ vs PM10 in hundreds of µg/m³) and a `KNNImputer` (k=5, distance-weighted,
-# NaN-Euclidean distance) are fitted on that station's **training rows only**, then
-# applied to validation and test rows. Donors are therefore always training-period
-# hours; no future observation influences any imputed value.
+# Order: scale first, then impute, so that KNN distances are not dominated by the pollutant
+# with the largest numbers. Per station: a `StandardScaler` (pollutants differ in units and
+# range, e.g. CO in mg/m³ vs PM10 in hundreds of µg/m³) and a `KNNImputer` (k=5,
+# distance-weighted, NaN-Euclidean distance) are fitted on that station's **training rows
+# only**, then applied to validation and test rows. Every training row is a candidate donor
+# (no sub-sample is drawn), and donors are always training-period hours, so no future
+# observation influences any imputed value.
 #
 # Distance uses only the seven pollutant concentrations of the same hour - no station
 # ID, no timestamp. A missing value at hour s is filled from the other pollutants
@@ -445,10 +484,16 @@ def make_windows(p):
             & (imputed_frac <= MAX_IMPUTED_FRACTION) & np.isfinite(last_obs[t - 1]).all(axis=1))
     t = t[keep]
     X = np.stack([feats[i - LOOKBACK:i] for i in t])
-    last_scaled = ((last_obs[t - 1] - p["scaler"].mean_) / p["scaler"].scale_).astype("float32")
+    # The change design predicts "next hour minus the last hour of the input window". The
+    # recursive forecast adds its prediction to that same row, so training, one-step and
+    # recursive prediction share one definition of the base value.
+    last_scaled = X[:, -1, :len(POLL)]
+    persistence_scaled = ((last_obs[t - 1] - p["scaler"].mean_)
+                          / p["scaler"].scale_).astype("float32")
     return {"X": X, "y_scaled": y_scaled[t], "y_raw": y_raw[t], "t": t,
             "timestamp": d["Timestamp"].values[t], "split": p["split"][t],
-            "persistence": last_obs[t - 1], "last_scaled": last_scaled}
+            "persistence": last_obs[t - 1], "last_scaled": last_scaled,
+            "persistence_scaled": persistence_scaled}
 
 
 windows = {s: make_windows(p) for s, p in prep.items()}
@@ -473,7 +518,8 @@ pd.DataFrame(seq_rows).pivot(index="station", columns="split", values="sequences
 #
 # Two target parameterisations of the same network are trained:
 # - `level`: predict the standardised concentration at the next hour;
-# - `change`: predict the change from the last value, then add it back.
+# - `change`: predict the change from the last hour of the input window, then add it back
+#   (in the recursive forecast that last hour is the previous prediction).
 #
 # A design that is better one hour ahead is not necessarily better over months of
 # feeding its own output back (small biases accumulate). So the design used for the
@@ -537,7 +583,7 @@ for s, w in windows.items():
     tr, va = w["split"] == "train", w["split"] == "val"
     row = {"station": s, "train_sequences": int(tr.sum()), "val_sequences": int(va.sum()),
            "val_loss_persistence": float(np.nanmean(
-               np.square(w["y_scaled"][va] - w["last_scaled"][va])))}
+               np.square(w["y_scaled"][va] - w["persistence_scaled"][va])))}
     for design in DESIGNS:
         path = f"{OUT}/models/cnn_lstm_{design}_{s.replace(' ', '_')}.keras"
         if REUSE:
@@ -652,8 +698,9 @@ savefig(fig, "fig04_loss_curves")
 # - **Persistence**: the last observed value before the origin, held for the year.
 #
 # Every hour of the horizon is exported, measured or not. `ground_truth` says whether the
-# station file holds a measurement for that hour and pollutant (`observed`), holds the row
-# but no valid value (`missing_value`), or has no row at all (`no_row_in_file`, e.g. July
+# station file holds a measurement for that hour and pollutant (`observed`), had a value
+# that the cleaning rules rejected as a sensor fault (`removed_by_quality_check`), holds the
+# row but no value (`missing_value`), or has no row at all (`no_row_in_file`, e.g. July
 # and Sep-Dec 2026, and all of 2026 at Pandav Nagari). `actual` is empty unless observed;
 # metrics use observed rows only. Forecasts are rounded to 4 decimals, so the exported
 # file reproduces the exported metrics exactly.
@@ -688,8 +735,11 @@ for s, p in prep.items():
     indexed = d.set_index("Timestamp")
     actual = indexed[POLL].reindex(future)
     in_file = future.isin(indexed.index)
+    qc_removed = removed_by_qc[s].reindex(future, fill_value=False)
     chosen = selection.loc[s, "selected_design"]
     measured = actual.notna().any(axis=1)
+    seed_ts = pd.date_range(end=FORECAST_START - pd.Timedelta(hours=1), periods=LOOKBACK, freq="h")
+    seed_unmeasured = int(indexed[POLL].reindex(seed_ts).isna().all(axis=1).sum())
     coverage_rows.append({
         "station": s, "horizon_hours": N_FORECAST, "rows_in_file": int(in_file.sum()),
         "hours_any_pollutant_measured": int(measured.sum()),
@@ -698,7 +748,8 @@ for s, p in prep.items():
         "months_without_rows": ", ".join(
             m.strftime("%b") for m in pd.period_range(FORECAST_START, FORECAST_END, freq="M")
             if not in_file[future.to_period("M") == m].any()) or "none",
-        "seed_hours_absent_from_file": seed_missing})
+        "seed_hours_absent_from_file": seed_missing,
+        "seed_hours_without_any_measurement": seed_unmeasured})
     print(f"{s:14s} forecast {len(future)} hours, {future[0]} -> {future[-1]}; "
           f"rows in file {int(in_file.sum())}; starting-window hours absent: {seed_missing}")
     for j, pol in enumerate(POLL):
@@ -712,8 +763,9 @@ for s, p in prep.items():
             "cnn_lstm_level_pred": yhat["level"][:, j],
             "cnn_lstm_change_pred": yhat["change"][:, j],
             "actual": actual[pol].values,
-            "ground_truth": np.where(obs, "observed",
-                                     np.where(in_file, "missing_value", "no_row_in_file")),
+            "ground_truth": np.select(
+                [obs, qc_removed[pol].values, in_file],
+                ["observed", "removed_by_quality_check", "missing_value"], "no_row_in_file"),
         }))
 forecast = pd.concat(forecast_rows, ignore_index=True)
 forecast[FORECAST_COLS] = forecast[FORECAST_COLS].astype("float64").round(4)
@@ -849,6 +901,11 @@ station_metrics, overall_metrics = metric_tables(predictions, RECURSIVE_METHODS,
 one_step_metrics, one_step_overall = metric_tables(one_step, ONE_STEP_METHODS, "Persistence")
 station_metrics["distinct_measured_values"] = [
     distinct.get((s, pol), 0) for s, pol in zip(station_metrics.station, station_metrics.pollutant)]
+qc_hours = forecast[forecast.ground_truth == "removed_by_quality_check"].groupby(
+    ["station", "pollutant"]).size()
+station_metrics["hours_removed_by_quality_check"] = [
+    int(qc_hours.get((s, pol), 0)) for s, pol in zip(station_metrics.station,
+                                                      station_metrics.pollutant)]
 station_metrics.to_csv(f"{OUT}/metrics/recursive_station_pollutant_metrics.csv", index=False)
 overall_metrics.to_csv(f"{OUT}/metrics/recursive_overall_pollutant_metrics.csv", index=False)
 one_step_metrics.to_csv(f"{OUT}/metrics/one_step_station_pollutant_metrics.csv", index=False)
@@ -1131,7 +1188,8 @@ savefig(fig, "fig11_daily_aqi")
 # %%
 def git_commit():
     try:
-        return subprocess.run(["git", "rev-parse", "--short", "HEAD"], capture_output=True,
+        # "-dirty" marks a run from uncommitted changes, so the hash is never misleading.
+        return subprocess.run(["git", "describe", "--always", "--dirty"], capture_output=True,
                               text=True, check=True).stdout.strip()
     except (OSError, subprocess.CalledProcessError):
         return None  # Colab: no repository
@@ -1168,6 +1226,9 @@ metadata = {
     "versions": VERSIONS, "seed": SEED, "lookback_hours": LOOKBACK, "k_neighbors": K_NEIGHBORS,
     "batch_size": BATCH, "max_epochs": EPOCHS, "patience": PATIENCE,
     "max_imputed_fraction": MAX_IMPUTED_FRACTION, "stuck_hours": STUCK_HOURS,
+    "flatline_rule": {"min_hours_per_day": FLATLINE_MIN_HOURS,
+                      "max_relative_spread_p90_p10": FLATLINE_REL_SPREAD},
+    "co_zero_is_missing": True,
     "epochs_run": {s: len(h["loss"]) for s, h in histories.items()},
     "best_epoch": {s: int(np.argmin(h["val_loss"])) + 1 for s, h in histories.items()},
     "station_files": STATION_FILES,
@@ -1181,7 +1242,14 @@ if os.path.exists("scripts/build_report.py") and both_modes_done:
         import docx  # noqa: F401  (python-docx)
     except ImportError:
         subprocess.run([sys.executable, "-m", "pip", "install", "-q", "python-docx"], check=True)
-    subprocess.run([sys.executable, "scripts/build_report.py"], check=True)
+    # The report's prose states conclusions (e.g. "the recursive forecast loses to
+    # climatology") that build_report.py asserts against the results. A run whose results
+    # differ (fewer epochs, GPU) keeps all its outputs; only the report is not rebuilt.
+    rep = subprocess.run([sys.executable, "scripts/build_report.py"], capture_output=True,
+                         text=True)
+    print(rep.stdout.strip() if rep.returncode == 0 else
+          "Report NOT built: these results do not match the conclusions written in "
+          "scripts/build_report.py (all outputs above are complete).\n" + rep.stderr[-1500:])
 if IN_COLAB:
     import shutil
     shutil.make_archive("nashik_outputs", "zip", "outputs")

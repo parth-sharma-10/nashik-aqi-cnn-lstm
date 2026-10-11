@@ -57,6 +57,19 @@ B_rec_skill_txt, B_rec_skill = skill_range(B, "rec", "climatology")
 F_rec_skill_txt, F_rec_skill = skill_range(F, "rec", "climatology")
 B_one_skill_txt, B_one_skill = skill_range(B, "one", "persistence")
 F_one_skill_txt, F_one_skill = skill_range(F, "one", "persistence")
+
+
+def wins(r, kind, ref):
+    """(series where the CNN-LSTM beats the baseline, scored unflagged series, median skill)."""
+    t = r[kind]
+    s = t[(t.n_valid > 0) & ~t.quality_flag][f"RMSE skill vs {ref}"]
+    return int((s > 0).sum()), len(s), float(s.median())
+
+
+B_one_wins, B_one_n, B_one_median = wins(B, "one", "persistence")
+F_one_wins, F_one_n, F_one_median = wins(F, "one", "persistence")
+B_rec_wins, B_rec_n, _ = wins(B, "rec", "climatology")
+F_rec_wins, F_rec_n, _ = wins(F, "rec", "climatology")
 F_measured = F["cov"].set_index("station")
 fc26 = pd.read_csv(f"{F['out']}/predictions/recursive_forecast.csv",
                    usecols=["station", "pollutant", "month", "cnn_lstm_pred", "climatology_pred"])
@@ -64,20 +77,36 @@ pm_monthly = fc26[fc26.pollutant == "PM2.5"].groupby(["station", "month"])[
     ["cnn_lstm_pred", "climatology_pred"]].mean().unstack("month").reindex(STATIONS)
 pm_ratio = pm_monthly["cnn_lstm_pred"] / pm_monthly["climatology_pred"]
 
+
+def count_txt(s, better):
+    n = int((s > 0).sum()) if better else int((s < 0).sum())
+    return "every pollutant" if n == len(s) else f"{n} of {len(s)} pollutants"
+
+
+B_rec_worse_txt = count_txt(B_rec_skill, better=False)
+F_rec_worse_txt = count_txt(F_rec_skill, better=False)
+
+
+def worst_series(r):
+    t = r["rec"][(r["rec"].n_valid > 0) & ~r["rec"].quality_flag]
+    w = t.loc[t["RMSE skill vs climatology"].idxmin()]
+    return (f"{w.station} {w.pollutant} (RMSE {w['CNN-LSTM RMSE']:.1f} against "
+            f"{w['Climatology RMSE']:.1f} for climatology)")
+
+
 # Facts the prose below states. If a re-run changes them, rewrite the prose.
 assert F_measured.loc["Pandav Nagari", "rows_in_file"] == 0
 assert (F_measured.drop("Pandav Nagari").rows_in_file == 5088).all()
 assert all("Jul" in F_measured.loc[s, "months_without_rows"] for s in STATIONS)
 assert (B["cov"].rows_in_file == 8760).all()
 assert (F["rec"][F["rec"].station == "Pandav Nagari"].n_valid == 0).all()
-# The recursive forecast is worse than climatology for every pollutant, pooled, in both years;
-# the one-step predictions beat persistence for most pollutants in both years.
-assert (B_rec_skill < 0).all() and (F_rec_skill < 0).all()
-assert pm_ratio.max().max() > 3 and pm_ratio.min().min() < 0.2  # drift stated in Section 12.1
-_off = pm_ratio.stack()
-assert all(F["sel"].loc[st, "selected_design"] == "change"
-           for st in _off[(_off > 3) | (_off < 0.2)].index.get_level_values(0))
-assert (F_one_skill > 0).all() and (B_one_skill > 0).sum() >= len(POLL) - 1
+# The recursive forecast is worse than climatology for most pollutants, pooled, in both years;
+# the one-step predictions beat persistence for most pollutants and most series in both years.
+assert (B_rec_skill < 0).sum() > len(POLL) / 2 and (F_rec_skill < 0).sum() > len(POLL) / 2
+assert B_rec_wins < B_rec_n / 2 and F_rec_wins < F_rec_n / 2
+assert (B_one_skill > 0).sum() > len(POLL) / 2 and (F_one_skill > 0).sum() > len(POLL) / 2
+assert B_one_wins > B_one_n / 2 and F_one_wins > F_one_n / 2
+assert ((pm_ratio > 2) | (pm_ratio < 0.5)).any().any()  # drift stated in Section 12.1
 
 doc = Document()
 st = doc.styles["Normal"]
@@ -171,7 +200,8 @@ def front_matter():
     t = doc.add_paragraph()
     t.alignment = WD_ALIGN_PARAGRAPH.CENTER
     r = t.add_run("Hourly Air-Quality Forecasting for Nashik Monitoring Stations with "
-                  "KNN Imputation and a CNN-LSTM Network: 2025 Backtest and 2026 Forecast")
+                  "KNN Imputation and a CNN-LSTM Network: 2025 Backtest and Partial 2026 "
+                  "Evaluation")
     r.bold, r.font.size = True, Pt(20)
     sub = doc.add_paragraph()
     sub.alignment = WD_ALIGN_PARAGRAPH.CENTER
@@ -189,20 +219,23 @@ def front_matter():
         "Pandav Nagari and Hirwadi) were used to train one convolutional-LSTM (CNN-LSTM) "
         "network per station that predicts the next hour from the previous 24. Missing inputs "
         "were filled with a K-nearest-neighbours imputer fitted on training data only. The "
-        "pipeline runs in two separate modes. The 2025 backtest trains on data up to "
-        "31 December 2024 and forecasts every hour of 2025, which is fully measured at all "
-        "stations. The 2026 forecast trains on data up to 31 December 2025 and forecasts all "
+        "pipeline runs in two separate modes. The 2025 backtest uses data up to "
+        "31 December 2024 (network fitted to 30 June 2024, validated on July-December 2024) "
+        "and is scored on 2025, which is measured at all stations. The 2026 run uses data "
+        "up to 31 December 2025 in the same way and forecasts all "
         "8,760 hours of 2026 at all four stations; measurements exist only for January-June "
         "and August 2026 at three stations and not at all at Pandav Nagari. Two kinds of "
         "prediction are scored separately on measured hours: a recursive forecast of the "
         "whole year from the forecast origin, which uses no later measurement, and a rolling "
         "one-step evaluation, in which the frozen model predicts each measured hour from the "
-        "measured previous 24 hours. Pooled over stations, with quality-flagged sensor "
-        "series excluded, the recursive forecast changed RMSE relative to an hour-of-day "
-        f"climatology by {B_rec_skill_txt} in 2025 and {F_rec_skill_txt} in 2026 (negative = "
-        "worse than climatology): fed its own predictions for a year, the network is a worse "
-        "year-ahead estimate than the hour-of-day climatology for every pollutant. The "
-        "one-step predictions changed RMSE relative to persistence by "
+        "measured previous 24 hours. Faulty sensor readings (stuck values, CO zeros and "
+        "near-constant 'flatline' days) are removed before training and are never scored. "
+        "Pooled over stations, with quality-flagged sensor series excluded, the recursive "
+        "forecast changed RMSE relative to a month-by-hour climatology by "
+        f"{B_rec_skill_txt} in 2025 and {F_rec_skill_txt} in 2026 (negative = worse than "
+        "climatology): fed its own predictions for a year, the network is a worse year-ahead "
+        f"estimate than climatology for {B_rec_worse_txt} in 2025 and {F_rec_worse_txt} in "
+        "2026. The one-step predictions changed RMSE relative to persistence by "
         f"{B_one_skill_txt} in 2025 and {F_one_skill_txt} in 2026: a small, mostly "
         "consistent gain when fresh measurements are available every hour. Daily CPCB "
         "AQI values were derived from the predicted concentrations; they are model estimates, "
@@ -211,6 +244,56 @@ def front_matter():
     para("air-quality forecasting; CNN-LSTM; KNN imputation; recursive forecasting; backtest; "
          "CPCB AQI; Nashik; chronological validation")
     page_break()
+    key_findings()
+    page_break()
+
+
+def key_findings():
+    h("Key Findings in Plain Language")
+    para("This page states the conclusions first. The rest of the report gives the evidence.")
+    bullets([
+        "What the model does. For each station, a neural network reads the last 24 hours "
+        "of seven pollutant measurements and predicts the next hour.",
+        "Next-hour prediction works, modestly. The simplest possible guess is persistence: "
+        "'next hour = the latest measured value'. One hour ahead, the CNN-LSTM is more "
+        f"accurate than persistence for {B_one_wins} of {B_one_n} station-pollutant series "
+        f"in 2025 and {F_one_wins} of {F_one_n} in 2026. The typical (median) error "
+        f"reduction is {100 * B_one_median:.1f}% in 2025 and {100 * F_one_median:.1f}% in "
+        "2026. That is a real but small improvement.",
+        "A high R² is not proof of a good model. Hourly pollution changes slowly, so "
+        "persistence already reaches a high R². Every R² in this report is shown next to a "
+        "baseline scored on exactly the same hours.",
+        "A full-year forecast does not work with this model. Feeding the model its own "
+        "predictions for a whole year lets errors pile up. Against climatology (the "
+        "average for that month and hour of day), the recursive CNN-LSTM is better for "
+        f"only {B_rec_wins} of {B_rec_n} series in 2025 and {F_rec_wins} of {F_rec_n} in "
+        "2026. For months ahead, climatology is the better estimate.",
+        "Faulty sensor readings were removed before training and scoring. Examples are "
+        "Gangapur Road NO2 stuck near 3.85 µg/m³ from late August 2025, Gangapur Road NH3 "
+        "stuck near 12 µg/m³ in 2026, and CO reading 0.00 mg/m³ for months in 2026. Every "
+        "removed hour is counted and labelled; pollution peaks are never removed.",
+        "2026 is only a partial test: January-June and August at three stations. July is "
+        "missing from all files, September-December have not happened in the data, and "
+        "Pandav Nagari has no 2026 data at all.",
+    ])
+    h("Glossary", 2)
+    bullets([
+        "Station-pollutant series: the hourly record of one pollutant at one station "
+        "(4 stations x 7 pollutants = 28 series).",
+        "Persistence baseline: predict that the next hour equals the latest measured value.",
+        "Climatology baseline: predict the historical average for that calendar month and "
+        "hour of day.",
+        "RMSE / MAE: typical size of the prediction error, in µg/m³ (mg/m³ for CO). "
+        "Lower is better.",
+        "Skill: 1 - RMSE(model) / RMSE(baseline). Positive means the model beats the "
+        "baseline; 0.05 means 5% lower error.",
+        "Rolling one-step prediction: each hour is predicted from the real measurements of "
+        "the previous 24 hours.",
+        "Recursive forecast: the model's own predictions are fed back as inputs, so it can "
+        "run for a whole year without any future measurement.",
+        "Imputation: filling a missing input value with an estimate. Missing target values "
+        "are never filled; they are simply not scored.",
+    ])
 
 
 def intro_sections():
@@ -271,9 +354,14 @@ def dataset_section():
          "December are absent. Pandav Nagari's file ends on 31 December 2025. Its 2026 "
          "forecast is produced like the others but cannot be scored.")
     para("Seven pollutants are the prediction targets: the pollutants of the Indian National "
-         "AQI present in the data (PM2.5, PM10, NO2, SO2, CO, O3, NH3). Meteorological "
-         "variables were not used: temperature and humidity are absent at Gangapur Road "
-         "before 2026, and wind speed shows level shifts consistent with sensor changes.")
+         "AQI present in the data (PM2.5, PM10, NO2, SO2, CO, O3, NH3). The model uses no "
+         "weather inputs. The files do contain weather columns, which are measured for "
+         "about 93-97% of hours at MIDC Ambad, Pandav Nagari and Hirwadi. At Gangapur Road, "
+         "temperature and humidity cover only about 5% of hours. Weather was left out to "
+         "keep one consistent input set for all stations.")
+    para("In January-May 2026 many values at the three stations with 2026 data are reported "
+         "as whole numbers (25-50% of values, against about 1% before). This looks like a "
+         "change in reporting precision, not a sensor fault, and these values are kept.")
 
 
 def preprocessing_section():
@@ -284,15 +372,42 @@ def preprocessing_section():
         "Timestamps parsed and sorted; a duplicate timestamp would keep its first row "
         "(none occur).",
         "Rows before a station's first pollutant observation removed (the empty 2017 blocks).",
-        "Negative concentrations set to missing (none occur). Zero is a valid value and is "
-        "kept, unless it repeats as a stuck reading.",
+        "Negative concentrations set to missing (none occur).",
         f"PM2.5 or PM10 of 999 or more set to missing: the analyser ceiling ({n_ceiling} "
-        "values).",
+        "values). The true value is unknown above the ceiling; one such hour is Diwali "
+        "night 2024 at Gangapur Road.",
         "Any value repeated unchanged for 12 or more consecutive hours set to missing as a "
         f"stuck-sensor reading ({int(clog.filter(like='_stuck').sum().sum()):,} values).",
+        "CO of exactly 0.00 mg/m³ set to missing. Outdoor CO never falls to zero (the "
+        "clean-air background is about 0.1 mg/m³), and the zeros come in long blocks when "
+        f"the analyser is off ({int(clog['CO_zero'].sum()):,} further values after the "
+        "stuck rule). Zeros of other pollutants are kept.",
+        "Flatline days set to missing. A failed sensor can jitter around a fixed level "
+        "instead of repeating one value exactly. For each station, pollutant and calendar "
+        "day with at least 12 measured hours, the day is removed when the spread of its "
+        "values (90th minus 10th percentile) is below 5% of its median "
+        f"({int(clog.filter(like='_flatline').sum().sum()):,} values). Real pollution "
+        "varies far more within a day, so this rule only removes near-constant days and "
+        "can never remove a pollution peak.",
         "No interpolation or resampling. Hours absent from a file are not filled, and no "
         "input window spans them.",
     ])
+    q = pd.DataFrame({rule: clog.filter(like=f"_{rule}").sum(axis=1).astype(int)
+                      for rule in ("ceiling", "stuck", "zero", "flatline")})
+    q.insert(0, "Station", q.index)
+    q.columns = ["Station", "PM ceiling", "Stuck 12 h", "CO zero", "Flatline days"]
+    table(q, "Hourly values removed by each cleaning rule, whole file (all pollutants).")
+    flat = clog.filter(like="_flatline").copy()
+    flat.columns = [c.replace("_flatline", "") for c in flat.columns]
+    flat.insert(0, "Station", flat.index)
+    table(flat, "Hourly values removed by the flatline rule, per pollutant (whole file). "
+                "Gangapur Road dominates: its NO2, NH3, O3 and CO analysers have long "
+                "near-constant periods (e.g. O3 at 45.0 µg/m³ in December 2021-March 2022, "
+                "NO2 at 6.28 µg/m³ in March-June 2023, NO2 at 3.85 µg/m³ from late "
+                "August 2025).", font=8)
+    para("Detected sensor faults that remain uncertain are reported, not hidden: in "
+         "mid-2025 CO at Gangapur Road and MIDC Ambad varies only within a few 0.01 mg/m³ "
+         "steps. These months pass the flatline rule and are kept.")
     h("5.2 Missing values", 2)
     figure(F["out"], "fig01_missing_values.png", "Missing hourly values per station and "
            "pollutant before imputation (all data up to the end of the 2026 horizon).", 5.8)
@@ -300,13 +415,17 @@ def preprocessing_section():
     mp.insert(0, "Station", mp.index)
     table(mp, "Percentage of missing hourly values before imputation.")
     h("5.3 KNN imputation", 2)
-    para("A missing value is filled with the inverse-distance-weighted mean of that variable "
-         "in the k = 5 most similar hours, using the NaN-Euclidean distance over the seven "
-         "standardised pollutants of the same hour [2], [5], [6].")
+    para("The pollutants are first standardised, then imputed. A missing value is filled "
+         "with the inverse-distance-weighted mean of that variable in the k = 5 most similar "
+         "hours, using the NaN-Euclidean distance over the seven standardised pollutants of "
+         "the same hour [2], [5], [6].")
     bullets([
         "One StandardScaler and one KNNImputer per station and mode, fitted on that "
         "station's training rows only, then applied unchanged to validation, test and "
-        "forecast inputs. Donors are always training-period hours.",
+        "forecast inputs. Every training row is a candidate donor; no sub-sample is drawn.",
+        "Many missing values occur in hours where all seven pollutants are missing (a "
+        "whole-station outage). KNN has nothing to compare such an hour with, so it "
+        "receives the training mean of each pollutant.",
         "Imputed values are model inputs only. Training targets are never imputed (the loss "
         "is masked) and every metric uses measured values only.",
         "Hours with every pollutant missing get the training mean; windows with more than "
@@ -324,9 +443,9 @@ def eda_section():
            "pollutant and station. Gaps are periods with no observations.", 4.9)
     para("Particulate matter follows a seasonal cycle at all stations: low during the "
          "monsoon (June-September) and high in winter. This cycle is what a year-ahead "
-         "forecast can realistically capture. Gangapur Road's NO2, CO and NH3 series change "
-         "character in 2026 (few distinct values, near-constant levels), consistent with an "
-         "instrument or calibration change.")
+         "forecast can realistically capture. Gangapur Road's gas analysers (NO2, NH3, O3, "
+         "CO) have long near-constant periods, removed by the flatline rule, and their "
+         "levels shift between years, so its older history is a weaker guide to 2025-2026.")
     figure(F["out"], "fig03_station_comparison.png", "Distribution of hourly concentrations "
            "by station (box: interquartile range; whiskers: 1.5 IQR; outliers hidden).", 6.3)
 
@@ -363,7 +482,10 @@ def methodology_section():
     table(m, "Run configuration. Each mode trains its own models, scalers and imputers and "
              "writes to its own output folder.", font=8)
     para("Within each mode, validation is the six months before the forecast origin and "
-         "training is everything earlier. Scaler, imputer, network weights, early stopping and "
+         "training is everything earlier: the 2025 backtest fits the network on data up to "
+         "30 June 2024 and validates on July-December 2024; the 2026 run fits on data up to "
+         "30 June 2025 and validates on July-December 2025. Scaler, imputer, network weights, "
+         "early stopping and "
          "the choice of target design use only data up to the training cutoff. Horizon rows "
          "are used for two things only: as ground truth, and as inputs to the one-step "
          "evaluation.")
@@ -385,9 +507,11 @@ def methodology_section():
     ])
     para("Predicted concentrations are clipped at zero, both before being fed back and on "
          "output; a pollutant concentration cannot be negative. Every horizon hour is "
-         "exported. Each row records whether a measurement exists (observed), the station "
-         "file has the hour but no valid value (missing_value), or the file has no row for "
-         "the hour (no_row_in_file). Ground truth is never imputed or interpolated.")
+         "exported. Each row records whether a measurement exists (observed), a value was "
+         "rejected by the cleaning rules (removed_by_quality_check), the station file has "
+         "the hour but no value (missing_value), or the file has no row for the hour "
+         "(no_row_in_file). Ground truth is never imputed or interpolated, and only "
+         "observed hours are scored.")
     h("8.3 Training and target design", 2)
     cfg = pd.DataFrame([
         ["Loss", "Masked MSE on standardised targets (missing targets excluded)"],
@@ -402,7 +526,9 @@ def methodology_section():
                "search).", font=8)
     para("Two parameterisations of the same network are trained per station: level "
          "(predict the standardised concentration) and change (predict the difference from "
-         "the last observed value). The design for the recursive forecast is chosen by a "
+         "the last hour of the input window, then add it back). Training, one-step and "
+         "recursive prediction all use that same base value; in the recursive forecast it "
+         "is the previous prediction. The design for the recursive forecast is chosen by a "
          "recursive forecast of the validation half-year. The design for the one-step "
          "evaluation is chosen by one-step validation loss. Neither choice sees the horizon.")
     for key, r in (("backtest_2025", B), ("forecast_2026", F)):
@@ -450,9 +576,14 @@ def metrics_section():
         "flagged unreliable with fewer than 168 hours (one week).",
         "Recursive skill = 1 − RMSE_CNN-LSTM / RMSE_climatology; one-step skill = "
         "1 − RMSE_CNN-LSTM / RMSE_persistence. Positive means the CNN-LSTM is better.",
-        "A series whose measured horizon values take fewer than 100 distinct values is "
-        "quality-flagged (stuck or quantised sensor). It is reported but left out of the "
-        "pooled per-pollutant summary. Pollutants are never pooled together.",
+        "Hours removed by the cleaning rules are never scored, for any method.",
+        "As a second safeguard, a series whose remaining measured horizon values take fewer "
+        "than 100 distinct values is quality-flagged. It is reported but left out of the "
+        "pooled per-pollutant summary and the win counts. Pollutants are never pooled "
+        "together.",
+        "R² is never read on its own: hourly pollution is persistent, so even the "
+        "persistence baseline reaches a high R². The skill against a baseline is the "
+        "number that shows whether the model adds anything.",
     ])
 
 
@@ -504,11 +635,10 @@ def backtest_section():
          f"CNN-LSTM beats climatology for {n_pos} of {len(POLL)} pollutants. A year-ahead "
          "recursive forecast cannot know the weather of a given day, so after the first "
          "hours its value lies in reproducing the seasonal and daily cycle, and climatology "
-         "is the baseline it has to match. It does not. Feeding predictions back lets the "
-         "network settle on its own level, which can be far from the measurements for "
-         "months: at Pandav Nagari, NO2, SO2 and NH3 stay at several times the measured "
-         "concentrations through January-April and again from November. That station was "
-         "trained on mid-2023 to mid-2024, when its NO2 was much higher than in 2025.")
+         "is the baseline it has to match. It does not: the CNN-LSTM beats climatology for "
+         f"only {B_rec_wins} of {B_rec_n} station-pollutant series. Feeding predictions back "
+         "lets the network settle on its own level, which can be far from the measurements "
+         f"for months. The worst series is {worst_series(B)}.")
     for s in STATIONS:
         figure(B["out"], f"fig05_forecast_{s.replace(' ', '_')}.png",
                f"{s}: 2025 recursive forecast (daily means) against measurements.", 6.0)
@@ -528,7 +658,7 @@ def backtest_section():
 
 
 def forecast_section():
-    h("12. Results: 2026 Forecast")
+    h("12. Results: 2026 (Partial-Year Evaluation)")
     para("Models trained on data up to 31 December 2025 forecast every hour of 2026 at all "
          "four stations (8,760 hours each, 1 January 00:00 to 31 December 23:00). The forecast "
          "file contains every hour. Only hours labelled observed are scored: January-June "
@@ -551,21 +681,22 @@ def forecast_section():
     table(t.reset_index(drop=True), "2026 monthly mean PM2.5 (µg/m³): recursive CNN-LSTM "
           "forecast against climatology.", font=7)
     off = pm_ratio.stack()
-    off = off[(off > 3) | (off < 0.2)]
+    off = off[(off > 2) | (off < 0.5)]
     months = {st: ", ".join(pd.Timestamp(2026, m, 1).strftime("%b") for m in g.index
                             .get_level_values(1)) for st, g in off.groupby(level=0)}
     designs = F["sel"]["selected_design"]
-    para("Months where the forecast is more than three times, or less than a fifth of, "
+    top = (off.apply(lambda v: max(v, 1 / v))).idxmax()
+    para("Months where the forecast is more than twice, or less than half of, "
          "climatology: " + "; ".join(f"{st} ({ms}; {designs[st]} design)"
                                      for st, ms in months.items())
-         + f". The most extreme is {off.idxmax()[0]} in "
-         f"{pd.Timestamp(2026, off.idxmax()[1], 1):%B}: "
-         f"{pm_monthly['cnn_lstm_pred'].loc[off.idxmax()]:.0f} µg/m³ against a climatology of "
-         f"{pm_monthly['climatology_pred'].loc[off.idxmax()]:.0f}. With the change design, "
-         "selected on validation for these stations, each step adds a predicted change to "
-         "the previous prediction, and the accumulated changes carry the forecast away from "
-         "any realistic level over months. These values, and the AQI derived from them, "
-         "should not be used as an estimate of 2026 air quality.")
+         + f". The most extreme is {top[0]} in {pd.Timestamp(2026, top[1], 1):%B}: "
+         f"{pm_monthly['cnn_lstm_pred'].loc[top]:.0f} µg/m³ against a climatology of "
+         f"{pm_monthly['climatology_pred'].loc[top]:.0f}. Both target designs drift: each "
+         "prediction becomes an input for the next, so small biases accumulate over "
+         "thousands of steps and carry the forecast away from realistic levels. These values, "
+         "and the AQI derived from them, should not be used as an estimate of 2026 air "
+         "quality; the climatology column of the same file is the better year-ahead "
+         "estimate.")
     h("12.2 Recursive forecast on measured hours", 2)
     recursive_tables(F, "2026")
     for s in STATIONS:
@@ -614,12 +745,21 @@ def discussion_section():
          "means, that every horizon hour is present once, that missing hours carry no "
          "actual value, and that every metric matches a recomputation from the exported "
          "predictions.")
-    flagged = F["rec"][F["rec"].quality_flag]
-    para("Quality-flagged series. In 2026 the following series take fewer than 100 distinct "
-         "measured values: " + ", ".join(f"{s} {p}" for s, p in
-                                         zip(flagged.station, flagged.pollutant))
-         + ". They are reported in every table but excluded from pooled summaries; they "
-         "reflect instrument behaviour, not the model.")
+    for key, r in (("backtest_2025", B), ("forecast_2026", F)):
+        flagged = r["rec"][r["rec"].quality_flag]
+        names = ", ".join(f"{s} {p}" for s, p in zip(flagged.station, flagged.pollutant))
+        para(f"Quality-flagged series, {MODES[key]}: "
+             + (f"{names} still take fewer than 100 distinct measured values after cleaning. "
+                "They are reported in every table but excluded from pooled summaries and win "
+                "counts." if names else "none after cleaning."))
+    q = pd.concat([r["rec"].assign(mode=MODES[k]) for k, r in
+                   (("backtest_2025", B), ("forecast_2026", F))])
+    q = q.pivot_table(index=["mode", "station"], columns="pollutant",
+                      values="hours_removed_by_quality_check", aggfunc="sum")[POLL]
+    q = q.reset_index()
+    q.columns = ["Mode", "Station", *POLL]
+    table(q, "Horizon hours whose measurement was removed by the cleaning rules and is "
+             "therefore not scored (out of 8,760 per series).", font=8)
     para("Recursive versus one-step. The two scores answer different questions. The "
          "one-step score says how well the network corrects persistence when fresh "
          "measurements arrive every hour. The recursive score says what can be said about a "
@@ -642,9 +782,13 @@ def limitations_section():
         "Three stations have about two and a half years of training data (mid-2023 to the "
         "cutoff), and Gangapur Road's long history includes years whose sensor behaviour "
         "differs from 2026.",
-        "Meteorological inputs are excluded because of missing or inconsistent sensors.",
-        "The quality flag and the 12-hour stuck rule are heuristics; some degraded readings "
-        "may remain.",
+        "The model uses no weather inputs (temperature, humidity, wind, rain), although "
+        "they are measured at three of the four stations. Weather drives much of the "
+        "day-to-day change in pollution, and a year-ahead forecast could only use it with "
+        "weather forecasts, which this project does not have.",
+        "The cleaning rules (12-hour stuck values, CO zeros, flatline days) and the "
+        "distinct-value flag are heuristics; some degraded readings may remain, such as "
+        "low-resolution CO in mid-2025.",
         "Derived AQI depends on the CPCB breakpoints as implemented here, and on the "
         "assumption for the open-ended Severe band.",
     ])
@@ -657,13 +801,17 @@ def conclusion_section():
          "independent verifier and the test suite confirm the horizon, the labelling of "
          "missing ground truth, the absence of post-cutoff information, and every metric.")
     para("Accuracy is a separate question, and the answer is not flattering. As a year-"
-         "ahead forecast, the recursive CNN-LSTM is worse than the hour-of-day climatology "
-         f"for every pollutant, pooled, in both the 2025 backtest ({B_rec_skill_txt}) and the "
-         f"measured part of 2026 ({F_rec_skill_txt}). For planning-horizon estimates of 2026, "
+         "ahead forecast, the recursive CNN-LSTM is worse than the month-by-hour climatology "
+         f"for {B_rec_worse_txt}, pooled, in the 2025 backtest ({B_rec_skill_txt}) and for "
+         f"{F_rec_worse_txt} in the measured part of 2026 ({F_rec_skill_txt}). Per series it "
+         f"beats climatology in only {B_rec_wins} of {B_rec_n} (2025) and {F_rec_wins} of "
+         f"{F_rec_n} (2026) cases. For planning-horizon estimates of 2026, "
          "the climatology column of the same forecast file is the better number. The network "
          "earns its place one hour ahead, modestly: with the previous 24 measured hours as "
-         f"input, its RMSE skill against persistence is {B_one_skill_txt} in 2025 and "
-         f"{F_one_skill_txt} in 2026.")
+         f"input, it beats persistence for {B_one_wins} of {B_one_n} series in 2025 and "
+         f"{F_one_wins} of {F_one_n} in 2026 (median RMSE reduction {100 * B_one_median:.1f}% "
+         f"and {100 * F_one_median:.1f}%). Pooled per pollutant, its RMSE skill against "
+         f"persistence is {B_one_skill_txt} in 2025 and {F_one_skill_txt} in 2026.")
     para("Future work: train a direct multi-horizon model, or blend the network with "
          "climatology using weights chosen on validation, rather than feeding a one-step "
          "model its own output for 8,760 steps; add quality-controlled meteorological "

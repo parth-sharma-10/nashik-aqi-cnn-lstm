@@ -47,14 +47,22 @@ assert meta["target_columns"] == cols
 
 
 def documented_cleaning(raw):
-    """Re-derive cleaned values from the raw file: >= 999 PM ceiling, >= 12 h stuck runs."""
+    """Re-derive cleaned values from the raw file: >= 999 PM ceiling, >= 12 h stuck runs,
+    CO == 0, and flatline days (>= 12 values, P90 - P10 < 5% of the day's median)."""
     out = {}
     for pol, col in cols.items():
         x = raw[col].where(raw[col] >= 0)
         if pol in ("PM2.5", "PM10"):
             x = x.where(x < 999)
         run_len = x.groupby((x != x.shift()).cumsum()).transform("size")
-        out[pol] = x.where(~((run_len >= 12) & x.notna()))
+        x = x.where(~((run_len >= 12) & x.notna()))
+        if pol == "CO":
+            x = x.where(x != 0)
+        day = x.index.normalize()
+        q = x.groupby(day).quantile([0.1, 0.5, 0.9]).unstack()
+        n = x.groupby(day).count()
+        flat = (n >= 12) & (q[0.9] - q[0.1] < 0.05 * q[0.5])
+        out[pol] = x.where(~day.isin(flat[flat].index))
     return pd.DataFrame(out)
 
 
@@ -110,9 +118,8 @@ def replay_one_step(station, design, clean, ts):
     assert hours.isin(clean.index).all(), (station, ts, "window crosses a gap")
     x = np.column_stack([scaled_imputed(prep, clean.loc[hours]), calendar(hours)])
     z = model(x[None].astype("float32"), training=False).numpy()[0]
-    if design == "change":
-        last = clean.loc[:hours[-1]].ffill().iloc[-1].values
-        z = z + (last - prep["scaler"].mean_) / prep["scaler"].scale_
+    if design == "change":  # change is relative to the last hour of the input window
+        z = z + x[-1, :len(cols)]
     return np.maximum(z * prep["scaler"].scale_ + prep["scaler"].mean_, 0)
 
 
@@ -157,9 +164,11 @@ for station, frag in files.items():
     for pol in POLL:
         q = f[f.pollutant == pol].set_index("timestamp")
         truth = clean[pol].reindex(HORIZON)
+        had_value = raw[cols[pol]].reindex(HORIZON).notna()
         assert np.allclose(q.actual, truth, equal_nan=True), (station, pol)
-        expected = np.where(truth.notna(), "observed",
-                            np.where(in_file, "missing_value", "no_row_in_file"))
+        expected = np.select([truth.notna(), had_value, in_file],
+                             ["observed", "removed_by_quality_check", "missing_value"],
+                             "no_row_in_file")
         assert (q.ground_truth.values == expected).all(), (station, pol)
 
     # 4. The recursive forecast depends only on pre-origin data: replaying it from the raw

@@ -124,6 +124,40 @@ class Outputs(unittest.TestCase):
                 self.assertTrue(o.actual.notna().all())
                 self.assertFalse(o.duplicated(["station", "timestamp", "pollutant"]).any())
 
+    def test_known_sensor_faults_are_not_scored(self):
+        """Gangapur Road NO2 flatlines at ~3.85 µg/m³ from late August 2025; CO reads 0.00."""
+        fc = self.load("backtest_2025", "predictions/recursive_forecast.csv",
+                       parse_dates=["timestamp"])
+        no2 = fc[(fc.station == "Gangapur Road") & (fc.pollutant == "NO2")
+                 & (fc.timestamp >= "2025-09-01")]
+        self.assertLess((no2.ground_truth == "observed").mean(), 0.1)
+        self.assertGreater((no2.ground_truth == "removed_by_quality_check").mean(), 0.8)
+        for mode in MODES:
+            with self.subTest(mode=mode):
+                f = self.load(mode, "predictions/recursive_forecast.csv")
+                co = f[(f.pollutant == "CO") & (f.ground_truth == "observed")]
+                self.assertFalse((co.actual == 0).any())
+
+    def test_extreme_pollution_events_are_kept(self):
+        """Diwali 2025 at Hirwadi: PM2.5 446.94 µg/m³ is a real peak, not a fault."""
+        fc = self.load("backtest_2025", "predictions/recursive_forecast.csv",
+                       parse_dates=["timestamp"])
+        row = fc[(fc.station == "Hirwadi") & (fc.pollutant == "PM2.5")
+                 & (fc.timestamp == "2025-10-21 22:00")].iloc[0]
+        self.assertEqual(row.ground_truth, "observed")
+        self.assertAlmostEqual(row.actual, 446.94)
+
+    def test_removed_hours_are_counted(self):
+        for mode in MODES:
+            with self.subTest(mode=mode):
+                fc = self.load(mode, "predictions/recursive_forecast.csv")
+                m = self.load(mode, "metrics/recursive_station_pollutant_metrics.csv")
+                removed = fc[fc.ground_truth == "removed_by_quality_check"].groupby(
+                    ["station", "pollutant"]).size()
+                for r in m.itertuples():
+                    self.assertEqual(r.hours_removed_by_quality_check,
+                                     removed.get((r.station, r.pollutant), 0))
+
     def test_independent_verifier(self):
         """Replays forecasts from data truncated at the cutoff (leakage), rebuilds one-step
         windows from the raw files (alignment) and recomputes every metric."""
