@@ -1,8 +1,8 @@
 {
   "mode": "forecast_2026",
   "model_version": "cnn_lstm_forecast_2026",
-  "git_commit": "72d5052",
-  "run_timestamp": "2026-10-11T19:02:13",
+  "git_commit": "2ee0a80",
+  "run_timestamp": "2026-10-11T20:29:07",
   "training_cutoff": "2025-12-31 23:00:00",
   "forecast_origin": "2025-12-31 23:00:00",
   "horizon_start": "2026-01-01 00:00:00",
@@ -62,8 +62,8 @@
   "selected_design_recursive": {
     "MIDC Ambad": "level",
     "Gangapur Road": "change",
-    "Pandav Nagari": "change",
-    "Hirwadi": "level"
+    "Pandav Nagari": "level",
+    "Hirwadi": "change"
   },
   "selected_design_one_step": {
     "MIDC Ambad": "change",
@@ -143,25 +143,30 @@
   "patience": 6,
   "max_imputed_fraction": 0.5,
   "stuck_hours": 12,
+  "flatline_rule": {
+    "min_hours_per_day": 12,
+    "max_relative_spread_p90_p10": 0.05
+  },
+  "co_zero_is_missing": true,
   "epochs_run": {
-    "MIDC Ambad|level": 30,
-    "MIDC Ambad|change": 19,
-    "Gangapur Road|level": 14,
-    "Gangapur Road|change": 15,
-    "Pandav Nagari|level": 28,
-    "Pandav Nagari|change": 19,
-    "Hirwadi|level": 17,
-    "Hirwadi|change": 11
+    "MIDC Ambad|level": 25,
+    "MIDC Ambad|change": 17,
+    "Gangapur Road|level": 18,
+    "Gangapur Road|change": 11,
+    "Pandav Nagari|level": 25,
+    "Pandav Nagari|change": 16,
+    "Hirwadi|level": 19,
+    "Hirwadi|change": 14
   },
   "best_epoch": {
-    "MIDC Ambad|level": 24,
-    "MIDC Ambad|change": 13,
-    "Gangapur Road|level": 8,
-    "Gangapur Road|change": 9,
-    "Pandav Nagari|level": 22,
-    "Pandav Nagari|change": 13,
-    "Hirwadi|level": 11,
-    "Hirwadi|change": 5
+    "MIDC Ambad|level": 19,
+    "MIDC Ambad|change": 11,
+    "Gangapur Road|level": 12,
+    "Gangapur Road|change": 5,
+    "Pandav Nagari|level": 19,
+    "Pandav Nagari|change": 10,
+    "Hirwadi|level": 13,
+    "Hirwadi|change": 8
   },
   "station_files": {
     "MIDC Ambad": "data/MIDCAMBAD_NASHIK.CSV",

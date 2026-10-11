@@ -1,5 +1,5 @@
-,duplicates_removed,leading_empty_rows_dropped,PM2.5_negative,PM2.5_ceiling,PM2.5_stuck,PM10_negative,PM10_ceiling,PM10_stuck,NO2_negative,NO2_ceiling,NO2_stuck,SO2_negative,SO2_ceiling,SO2_stuck,CO_negative,CO_ceiling,CO_stuck,O3_negative,O3_ceiling,O3_stuck,NH3_negative,NH3_ceiling,NH3_stuck
-MIDC Ambad,0,12710,0,0,22,0,0,0,0,0,0,0,0,0,0,0,3059,0,0,14,0,0,12
-Gangapur Road,0,0,0,1,346,0,20,124,0,0,2853,0,0,193,0,0,4005,0,0,155,0,0,806
-Pandav Nagari,0,12161,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-Hirwadi,0,12184,0,0,13,0,0,13,0,0,59,0,0,0,0,0,2247,0,0,0,0,0,0
+,duplicates_removed,leading_empty_rows_dropped,PM2.5_negative,PM2.5_ceiling,PM2.5_stuck,PM2.5_zero,PM2.5_flatline,PM10_negative,PM10_ceiling,PM10_stuck,PM10_zero,PM10_flatline,NO2_negative,NO2_ceiling,NO2_stuck,NO2_zero,NO2_flatline,SO2_negative,SO2_ceiling,SO2_stuck,SO2_zero,SO2_flatline,CO_negative,CO_ceiling,CO_stuck,CO_zero,CO_flatline,O3_negative,O3_ceiling,O3_stuck,O3_zero,O3_flatline,NH3_negative,NH3_ceiling,NH3_stuck,NH3_zero,NH3_flatline
+MIDC Ambad,0,12710,0,0,22,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,91,0,0,3059,84,72,0,0,14,0,85,0,0,12,0,143
+Gangapur Road,0,0,0,1,346,0,14,0,20,124,0,0,0,0,2853,0,13223,0,0,193,0,12,0,0,4005,1241,5153,0,0,155,0,5227,0,0,806,0,14997
+Pandav Nagari,0,12161,0,0,0,0,48,0,0,0,0,48,0,0,0,0,0,0,0,0,0,168,0,0,0,9,48,0,0,0,0,72,0,0,0,0,445
+Hirwadi,0,12184,0,0,13,0,0,0,0,13,0,0,0,0,59,0,168,0,0,0,0,111,0,0,2247,311,147,0,0,0,0,0,0,0,0,0,84

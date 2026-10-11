@@ -1,5 +1,5 @@
-station,horizon_hours,rows_in_file,hours_any_pollutant_measured,first_measured,last_measured,months_without_rows,seed_hours_absent_from_file
-MIDC Ambad,8760,5088,4739,2026-01-01,2026-08-31 23:00:00,"Jul, Sep, Oct, Nov, Dec",0
-Gangapur Road,8760,5088,4989,2026-01-01,2026-08-31 23:00:00,"Jul, Sep, Oct, Nov, Dec",0
-Pandav Nagari,8760,0,0,,,"Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec",0
-Hirwadi,8760,5088,4844,2026-01-01,2026-08-31 15:00:00,"Jul, Sep, Oct, Nov, Dec",0
+station,horizon_hours,rows_in_file,hours_any_pollutant_measured,first_measured,last_measured,months_without_rows,seed_hours_absent_from_file,seed_hours_without_any_measurement
+MIDC Ambad,8760,5088,4739,2026-01-01,2026-08-31 23:00:00,"Jul, Sep, Oct, Nov, Dec",0,0
+Gangapur Road,8760,5088,4989,2026-01-01,2026-08-31 23:00:00,"Jul, Sep, Oct, Nov, Dec",0,6
+Pandav Nagari,8760,0,0,,,"Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec",0,0
+Hirwadi,8760,5088,4844,2026-01-01,2026-08-31 15:00:00,"Jul, Sep, Oct, Nov, Dec",0,0

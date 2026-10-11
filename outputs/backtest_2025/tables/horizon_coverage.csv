@@ -1,5 +1,5 @@
-station,horizon_hours,rows_in_file,hours_any_pollutant_measured,first_measured,last_measured,months_without_rows,seed_hours_absent_from_file
-MIDC Ambad,8760,8760,8456,2025-01-01 00:00:00,2025-12-31 23:00:00,none,0
-Gangapur Road,8760,8760,8511,2025-01-01 00:00:00,2025-12-31 23:00:00,none,0
-Pandav Nagari,8760,8760,8435,2025-01-01 16:00:00,2025-12-31 23:00:00,none,0
-Hirwadi,8760,8760,8550,2025-01-01 00:00:00,2025-12-31 23:00:00,none,0
+station,horizon_hours,rows_in_file,hours_any_pollutant_measured,first_measured,last_measured,months_without_rows,seed_hours_absent_from_file,seed_hours_without_any_measurement
+MIDC Ambad,8760,8760,8456,2025-01-01 00:00:00,2025-12-31 23:00:00,none,0,0
+Gangapur Road,8760,8760,8511,2025-01-01 00:00:00,2025-12-31 23:00:00,none,0,0
+Pandav Nagari,8760,8760,8435,2025-01-01 16:00:00,2025-12-31 23:00:00,none,0,8
+Hirwadi,8760,8760,8550,2025-01-01 00:00:00,2025-12-31 23:00:00,none,0,0

@@ -15,13 +15,13 @@ Xylene (µg/m³),pollutant (VOC/NOx species) - not used,µg/m³,100.0,100.0,100.
 O Xylene (µg/m³),pollutant (VOC/NOx species) - not used,µg/m³,88.6,66.7,100.0,89.0
 Eth-Benzene (µg/m³),pollutant (VOC/NOx species) - not used,µg/m³,37.4,11.5,37.6,38.5
 MP-Xylene (µg/m³),pollutant (VOC/NOx species) - not used,µg/m³,37.4,15.4,37.3,38.5
-AT (°C),meteorology - not used (see report),°C,35.9,94.5,36.5,35.2
-RH (%),meteorology - not used (see report),%,35.9,94.5,36.5,35.2
-WS (m/s),meteorology - not used (see report),m/s,35.9,6.5,36.4,35.2
-WD (deg),meteorology - not used (see report),deg,35.9,6.9,36.4,35.2
-RF (mm),meteorology - not used (see report),mm,35.9,94.5,36.4,35.1
-TOT-RF (mm),meteorology - not used (see report),mm,0.9,94.5,0.0,1.1
-SR (W/mt2),meteorology - not used (see report),W/mt2,35.9,47.5,36.4,35.1
-BP (mmHg),meteorology - not used (see report),mmHg,100.0,100.0,100.0,100.0
-VWS (m/s),meteorology - not used (see report),m/s,100.0,100.0,100.0,100.0
+AT (°C),meteorology - not used by the model,°C,35.9,94.5,36.5,35.2
+RH (%),meteorology - not used by the model,%,35.9,94.5,36.5,35.2
+WS (m/s),meteorology - not used by the model,m/s,35.9,6.5,36.4,35.2
+WD (deg),meteorology - not used by the model,deg,35.9,6.9,36.4,35.2
+RF (mm),meteorology - not used by the model,mm,35.9,94.5,36.4,35.1
+TOT-RF (mm),meteorology - not used by the model,mm,0.9,94.5,0.0,1.1
+SR (W/mt2),meteorology - not used by the model,W/mt2,35.9,47.5,36.4,35.1
+BP (mmHg),meteorology - not used by the model,mmHg,100.0,100.0,100.0,100.0
+VWS (m/s),meteorology - not used by the model,m/s,100.0,100.0,100.0,100.0
 Source_File,metadata (dropped: labels inconsistent with timestamps),,,,,0.0
