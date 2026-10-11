@@ -1,9 +1,11 @@
 # %% [markdown]
 # # Nashik Air-Quality Prediction with KNN Imputation and CNN-LSTM
 #
-# One-step-ahead (next-hour) prediction of seven criteria pollutants at four Nashik
-# monitoring stations. Each station gets its own CNN-LSTM, trained on that station's
-# history only. The latest calendar year of each station is held out as the test set.
+# Blind forecast of every hour of 2025 for seven criteria pollutants at four Nashik
+# monitoring stations, compared against the measured 2025 data. Each station gets its own
+# CNN-LSTM, trained on that station's data up to the end of 2024 only. Starting from the
+# last 24 hours of 2024, the model predicts one hour, feeds that prediction back as input,
+# and repeats for all 8,760 hours of 2025 - no 2025 measurement is ever used as input.
 #
 # Run top to bottom. In Colab, the upload cell asks for the four station CSVs
 # (or the zip they came in).
@@ -200,9 +202,12 @@ def clean_station(df):
     return df, log
 
 
+TEST_YEAR = 2025
 clean, cleaning_log = {}, {}
 for s, d in raw.items():
     clean[s], cleaning_log[s] = clean_station(d)
+    # Data after the forecast year (Jan-Aug 2026) plays no part in this study.
+    clean[s] = clean[s][clean[s]["Timestamp"].dt.year <= TEST_YEAR].reset_index(drop=True)
 cleaning_log = pd.DataFrame(cleaning_log).T
 cleaning_log.to_csv(f"{OUT}/tables/cleaning_log.csv")
 print("Retained period per station:")
@@ -280,15 +285,14 @@ summary_stats.round(2).to_csv(f"{OUT}/tables/descriptive_statistics.csv")
 # %% [markdown]
 # ## 5. Chronological train / validation / test split
 #
-# The test set is each station's latest calendar year with observations. Three stations
-# end in 2026 (Jan-Jun and Aug; July 2026 is absent from all files). Pandav Nagari ends
-# on 2025-12-31, so its test year is 2025. Validation is the six months before the
-# test year; training is everything earlier. The split is by the timestamp of the
-# predicted hour, so no test-year label is used for fitting, early stopping or tuning.
+# Test = calendar year 2025 at all four stations (all 12 months are present everywhere).
+# Validation = Jul-Dec 2024; training = everything before Jul 2024. Data from 2026 is
+# dropped. Scaler, imputer, model weights, early stopping and the choice between the two
+# model designs all use data up to 2024-12-31 only.
 
 # %%
 def split_bounds(df):
-    test_year = df["Timestamp"].dt.year.max()
+    test_year = TEST_YEAR
     test_start = pd.Timestamp(f"{test_year}-01-01")
     val_start = test_start - pd.DateOffset(months=6)
     return test_year, val_start, test_start
@@ -368,19 +372,17 @@ imputation_counts.pivot_table(index=["station", "split"], columns="pollutant",
 # %% [markdown]
 # ## 7. Sliding-window sequence generation
 #
-# One observation = one hourly average. Input: the previous **24 hours** (one diurnal
-# cycle) of 13 features - 7 scaled, KNN-imputed pollutants plus sine/cosine encodings
-# of hour-of-day, day-of-week and month (deterministic, known in advance). Target: the
-# 7 pollutants at the **next hour** (horizon = 1). A window is kept only if
-# - its 25 timestamps are consecutive hours (no window crosses a gap in the file),
-# - at least one target pollutant is observed at the predicted hour, and
-# - at most 50% of its input pollutant cells were imputed, and
-# - every pollutant has at least one earlier observation (needed by the baseline).
+# One observation = one hourly average. The network is trained as a one-step model:
+# input = the previous **24 hours** (one diurnal cycle) of 13 features - 7 scaled,
+# KNN-imputed pollutants plus sine/cosine encodings of hour-of-day, day-of-week and month
+# (deterministic, so known for every future hour); target = the 7 pollutants at the
+# **next hour**. Training/validation windows are kept only if
+# - their 25 timestamps are consecutive hours (no window crosses a gap in the file),
+# - at least one target pollutant is observed at the predicted hour,
+# - at most 50% of the input pollutant cells were imputed, and
+# - every pollutant has at least one earlier observation.
 #
-# This is a one-step-ahead (nowcasting) design: at each test hour the model sees the
-# actual observations of the preceding 24 hours, as an operational system would. It
-# is not a recursive multi-step forecast and makes no claim about predicting a year
-# ahead.
+# The year-long forecast in step 10 applies this one-step model recursively.
 
 # %%
 LOOKBACK = 24
@@ -419,12 +421,13 @@ def make_windows(p):
 windows = {s: make_windows(p) for s, p in prep.items()}
 seq_rows = []
 for s, w in windows.items():
-    for part in ("train", "val", "test"):
+    for part in ("train", "val"):
         n = int((w["split"] == part).sum())
         if n == 0:
             raise ValueError(f"{s}: no {part} sequences - check the data and split dates")
         seq_rows.append({"station": s, "split": part, "sequences": n})
-    print(f"{s:14s} X shape {w['X'].shape}  (samples, lookback hours, features)")
+    print(f"{s:14s} X shape {w['X'].shape}  (samples, lookback hours, features; "
+          "2025 windows are built but never used)")
 pd.DataFrame(seq_rows).pivot(index="station", columns="split", values="sequences")
 
 # %% [markdown]
@@ -435,13 +438,15 @@ pd.DataFrame(seq_rows).pivot(index="station", columns="split", values="sequences
 # sequence for longer-range dependencies; dropout regularises; a dense head outputs all
 # 7 pollutants (multi-output). Missing targets are masked out of the MSE loss.
 #
-# Two target parameterisations of the same network are trained and the one with the
-# lower **validation** loss is selected per station (the test year plays no part):
+# Two target parameterisations of the same network are trained:
 # - `level`: predict the standardised concentration at the next hour;
-# - `change`: predict the change from the last observed value, then add it back.
-# Hourly pollution is strongly autocorrelated, so `change` lets the network spend its
-# capacity on the departure from persistence. In standardised units both losses
-# measure the same next-hour error, so their validation losses are directly comparable.
+# - `change`: predict the change from the last value, then add it back.
+#
+# A design that is better one hour ahead is not necessarily better over months of
+# feeding its own output back (small biases accumulate). So the design used for 2025 is
+# chosen per station by a **recursive forecast of the validation half-year**
+# (Jul-Dec 2024, started from the last 24 hours of June 2024), scored against the
+# observed validation values. 2025 plays no part in this choice.
 
 # %%
 N_FEATURES = len(POLL) + 6
@@ -508,13 +513,64 @@ for s, w in windows.items():
                     f"best_epoch_{design}": best + 1,
                     f"epochs_run_{design}": len(hist.history["loss"])})
         model.save(f"{OUT}/models/cnn_lstm_{design}_{s.replace(' ', '_')}.keras")
-    row["selected_design"] = min(DESIGNS, key=lambda d: row[f"val_loss_{d}"])
     selection.append(row)
 selection = pd.DataFrame(selection).set_index("station")
-selection.to_csv(f"{OUT}/metrics/model_selection_validation.csv")
 with open(f"{OUT}/metrics/training_history.json", "w") as fh:
     json.dump(histories, fh)
 selection.round(4)
+
+# %% [markdown]
+# ## 10. Recursive forecasting and design selection
+#
+# `recursive_forecast` starts from the 24 hours before the first forecast hour (the
+# KNN-imputed, scaled values the model was trained on; an hour absent from the file is
+# set to the training mean). It predicts the next hour, appends that prediction (with the
+# known calendar features of that hour) to the window, drops the oldest hour, and
+# repeats. Predictions below zero concentration are clipped to zero before being fed
+# back. Only the starting 24 hours are real data.
+
+# %%
+def recursive_forecast(model, design, p, start, n_hours):
+    sc = p["scaler"]
+    hist_ts = pd.date_range(end=start - pd.Timedelta(hours=1), periods=LOOKBACK, freq="h")
+    known = pd.DataFrame(p["X_imputed_scaled"], index=p["df"]["Timestamp"])
+    seed = known.reindex(hist_ts)
+    seed_missing = int(seed.isna().all(axis=1).sum())
+    window = np.column_stack([seed.fillna(0.0).values,  # 0 = training mean after scaling
+                              calendar_features(pd.Series(hist_ts))]).astype("float32")
+    future = pd.date_range(start, periods=n_hours, freq="h")
+    cal = calendar_features(pd.Series(future)).astype("float32")
+    zero_scaled = (-sc.mean_ / sc.scale_).astype("float32")
+    step = tf.function(lambda x: model(x, training=False), reduce_retracing=True)
+    out = np.empty((n_hours, len(POLL)), dtype="float32")
+    for i in range(n_hours):
+        z = step(window[None])[0].numpy()
+        if design == "change":
+            z = z + window[-1, :len(POLL)]
+        z = np.maximum(z, zero_scaled)
+        out[i] = z
+        window = np.vstack([window[1:], np.concatenate([z, cal[i]])[None]])
+    return future, np.maximum(out * sc.scale_ + sc.mean_, 0), seed_missing
+
+
+def scaled_mse(p, future, pred):
+    obs = p["df"].set_index("Timestamp")[POLL].reindex(future).values
+    z_obs = (obs - p["scaler"].mean_) / p["scaler"].scale_
+    z_pred = (pred - p["scaler"].mean_) / p["scaler"].scale_
+    return float(np.nanmean(np.square(z_obs - z_pred)))
+
+
+for s, p in prep.items():
+    _, val_start, test_start = split_bounds(p["df"])
+    n_val = int((test_start - val_start) / pd.Timedelta(hours=1))
+    for design in DESIGNS:
+        fut, pred, _ = recursive_forecast(models[(s, design)], design, p, val_start, n_val)
+        selection.loc[s, f"val_recursive_mse_{design}"] = scaled_mse(p, fut, pred)
+selection["selected_design"] = [
+    min(DESIGNS, key=lambda d: selection.loc[s, f"val_recursive_mse_{d}"]) for s in selection.index]
+selection.to_csv(f"{OUT}/metrics/model_selection_validation.csv")
+selection[["val_loss_level", "val_loss_change", "val_recursive_mse_level",
+           "val_recursive_mse_change", "selected_design"]].round(4)
 
 # %%
 fig, axes = plt.subplots(1, 4, figsize=(14, 3.4))
@@ -526,67 +582,103 @@ for ax, s in zip(axes, windows):
     ax.axvline(int(np.argmin(h["val_loss"])) + 1, color="#52514e", ls=":", lw=1,
                label="Best epoch")
     ax.axhline(selection.loc[s, "val_loss_persistence"], color="#3b3b3b", lw=1, ls="--",
-               label="Persistence (validation)")
+               label="One-step persistence (val.)")
     ax.set_title(f"{s} ({selection.loc[s, 'selected_design']} target)")
     ax.set_xlabel("Epoch")
     ax.set_ylabel("Masked MSE (standardised units)")
 axes[0].legend(frameon=False, fontsize=7)
-fig.suptitle("CNN-LSTM training and validation loss (selected design per station)")
+fig.suptitle("CNN-LSTM one-step training and validation loss (selected design per station)")
 fig.tight_layout()
 savefig(fig, "fig04_loss_curves")
 
 # %% [markdown]
-# ## 10-11. Test-year prediction and inverse transformation
+# ## 11. Forecast of 2025 and baselines
 #
-# Predictions are produced in standardised units and inverse-transformed with each
-# station's training scaler back to µg/m³ (mg/m³ for CO), then floored at 0 because a
-# concentration cannot be negative. Each row of the exported
-# table is one (station, hour, pollutant) with an observed actual value.
+# For each station both designs forecast all 8,760 hours of 2025 from the last 24 hours
+# of 2024; the design selected on validation is the reported CNN-LSTM forecast. Three
+# baselines use the same information (data up to 2024-12-31 only):
+# - **Climatology**: mean of the observed values for the same calendar month and hour of
+#   day over all data before 2025 (month mean, then overall mean, if a cell is empty).
+# - **Same hour last year**: the observed value 364 days earlier (52 weeks, so the weekday
+#   matches); where that hour was not measured, the climatology value is used.
+# - **Persistence**: the last observed 2024 value of each pollutant, held for the year.
+#
+# Every forecast is compared with the measured (cleaned) 2025 value of the same station,
+# hour and pollutant; hours without a measurement are skipped.
 
 # %%
+def climatology(d, ts):
+    hist = d[d["Timestamp"] < pd.Timestamp(f"{TEST_YEAR}-01-01")]
+    by_month_hour = hist.groupby([hist.Timestamp.dt.month, hist.Timestamp.dt.hour])[POLL].mean()
+    by_month = hist.groupby(hist.Timestamp.dt.month)[POLL].mean()
+    out = by_month_hour.reindex(pd.MultiIndex.from_arrays([ts.month, ts.hour])).set_axis(ts)
+    return out.fillna(by_month.reindex(ts.month).set_axis(ts)).fillna(hist[POLL].mean())
+
+
+def same_hour_last_year(d, ts, clim):
+    hist = d[d["Timestamp"] < pd.Timestamp(f"{TEST_YEAR}-01-01")].set_index("Timestamp")[POLL]
+    return hist.reindex(ts - pd.Timedelta(days=364)).set_axis(ts).fillna(clim)
+
+
+FORECAST_START = pd.Timestamp(f"{TEST_YEAR}-01-01")
+N_FORECAST = int((pd.Timestamp(f"{TEST_YEAR + 1}-01-01") - FORECAST_START) / pd.Timedelta(hours=1))
 pred_rows = []
-for s, w in windows.items():
-    te = w["split"] == "test"
-    sc = prep[s]["scaler"]
+for s, p in prep.items():
+    d = p["df"]
     yhat = {}
     for design in DESIGNS:
-        z = models[(s, design)](w["X"][te], training=False).numpy()
-        if design == "change":
-            z = z + w["last_scaled"][te]
-        yhat[design] = np.maximum(z * sc.scale_ + sc.mean_, 0)  # concentrations are >= 0
+        future, yhat[design], seed_missing = recursive_forecast(
+            models[(s, design)], design, p, FORECAST_START, N_FORECAST)
+    print(f"{s:14s} forecast {len(future)} hours, {future[0]} -> {future[-1]}; "
+          f"starting-window hours absent from the file: {seed_missing}")
+    clim = climatology(d, future)
+    last_year = same_hour_last_year(d, future, clim)
+    persist = d[d["Timestamp"] < FORECAST_START][POLL].ffill().iloc[-1]
+    actual = d.set_index("Timestamp")[POLL].reindex(future)
     chosen = selection.loc[s, "selected_design"]
-    for j, p in enumerate(POLL):
-        obs = ~np.isnan(w["y_raw"][te][:, j])
+    for j, pol in enumerate(POLL):
+        obs = actual[pol].notna().values
         pred_rows.append(pd.DataFrame({
-            "station": s, "timestamp": w["timestamp"][te][obs], "pollutant": p,
-            "unit": UNITS[p], "actual": w["y_raw"][te][obs, j],
+            "station": s, "timestamp": future[obs], "pollutant": pol, "unit": UNITS[pol],
+            "actual": actual[pol].values[obs],
             "cnn_lstm_pred": yhat[chosen][obs, j], "selected_design": chosen,
-            "persistence_pred": w["persistence"][te][obs, j],
+            "climatology_pred": clim[pol].values[obs],
+            "same_hour_last_year_pred": last_year[pol].values[obs],
+            "persistence_pred": persist[pol],
             "cnn_lstm_level_pred": yhat["level"][obs, j],
             "cnn_lstm_change_pred": yhat["change"][obs, j],
         }))
 predictions = pd.concat(pred_rows, ignore_index=True)
-predictions["test_year"] = pd.to_datetime(predictions["timestamp"]).dt.year
+predictions["test_year"] = TEST_YEAR
+predictions["month"] = pd.to_datetime(predictions["timestamp"]).dt.month
 assert predictions.drop(columns="selected_design").notna().all().all()
 predictions.to_csv(f"{OUT}/predictions/actual_vs_predicted.csv", index=False)
 predictions.head()
 
 # %% [markdown]
-# ## 12-13. Evaluation metrics and persistence baseline
+# ## 12-13. Evaluation metrics and baselines
 #
-# MSE, RMSE, MAE and R² from scikit-learn, in original units, per station and
-# pollutant. The persistence baseline predicts the most recent observed value of the
-# same pollutant at or before the previous hour, on exactly the same test rows.
-# Skill = 1 - RMSE_model / RMSE_persistence (> 0 means the CNN-LSTM beats persistence).
+# MSE, RMSE, MAE and R² from scikit-learn, in original units, per station and pollutant,
+# for the CNN-LSTM and each baseline on exactly the same hours. Skill =
+# 1 - RMSE_CNN-LSTM / RMSE_climatology (> 0 means the CNN-LSTM beats climatology, the
+# strongest standard baseline for a forecast this far ahead).
 #
-# Data-quality flag: a test series is flagged when it takes fewer than 100 distinct
-# values over the whole test period (e.g. Gangapur Road NO2 in 2026 reads mostly 3.00
-# µg/m³ in 0.25 steps, versus ~2,400 distinct values per year before). Flagged
-# series are reported but left out of the pooled all-station summary. The pooled summary
-# concatenates the hourly test rows of the unflagged stations for one pollutant (same
-# units), so stations with more test hours weigh more. Pollutants are never pooled together.
+# Hourly scores judge whether the forecast gets each individual hour right. A year-ahead
+# forecast can only realistically capture the seasonal level, so monthly means of the
+# forecast are also compared with monthly means of the measurements (12 points per
+# series), and the hourly RMSE is broken down by month of 2025 to show how error changes
+# with lead time.
+#
+# Data-quality flag: a 2025 series is flagged when it takes fewer than 100 distinct values
+# over the year (a stuck or coarsely quantised sensor). Flagged series are reported but left
+# out of the pooled all-station summary, which concatenates the hourly rows of the unflagged
+# stations for one pollutant. Pollutants are never pooled together.
 
 # %%
+METHODS = {"CNN-LSTM": "cnn_lstm_pred", "Climatology": "climatology_pred",
+           "Same hour last year": "same_hour_last_year_pred", "Persistence": "persistence_pred"}
+
+
 def metrics(y, yhat):
     mse = mean_squared_error(y, yhat)
     r2 = r2_score(y, yhat) if len(y) > 1 and np.var(y) > 0 else np.nan
@@ -598,14 +690,12 @@ def evaluate(groups):
     for keys, g in groups:
         base = dict(zip(["station", "pollutant"], keys)) if isinstance(keys, tuple) \
             else {"station": "All stations (pooled)", "pollutant": keys}
-        period = ", ".join(f"{y}" for y in sorted(g["test_year"].unique()))
         start, end = pd.to_datetime(g.timestamp).min(), pd.to_datetime(g.timestamp).max()
-        base.update({"evaluation_period": f"{start:%Y-%m-%d} to {end:%Y-%m-%d} ({period})",
+        base.update({"evaluation_period": f"{start:%Y-%m-%d} to {end:%Y-%m-%d}",
                      "unit": g["unit"].iloc[0], "n_test_obs": len(g)})
-        m, b = metrics(g.actual, g.cnn_lstm_pred), metrics(g.actual, g.persistence_pred)
-        base.update({f"CNN-LSTM {k}": v for k, v in m.items()})
-        base.update({f"Persistence {k}": v for k, v in b.items()})
-        base["RMSE skill vs persistence"] = 1 - m["RMSE"] / b["RMSE"]
+        for name, col in METHODS.items():
+            base.update({f"{name} {k}": v for k, v in metrics(g.actual, g[col]).items()})
+        base["RMSE skill vs climatology"] = 1 - base["CNN-LSTM RMSE"] / base["Climatology RMSE"]
         base["level-design RMSE"] = metrics(g.actual, g.cnn_lstm_level_pred)["RMSE"]
         base["change-design RMSE"] = metrics(g.actual, g.cnn_lstm_change_pred)["RMSE"]
         rows.append(base)
@@ -620,7 +710,7 @@ station_metrics["distinct_test_values"] = distinct.values
 station_metrics["quality_flag"] = station_metrics.distinct_test_values < MIN_DISTINCT_VALUES
 flagged = set(zip(station_metrics.station[station_metrics.quality_flag],
                   station_metrics.pollutant[station_metrics.quality_flag]))
-print("Flagged test series:", flagged)
+print("Flagged 2025 series:", flagged)
 unflagged = predictions[[(st, po) not in flagged
                          for st, po in zip(predictions.station, predictions.pollutant)]]
 overall_metrics = evaluate(unflagged.groupby("pollutant", sort=False))
@@ -631,9 +721,9 @@ station_metrics.to_csv(f"{OUT}/metrics/station_pollutant_metrics.csv", index=Fal
 overall_metrics.to_csv(f"{OUT}/metrics/overall_pollutant_metrics.csv", index=False)
 
 skill_summary = station_metrics.pivot(index="station", columns="pollutant",
-                                      values="RMSE skill vs persistence")[POLL]
+                                      values="RMSE skill vs climatology")[POLL]
 skill_summary["mean skill (unflagged)"] = station_metrics[~station_metrics.quality_flag] \
-    .groupby("station")["RMSE skill vs persistence"].mean()
+    .groupby("station")["RMSE skill vs climatology"].mean()
 skill_summary.round(3).to_csv(f"{OUT}/metrics/rmse_skill_summary.csv")
 
 results_table = station_metrics[["station", "pollutant", "evaluation_period", "n_test_obs",
@@ -642,52 +732,97 @@ results_table = station_metrics[["station", "pollutant", "evaluation_period", "n
 results_table.round(3)
 
 # %%
+monthly = predictions.groupby(["station", "pollutant", "month"], sort=False)[
+    ["actual", *METHODS.values()]].mean().reset_index()
+monthly_rows = []
+for (s, p), g in monthly.groupby(["station", "pollutant"], sort=False):
+    row = {"station": s, "pollutant": p, "months": len(g)}
+    for name, col in METHODS.items():
+        m = metrics(g.actual, g[col])
+        row[f"{name} monthly RMSE"], row[f"{name} monthly R2"] = m["RMSE"], m["R2"]
+    monthly_rows.append(row)
+monthly_metrics = pd.DataFrame(monthly_rows)
+monthly_metrics["quality_flag"] = [(s, p) in flagged for s, p in
+                                   zip(monthly_metrics.station, monthly_metrics.pollutant)]
+monthly_metrics.to_csv(f"{OUT}/metrics/monthly_mean_metrics.csv", index=False)
+
+rmse_by_month = unflagged.groupby(["pollutant", "month"], sort=False).apply(
+    lambda g: pd.Series({name: np.sqrt(mean_squared_error(g.actual, g[col]))
+                         for name, col in METHODS.items()}), include_groups=False).reset_index()
+rmse_by_month.to_csv(f"{OUT}/metrics/rmse_by_month.csv", index=False)
+monthly_metrics.round(3)
+
+# %%
 overall_metrics.round(3)
 
 # %%
 skill_summary.round(3)
 
 # %% [markdown]
-# ## 14. Visualisations of test-year results
+# ## 14. Visualisations of the 2025 forecast
 
 # %%
-for s in windows:
+METHOD_COLORS = {"CNN-LSTM": "#2a78d6", "Climatology": "#eb6834",
+                 "Same hour last year": "#1baf7a", "Persistence": "#eda100"}
+
+for s in prep:
     sub = predictions[predictions.station == s]
     fig, axes = plt.subplots(len(POLL), 1, figsize=(12, 16), sharex=True)
     for ax, p in zip(axes, POLL):
         g = sub[sub.pollutant == p].set_index("timestamp").sort_index()
-        full = g.reindex(pd.date_range(g.index.min(), g.index.max(), freq="h"))  # gaps stay blank
-        ax.plot(full.index, full.actual, lw=0.6, color="#3b3b3b", label="Actual")
-        ax.plot(full.index, full.cnn_lstm_pred, lw=0.6, color="#2a78d6", alpha=0.85,
-                label="CNN-LSTM")
+        daily = g[["actual", "cnn_lstm_pred", "climatology_pred"]].resample("D").mean()
+        ax.plot(daily.index, daily.actual, lw=1.2, color="#3b3b3b", label="Measured")
+        ax.plot(daily.index, daily.cnn_lstm_pred, lw=1.2, color=METHOD_COLORS["CNN-LSTM"],
+                label="CNN-LSTM forecast")
+        ax.plot(daily.index, daily.climatology_pred, lw=1.2, ls="--",
+                color=METHOD_COLORS["Climatology"], label="Climatology")
         ax.set_ylabel(f"{p} ({UNITS[p]})")
-    axes[0].legend(ncol=2, loc="upper right", frameon=False)
-    axes[-1].set_xlabel("Time (hourly)")
-    fig.suptitle(f"{s}: actual vs CNN-LSTM next-hour prediction over the full test period "
-                 f"(hourly; blank = no observation)", y=0.995)
+    axes[0].legend(ncol=3, loc="upper right", frameon=False)
+    axes[-1].set_xlabel("2025 (daily mean of hourly values; blank = no measurement)")
+    fig.suptitle(f"{s}: 2025 forecast from data up to 2024 vs measured 2025", y=0.995)
     fig.tight_layout()
     savefig(fig, f"fig05_actual_vs_pred_{s.replace(' ', '_')}")
+
+# %%
+fig, axes = plt.subplots(len(prep), 1, figsize=(12, 9), sharex=True)
+for ax, s in zip(axes, prep):
+    g = predictions[(predictions.station == s) & (predictions.pollutant == "PM2.5")]
+    g = g[pd.to_datetime(g.timestamp) < FORECAST_START + pd.Timedelta(days=14)]
+    g = g.set_index("timestamp").sort_index()
+    full = g.reindex(pd.date_range(FORECAST_START, periods=14 * 24, freq="h"))
+    ax.plot(full.index, full.actual, lw=1, color="#3b3b3b", label="Measured")
+    ax.plot(full.index, full.cnn_lstm_pred, lw=1.4, color=METHOD_COLORS["CNN-LSTM"],
+            label="CNN-LSTM forecast")
+    ax.plot(full.index, full.climatology_pred, lw=1, ls="--",
+            color=METHOD_COLORS["Climatology"], label="Climatology")
+    ax.set_title(s, fontsize=9)
+    ax.set_ylabel("PM2.5 (µg/m³)")
+axes[0].legend(ncol=3, loc="upper right", frameon=False)
+axes[-1].set_xlabel("First 14 days of 2025 (hourly)")
+fig.suptitle("How the recursive forecast evolves: PM2.5, 1-14 January 2025", y=0.995)
+fig.tight_layout()
+savefig(fig, "fig05b_first_two_weeks_pm25")
 
 
 # %%
 def grid_plot(kind, name, title):
     fig, axes = plt.subplots(len(POLL), 4, figsize=(14, 22))
-    for j, s in enumerate(windows):
+    for j, s in enumerate(prep):
         for i, p in enumerate(POLL):
             ax = axes[i, j]
             g = predictions[(predictions.station == s) & (predictions.pollutant == p)]
             if kind == "scatter":
                 ax.scatter(g.actual, g.cnn_lstm_pred, s=3, alpha=0.25, color=STATION_COLORS[s],
-                           edgecolors="none", label="Hourly test obs.")
+                           edgecolors="none", label="Hourly 2025 obs.")
                 lim = [0, max(g.actual.max(), g.cnn_lstm_pred.max())]
                 ax.plot(lim, lim, color="#3b3b3b", lw=1, ls="--", label="y = x")
-                ax.set_xlabel(f"Actual ({UNITS[p]})")
-                ax.set_ylabel(f"Predicted ({UNITS[p]})")
+                ax.set_xlabel(f"Measured ({UNITS[p]})")
+                ax.set_ylabel(f"Forecast ({UNITS[p]})")
             else:
                 res = g.cnn_lstm_pred - g.actual
                 ax.hist(res, bins=60, color=STATION_COLORS[s], alpha=0.85)
                 ax.axvline(0, color="#3b3b3b", lw=1)
-                ax.set_xlabel(f"Predicted - actual ({UNITS[p]})")
+                ax.set_xlabel(f"Forecast - measured ({UNITS[p]})")
                 ax.set_ylabel("Hours")
             ax.set_title(f"{s} - {p}", fontsize=9)
     if kind == "scatter":
@@ -698,40 +833,58 @@ def grid_plot(kind, name, title):
 
 
 grid_plot("scatter", "fig06_scatter_actual_vs_pred",
-          "Actual vs predicted (test period, hourly). Dashed line: perfect prediction")
-grid_plot("hist", "fig07_residuals", "CNN-LSTM residual distribution (test period, hourly)")
+          "CNN-LSTM 2025 forecast vs measured (hourly). Dashed line: perfect forecast")
+grid_plot("hist", "fig07_residuals", "CNN-LSTM 2025 forecast error distribution (hourly)")
 
 # %%
 fig, axes = plt.subplots(2, 4, figsize=(15, 6.5))
-x = np.arange(len(windows))
+x = np.arange(len(prep))
 for ax, p in zip(axes.flat, POLL):
-    g = station_metrics[station_metrics.pollutant == p].set_index("station").loc[list(windows)]
-    ax.bar(x - 0.2, g["CNN-LSTM RMSE"], 0.38, color="#2a78d6", label="CNN-LSTM")
-    ax.bar(x + 0.2, g["Persistence RMSE"], 0.38, color="#eb6834", label="Persistence")
-    ax.set_xticks(x, [s.replace(" ", "\n") for s in windows])
+    g = station_metrics[station_metrics.pollutant == p].set_index("station").loc[list(prep)]
+    for k, name in enumerate(METHODS):
+        ax.bar(x + (k - 1.5) * 0.2, g[f"{name} RMSE"], 0.19, color=METHOD_COLORS[name],
+               label=name)
+    ax.set_xticks(x, [s.replace(" ", "\n") for s in prep])
     ax.set_title(p)
     ax.set_ylabel(f"RMSE ({UNITS[p]})")
-axes[0, 0].legend(frameon=False)
+axes[0, 0].legend(frameon=False, fontsize=7)
 ax = axes.flat[-1]
-for k, s in enumerate(windows):
-    ax.bar(np.arange(len(POLL)) + (k - 1.5) * 0.2, skill_summary.loc[s, POLL], 0.19,
+SKILL_YLIM = (-1.0, 0.5)
+for k, s in enumerate(prep):
+    vals = skill_summary.loc[s, POLL]
+    ax.bar(np.arange(len(POLL)) + (k - 1.5) * 0.2, vals.clip(lower=SKILL_YLIM[0]), 0.19,
            color=STATION_COLORS[s], label=s)
-SKILL_YLIM = (-0.5, 0.3)
-for k, s in enumerate(windows):
-    for j, p in enumerate(POLL):
-        v = skill_summary.loc[s, p]
+    for j, v in enumerate(vals):
         if v < SKILL_YLIM[0]:  # label bars clipped by the axis instead of letting one dwarf all
             ax.annotate(f"{v:.1f}", (j + (k - 1.5) * 0.2, SKILL_YLIM[0]), ha="center",
                         va="bottom", fontsize=7, xytext=(0, 2), textcoords="offset points")
 ax.set_ylim(*SKILL_YLIM)
 ax.axhline(0, color="#3b3b3b", lw=1)
 ax.set_xticks(range(len(POLL)), POLL, rotation=45)
-ax.set_ylabel("1 - RMSE_model / RMSE_persist.")
-ax.set_title("RMSE skill vs persistence")
+ax.set_ylabel("1 - RMSE_model / RMSE_climatology")
+ax.set_title("CNN-LSTM skill vs climatology")
 ax.legend(frameon=False, fontsize=7)
-fig.suptitle("Station-wise test RMSE: CNN-LSTM vs persistence baseline")
+fig.suptitle("2025 hourly RMSE per station: CNN-LSTM vs baselines")
 fig.tight_layout()
 savefig(fig, "fig08_station_metrics")
+
+# %%
+fig, axes = plt.subplots(2, 4, figsize=(15, 6.5))
+for ax, p in zip(axes.flat, POLL):
+    g = rmse_by_month[rmse_by_month.pollutant == p]
+    for name in METHODS:
+        ax.plot(g.month, g[name], lw=2 if name == "CNN-LSTM" else 1.2, marker="o", ms=3,
+                color=METHOD_COLORS[name], label=name)
+    ax.set_xticks(range(1, 13))
+    ax.set_title(p)
+    ax.set_xlabel("Month of 2025 (forecast lead)")
+    ax.set_ylabel(f"RMSE ({UNITS[p]})")
+axes.flat[-1].axis("off")
+axes[0, 0].legend(frameon=False, fontsize=7)
+fig.suptitle("Hourly RMSE by month of 2025, all unflagged stations pooled")
+fig.tight_layout()
+savefig(fig, "fig09_rmse_by_month")
+
 
 # %% [markdown]
 # ## 15. Export summary
@@ -743,7 +896,8 @@ savefig(fig, "fig08_station_metrics")
 # %%
 with open(f"{OUT}/metrics/run_info.json", "w") as fh:
     json.dump({"versions": VERSIONS, "seed": SEED, "lookback_hours": LOOKBACK,
-               "horizon_hours": 1, "k_neighbors": K_NEIGHBORS, "batch_size": BATCH,
+               "test_year": TEST_YEAR, "forecast": "recursive, from data up to 2024-12-31",
+               "forecast_hours": N_FORECAST, "k_neighbors": K_NEIGHBORS, "batch_size": BATCH,
                "max_epochs": EPOCHS, "patience": PATIENCE,
                "max_imputed_fraction": MAX_IMPUTED_FRACTION, "stuck_hours": STUCK_HOURS,
                "epochs_run": {s: len(h["loss"]) for s, h in histories.items()},
