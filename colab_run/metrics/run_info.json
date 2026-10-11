@@ -1,0 +1,45 @@
+{
+  "versions": {
+    "python": "3.13.16",
+    "tensorflow": "2.21.0",
+    "pandas": "2.2.3",
+    "numpy": "2.1.3",
+    "scikit-learn": "1.6.1",
+    "matplotlib": "3.10.0"
+  },
+  "seed": 42,
+  "lookback_hours": 24,
+  "horizon_hours": 1,
+  "k_neighbors": 5,
+  "batch_size": 256,
+  "max_epochs": 60,
+  "patience": 6,
+  "max_imputed_fraction": 0.5,
+  "stuck_hours": 12,
+  "epochs_run": {
+    "MIDC Ambad|level": 30,
+    "MIDC Ambad|change": 17,
+    "Gangapur Road|level": 25,
+    "Gangapur Road|change": 15,
+    "Pandav Nagari|level": 31,
+    "Pandav Nagari|change": 25,
+    "Hirwadi|level": 17,
+    "Hirwadi|change": 11
+  },
+  "best_epoch": {
+    "MIDC Ambad|level": 24,
+    "MIDC Ambad|change": 11,
+    "Gangapur Road|level": 19,
+    "Gangapur Road|change": 9,
+    "Pandav Nagari|level": 25,
+    "Pandav Nagari|change": 19,
+    "Hirwadi|level": 11,
+    "Hirwadi|change": 5
+  },
+  "station_files": {
+    "MIDC Ambad": "data/MIDCAMBAD_NASHIK.CSV",
+    "Gangapur Road": "data/combined_gangapur_road_nashik.csv",
+    "Pandav Nagari": "data/combined_pandav_nagari_nashik.csv",
+    "Hirwadi": "data/hirwadi_nashik.csv"
+  }
+}

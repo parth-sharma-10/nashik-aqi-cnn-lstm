@@ -19,6 +19,18 @@ This project predicts the next hour's concentration of seven pollutants (PM2.5, 
 | `outputs/figures/*.png` | Figures 1-8 |
 | `outputs/tables/*.csv` | Data dictionary, inspection, cleaning log, splits, imputation counts |
 | `outputs/models/` | Trained `.keras` models (both designs) and per-station scaler + imputer (`.joblib`) |
+| `colab_run/` | Report and metrics from the Google Colab run (Python 3.13, TensorFlow 2.21) |
+
+## Two runs, two reports
+
+The notebook was run twice with the same code, data and seed, and each run has its own report.
+
+| Run | Environment | Report | PM2.5 RMSE |
+|---|---|---|---|
+| Local | Python 3.12, TensorFlow 2.19 | `outputs/Nashik_AQ_CNN_LSTM_Report.docx` | 8.674 |
+| Google Colab | Python 3.13, TensorFlow 2.21 | `colab_run/Nashik_AQ_CNN_LSTM_Report.docx` | 8.627 |
+
+The CNN-LSTM numbers differ slightly (RMSE by at most 0.05) because TensorFlow versions differ numerically. Persistence numbers and all conclusions are identical. Quote one run consistently, not a mix.
 
 ## Run in Google Colab
 
