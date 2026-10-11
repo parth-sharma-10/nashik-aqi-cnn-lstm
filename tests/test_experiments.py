@@ -242,6 +242,7 @@ class ExperimentOutputs(unittest.TestCase):
 
     def test_exported_metrics_match_predictions(self):
         m = pd.read_csv(self.need(f"{OUT}/metrics/year_ahead_station_metrics.csv"))
+        self.need(f"{OUT}/folds/F2025/year_ahead.csv.gz")  # git-ignored; exists after a run
         y = E.load_fold("F2025", "year")
         for _, r in m[(m.fold == "F2025")].sample(25, random_state=0).iterrows():
             g = y[(y.station == r.station) & (y.pollutant == r.pollutant)]
